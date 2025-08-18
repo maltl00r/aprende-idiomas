@@ -74,10 +74,14 @@ body {
 .flashcards-grid { display: grid; gap: 16px; }
 
 .modules-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-.flashcards-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Hice las tarjetas más pequeñas */
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
 
 .module-card,
-.flashcard,
 .audio-item,
 .question-block {
   background: var(--card);
@@ -104,22 +108,53 @@ body {
 }
 .module-card:hover img { transform: scale(1.05); }
 
-.module-card h3 { margin:0; font-size: 1rem; }
-.module-meta { display: flex; gap: 8px; align-items: center; color: var(--muted); }
-.module-actions { display: flex; gap: 8px; margin-top: auto; }
-
+/* Estilos específicos para las Flashcards */
 .flashcard {
-  align-items: center;
+  background-color: var(--card);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  aspect-ratio: 3/4;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid var(--border);
   cursor: pointer;
-  user-select: none;
-  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
-.flashcard:active { transform: scale(.98); }
-.flashcard .icon { font-size: clamp(2rem, 8vw, 3rem); }
-.label { font-size: clamp(.95rem, 3.5vw, 1.1rem); font-weight: 700; text-align: center; color: var(--text); }
-.pronunciation { font-size: clamp(.8rem, 3vw, .95rem); color: var(--muted); text-align: center; }
+
+.flashcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.flashcard .icon {
+    font-size: 2rem; /* Tamaño de icono fijo para mejor control */
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.flashcard:hover .icon {
+    transform: rotate(10deg);
+}
+
+.flashcard p {
+    margin: 0;
+    font-size: 1.2rem; /* Tamaño de la palabra principal fijo */
+}
+
+.flashcard .pronunciation {
+    font-size: 1rem; /* Tamaño de pronunciación más legible */
+    font-weight: normal;
+    color: var(--muted);
+    margin-top: 0.5rem;
+}
 
 /* Audio items */
 .audio-item p { margin:0; font-weight:600; }
