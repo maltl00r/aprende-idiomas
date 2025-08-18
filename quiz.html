@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exámenes - Francés A1-A2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Exámenes</h1>
+    <nav class="top-nav">
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2 id="quizTitle">Examen</h2>
+      <div id="quizContainer" class="quiz-container"></div>
+      <div class="actions">
+        <button id="submitBtn" class="btn-complete">Enviar examen</button>
+        <button id="resetBtn" class="btn-reset">Reiniciar</button>
+      </div>
+      <p id="quizResult" class="quiz-result"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Aprende paso a paso. ¡Ánimo!</small>
+  </footer>
+
+  <script src="js/course.js"></script>
+  <script src="js/progress.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('id');
+    const module = course.modules.find(m => m.id === modId && m.type === 'quiz');
+
+    const title = document.getElementById('quizTitle');
+    const container = document.getElementById('quizContainer');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const result = document.getElementById('quizResult');
+
+    function renderQuiz() {
+      if(!module){
+        title.textContent = 'Examen no encontrado';
+        submitBtn.style.display = 'none';
+        resetBtn.style.display = 'none';
+        return;
+      }
+
+      title.textContent = module.name;
+      container.innerHTML = '';
+      result.textContent = '';
+
+      (module.questions || []).forEach((q, idx) => {
+        const block = document.createElement('div');
+        block.className = 'question-block';
+
+        let optionsHTML = '';
+        (q.options || []).forEach((opt, i) => {
+          optionsHTML += `<label class="opt">
+                            <input type="radio" name="q${idx}" value="${i}">
+                            <span>${opt}</span>
+                          </label>`;
+        });
+
+        block.innerHTML = `<p class="q-title">${idx+1}. ${q.q}</p>
+                           <div class="options">${optionsHTML}</div>`;
+        container.appendChild(block);
+      });
+
+      // Si ya se completó, bloquear envío
+      const state = Progress.getModuleState(module.id);
+      if(state?.completed){
+        submitBtn.disabled = true;
+        result.textContent = 'Módulo completado ✔️';
+      }
+    }
+
+    submitBtn.addEventListener('click', () => {
+      if(!module) return;
+
+      // Evita múltiples envíos
+      const state = Progress.getModuleState(module.id);
+      if(state?.completed){
+        alert('Ya enviaste este examen.');
+        return;
+      }
+
+      let correct = 0;
+      (module.questions || []).forEach((q, idx) => {
+        const chosen = document.querySelector(`input[name="q${idx}"]:checked`);
+        if(chosen && Number(chosen.value) === q.answer) correct++;
+      });
+
+      const score = Math.round((correct / (module.questions?.length || 1)) * 100);
+      const passed = score >= (module.pass ?? 60);
+
+      result.textContent = `Puntuación: ${score}% (${correct}/${module.questions.length})`;
+
+      Progress.setScore(module.id, score);
+      if(passed){
+        Progress.markCompleted(module.id);
+        result.textContent += ' — ¡Aprobado! ✅';
+      } else {
+        result.textContent += ' — No aprobado. Inténtalo de nuevo.';
+      }
+
+      submitBtn.disabled = true; // Bloquea envío adicional
+    });
+
+    resetBtn.addEventListener('click', () => {
+      if(!module) return;
+      Progress.resetModule(module.id);
+      renderQuiz();
+      result.textContent = 'Intento reiniciado.';
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>

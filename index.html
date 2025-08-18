@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plataforma Francés A1-A2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Francés A1–A2</h1>
+    <nav class="top-nav">
+      <a href="index.html" class="active">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="dashboard">
+      <h2>Tu progreso</h2>
+      <div class="progress-bar">
+        <div class="progress-fill" id="globalProgressFill"></div>
+      </div>
+      <p id="globalProgressText">0% completado</p>
+    </section>
+
+    <section class="modules">
+      <h2>Módulos pendientes</h2>
+      <div id="modulesGrid" class="modules-grid"></div>
+    </section>
+
+    <section id="completedSection">
+      <h2 class="completed-title">Módulos completados</h2>
+      <div id="completedGrid" class="modules-grid"></div>
+      <p>¡Sigue aprendiendo para completar módulos!</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Hecho con ❤️ para aprender francés.</small>
+  </footer>
+
+  <script src="js/course.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    const modulesGrid = document.getElementById('modulesGrid');
+    const completedGrid = document.getElementById('completedGrid');
+
+    // Incluye thumbnail en cada módulo
+    const modulesWithState = course.modules.map(mod => {
+      const state = Progress.getModuleState(mod.id);
+      return {
+        id: mod.id,
+        name: mod.name,
+        type: mod.type,
+        thumbnail: mod.thumbnail ?? '', // ← agregado
+        completed: !!state?.completed,
+        score: state?.score ?? null
+      };
+    });
+
+    // Renderizar módulos separados
+    UI.renderModulesSeparated(modulesWithState, modulesGrid, completedGrid);
+
+    // Actualizar descripción de módulos completados
+    const completedModules = modulesWithState.filter(mod => mod.completed);
+    const completedCount = completedModules.length;
+    const totalCount = course.modules.length;
+    const completedDesc = completedCount > 0 
+        ? `Has completado ${completedCount} de ${totalCount} módulos. ¡Sigue así!`
+        : 'Aún no has completado ningún módulo. ¡Comienza ahora!';
+    document.querySelector('#completedSection p').textContent = completedDesc;
+
+    // Actualizar progreso global
+    const { completed, total, totalPercent } = Progress.getGlobalProgress(course);
+    document.getElementById('globalProgressText').textContent = 
+      `${completed} de ${total} módulos completados (${totalPercent}%)`;
+    document.getElementById('globalProgressFill').style.width = totalPercent + '%';
+  </script>
+</body>
+</html>

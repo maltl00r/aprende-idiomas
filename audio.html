@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lecciones de Audio - Francés A1-A2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Lecciones de Audio</h1>
+    <nav class="top-nav">
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2 id="moduleTitle">Módulo</h2>
+      <div id="audioList" class="modules-grid"></div>
+      <div class="actions" style="margin-top:16px;">
+        <button id="toggleModuleBtn" class="btn-complete">Marcar módulo como completado</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Escucha tus lecciones de Pimsleur aquí.</small>
+  </footer>
+
+  <script src="js/course.js"></script>
+  <script src="js/progress.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('id');
+    const module = course.modules.find(m => m.id === modId && m.type === 'audio');
+
+    const title = document.getElementById('moduleTitle');
+    const list = document.getElementById('audioList');
+    const toggleBtn = document.getElementById('toggleModuleBtn');
+
+    function renderModule() {
+      if(!module){
+        title.textContent = 'Módulo no encontrado';
+        toggleBtn.style.display = 'none';
+        return;
+      }
+
+      title.textContent = module.name;
+      list.innerHTML = '';
+
+      (module.items || []).forEach(item => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'audio-item module-card'; // Tarjeta verde uniforme
+        wrapper.innerHTML = `
+          <p class="module-name">${item.name}</p>
+          <audio controls src="${item.file}"></audio>
+        `;
+        list.appendChild(wrapper);
+      });
+
+      // Actualiza botón según estado
+      const state = Progress.getModuleState(module.id);
+      if(state?.completed){
+        toggleBtn.textContent = 'Módulo completado ✔️';
+      } else {
+        toggleBtn.textContent = 'Marcar módulo como completado';
+      }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      if(!module) return;
+      const state = Progress.getModuleState(module.id);
+      if(state?.completed){
+        Progress.resetModule(module.id); // Desmarca como completado
+        alert('¡Módulo desmarcado!');
+      } else {
+        Progress.markCompleted(module.id);
+        alert('¡Módulo marcado como completado!');
+      }
+      renderModule();
+    });
+
+    renderModule();
+  </script>
+</body>
+</html>
+
+

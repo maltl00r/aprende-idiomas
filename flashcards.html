@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flashcards - Francés A1-A2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Flashcards</h1>
+    <nav class="top-nav">
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2 id="moduleTitle">Módulo</h2>
+      <div id="flashcardsGrid" class="flashcards-grid"></div>
+      <div class="actions">
+        <button id="toggleModuleBtn" class="btn-complete">Marcar módulo como completado</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Pronunciación usa speechSynthesis del navegador.</small>
+  </footer>
+
+  <script src="js/course.js"></script>
+  <script src="js/progress.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('id');
+    const module = course.modules.find(m => m.id === modId && m.type === 'flashcards');
+
+    const title = document.getElementById('moduleTitle');
+    const grid = document.getElementById('flashcardsGrid');
+    const toggleBtn = document.getElementById('toggleModuleBtn');
+
+    function speak(text){
+      if(!('speechSynthesis' in window)) return;
+      const synth = window.speechSynthesis;
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'fr-FR';
+      u.rate = 0.95;
+      synth.speak(u);
+    }
+
+    function makeCard(card){
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'flashcard';
+      btn.dataset.state = 'word';
+      btn.setAttribute('aria-label', `${card.fr}. Pulsa para alternar pronunciación y escuchar`);
+
+      const renderWord = () => { 
+        btn.innerHTML = `<span class="icon">${card.icon ?? '•'}</span><span class="label">${card.fr}</span>`; 
+      };
+      const renderPron = () => { 
+        btn.innerHTML = `<span class="icon">${card.icon ?? '•'}</span><span class="pronunciation">${card.pron ?? ''}</span>`; 
+      };
+
+      const toggle = () => {
+        if(btn.dataset.state === 'word'){ renderPron(); btn.dataset.state = 'pron'; }
+        else { renderWord(); btn.dataset.state = 'word'; }
+        speak(card.fr);
+      };
+
+      btn.addEventListener('click', toggle);
+      btn.addEventListener('keydown', e => { 
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+
+      renderWord();
+      return btn;
+    }
+
+    function renderModule(){
+      if(!module){
+        title.textContent = 'Módulo no encontrado';
+        toggleBtn.style.display = 'none';
+        return;
+      }
+
+      title.textContent = module.name;
+      grid.innerHTML = '';
+      (module.items || []).forEach(card => grid.appendChild(makeCard(card)));
+
+      // Actualiza botón según estado
+      const state = Progress.getModuleState(module.id);
+      if(state?.completed){
+        toggleBtn.textContent = 'Módulo completado ✔️';
+      } else {
+        toggleBtn.textContent = 'Marcar módulo como completado';
+      }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      if(!module) return;
+      const state = Progress.getModuleState(module.id);
+      if(state?.completed){
+        Progress.resetModule(module.id); // Desmarca como completado
+        alert('¡Módulo desmarcado!');
+      } else {
+        Progress.markCompleted(module.id);
+        alert('¡Módulo marcado como completado!');
+      }
+      renderModule();
+    });
+
+    renderModule();
+  </script>
+</body>
+</html>
