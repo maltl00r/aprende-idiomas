@@ -1,94 +1,126 @@
-<script src="js/progress.js"></script>
-<script>
-  async function loadCourse() {
-    try {
-      const response = await fetch('course.json');
-      if (!response.ok) {
-          throw new Error('No se pudo cargar el archivo course.json');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flashcards - Francés A1-A2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Flashcards</h1>
+    <nav class="top-nav">
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2 id="moduleTitle">Módulo</h2>
+      <div id="flashcardsGrid" class="flashcards-grid"></div>
+      <div class="actions">
+        <button id="toggleModuleBtn" class="btn-complete">Marcar módulo como completado</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Pronunciación usa speechSynthesis del navegador.</small>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script>
+    async function loadCourse() {
+      try {
+        const response = await fetch('course.json');
+        if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo course.json');
+        }
+        const course = await response.json();
+        return course;
+      } catch (error) {
+        console.error("Error al cargar el curso:", error);
+        return null;
       }
-      const course = await response.json();
-      return course;
-    } catch (error) {
-      console.error("Error al cargar el curso:", error);
-      return null;
     }
-  }
-  const params = new URLSearchParams(window.location.search);
-  const modId = params.get('id');
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('id');
 
-  const title = document.getElementById('moduleTitle');
-  const grid = document.getElementById('flashcardsGrid');
-  const toggleBtn = document.getElementById('toggleModuleBtn');
+    const title = document.getElementById('moduleTitle');
+    const grid = document.getElementById('flashcardsGrid');
+    const toggleBtn = document.getElementById('toggleModuleBtn');
 
-  function speak(text){
-    const s = new SpeechSynthesisUtterance(text);
-    s.lang = 'fr-FR';
-    window.speechSynthesis.speak(s);
-  }
+    function speak(text){
+      const s = new SpeechSynthesisUtterance(text);
+      s.lang = 'fr-FR';
+      window.speechSynthesis.speak(s);
+    }
 
-  function makeCard(card) {
-    const btn = document.createElement('button');
-    btn.className = 'flashcard-card';
-    btn.setAttribute('role', 'button');
-    btn.setAttribute('aria-label', `Flashcard para ${card.fr}`);
-    btn.dataset.state = 'word';
+    function makeCard(card) {
+      const btn = document.createElement('button');
+      // Línea corregida: ahora usa la clase 'flashcard' que está en style.css
+      btn.className = 'flashcard';
+      btn.setAttribute('role', 'button');
+      btn.setAttribute('aria-label', `Flashcard para ${card.fr}`);
+      btn.dataset.state = 'word';
 
-    function renderWord(){ btn.innerHTML = `<span class="icon">${card.icon ?? '💡'}</span><p>${card.fr}</p>`; }
-    function renderPron(){ btn.innerHTML = `<span class="pronunciation">${card.pron}</span>`; }
+      function renderWord(){ btn.innerHTML = `<span class="icon">${card.icon ?? '💡'}</span><p>${card.fr}</p>`; }
+      function renderPron(){ btn.innerHTML = `<span class="pronunciation">${card.pron}</span>`; }
 
-    const toggle = () => {
-      if(btn.dataset.state === 'word'){ renderPron(); btn.dataset.state = 'pron'; }
-      else { renderWord(); btn.dataset.state = 'word'; }
-      speak(card.fr);
-    };
+      const toggle = () => {
+        if(btn.dataset.state === 'word'){ renderPron(); btn.dataset.state = 'pron'; }
+        else { renderWord(); btn.dataset.state = 'word'; }
+        speak(card.fr);
+      };
 
-    btn.addEventListener('click', toggle);
-    btn.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      btn.addEventListener('click', toggle);
+      btn.addEventListener('keydown', e => {
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+
+      renderWord();
+      return btn;
+    }
+
+    function renderModule(module){
+      if(!module){
+        title.textContent = 'Módulo no encontrado';
+        toggleBtn.style.display = 'none';
+        return;
+      }
+
+      title.textContent = module.name;
+      grid.innerHTML = '';
+      (module.items || []).forEach(card => grid.appendChild(makeCard(card)));
+
+      const state = Progress.getModuleState(module.id);
+      if(state?.completed){
+        toggleBtn.textContent = 'Módulo completado ✔️';
+      } else {
+        toggleBtn.textContent = 'Marcar módulo como completado';
+      }
+    }
+
+    loadCourse().then(course => {
+      if (course) {
+        const module = course.modules.find(m => m.id === modId && m.type === 'flashcards');
+        renderModule(module);
+
+        if (module) {
+          toggleBtn.addEventListener('click', () => {
+            const state = Progress.getModuleState(module.id);
+            if(state?.completed){
+              Progress.resetModule(module.id);
+              alert('¡Módulo desmarcado!');
+            } else {
+              Progress.markCompleted(module.id);
+              alert('¡Módulo completado!');
+            }
+            renderModule(module);
+          });
+        }
+      }
     });
-
-    renderWord();
-    return btn;
-  }
-
-  function renderModule(module){
-    if(!module){
-      title.textContent = 'Módulo no encontrado';
-      toggleBtn.style.display = 'none';
-      return;
-    }
-
-    title.textContent = module.name;
-    grid.innerHTML = '';
-    (module.items || []).forEach(card => grid.appendChild(makeCard(card)));
-
-    const state = Progress.getModuleState(module.id);
-    if(state?.completed){
-      toggleBtn.textContent = 'Módulo completado ✔️';
-    } else {
-      toggleBtn.textContent = 'Marcar módulo como completado';
-    }
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    if(!module) return;
-    const state = Progress.getModuleState(module.id);
-    if(state?.completed){
-      Progress.resetModule(module.id);
-      alert('¡Módulo desmarcado!');
-    } else {
-      Progress.markCompleted(module.id);
-      alert('¡Módulo completado!');
-    }
-    renderModule(module);
-  });
-
-  loadCourse().then(course => {
-    if (course) {
-      const module = course.modules.find(m => m.id === modId && m.type === 'flashcards');
-      renderModule(module);
-    }
-  });
-</script>
+  </script>
 </body>
 </html>
