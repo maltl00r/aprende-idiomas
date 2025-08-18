@@ -23,6 +23,7 @@
         <button id="resetBtn" class="btn-reset">Reiniciar</button>
       </div>
       <p id="quizResult" class="quiz-result"></p>
+      <div id="feedbackContainer"></div>
     </section>
   </main>
 
@@ -30,12 +31,23 @@
     <small>Aprende paso a paso. ¡Ánimo!</small>
   </footer>
 
-  <script src="js/course.js"></script>
   <script src="js/progress.js"></script>
   <script>
+    async function loadCourse() {
+      try {
+        const response = await fetch('course.json');
+        if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo course.json');
+        }
+        const course = await response.json();
+        return course;
+      } catch (error) {
+        console.error("Error al cargar el curso:", error);
+        return null;
+      }
+    }
     const params = new URLSearchParams(window.location.search);
     const modId = params.get('id');
-    const module = course.modules.find(m => m.id === modId && m.type === 'quiz');
 
     const title = document.getElementById('quizTitle');
     const container = document.getElementById('quizContainer');
@@ -43,36 +55,31 @@
     const resetBtn = document.getElementById('resetBtn');
     const result = document.getElementById('quizResult');
 
-    function renderQuiz() {
+    function renderModule(module) {
       if(!module){
-        title.textContent = 'Examen no encontrado';
+        title.textContent = 'Módulo no encontrado';
         submitBtn.style.display = 'none';
         resetBtn.style.display = 'none';
         return;
       }
-
       title.textContent = module.name;
       container.innerHTML = '';
-      result.textContent = '';
-
       (module.questions || []).forEach((q, idx) => {
-        const block = document.createElement('div');
-        block.className = 'question-block';
-
-        let optionsHTML = '';
-        (q.options || []).forEach((opt, i) => {
-          optionsHTML += `<label class="opt">
-                            <input type="radio" name="q${idx}" value="${i}">
-                            <span>${opt}</span>
-                          </label>`;
-        });
-
-        block.innerHTML = `<p class="q-title">${idx+1}. ${q.q}</p>
-                           <div class="options">${optionsHTML}</div>`;
-        container.appendChild(block);
+          const fieldset = document.createElement('fieldset');
+          const legend = document.createElement('legend');
+          legend.textContent = q.question;
+          fieldset.appendChild(legend);
+          (q.options || []).forEach((opt, optIdx) => {
+              const wrapper = document.createElement('div');
+              wrapper.className = 'option-item';
+              wrapper.innerHTML = `
+                  <input type="radio" name="q${idx}" id="q${idx}o${optIdx}" value="${optIdx}">
+                  <label for="q${idx}o${optIdx}">${opt}</label>
+              `;
+              fieldset.appendChild(wrapper);
+          });
+          container.appendChild(fieldset);
       });
-
-      // Si ya se completó, bloquear envío
       const state = Progress.getModuleState(module.id);
       if(state?.completed){
         submitBtn.disabled = true;
@@ -81,19 +88,28 @@
     }
 
     submitBtn.addEventListener('click', () => {
-      if(!module) return;
-
-      // Evita múltiples envíos
+      if (!module) return;
       const state = Progress.getModuleState(module.id);
-      if(state?.completed){
-        alert('Ya enviaste este examen.');
-        return;
+      if (state?.completed) {
+          alert('Ya enviaste este examen.');
+          return;
       }
 
+      const feedbackContainer = document.getElementById('feedbackContainer');
+      feedbackContainer.innerHTML = '';
       let correct = 0;
+
       (module.questions || []).forEach((q, idx) => {
-        const chosen = document.querySelector(`input[name="q${idx}"]:checked`);
-        if(chosen && Number(chosen.value) === q.answer) correct++;
+          const chosen = document.querySelector(`input[name="q${idx}"]:checked`);
+          const isCorrect = chosen && Number(chosen.value) === q.answer;
+          if (isCorrect) {
+              correct++;
+          } else {
+              const feedbackEl = document.createElement('p');
+              feedbackEl.className = 'quiz-feedback';
+              feedbackEl.innerHTML = `❌ La respuesta correcta para "${q.question}" era: <strong>${q.options[q.answer]}</strong>`;
+              feedbackContainer.appendChild(feedbackEl);
+          }
       });
 
       const score = Math.round((correct / (module.questions?.length || 1)) * 100);
@@ -102,24 +118,29 @@
       result.textContent = `Puntuación: ${score}% (${correct}/${module.questions.length})`;
 
       Progress.setScore(module.id, score);
-      if(passed){
-        Progress.markCompleted(module.id);
-        result.textContent += ' — ¡Aprobado! ✅';
+      if (passed) {
+          Progress.markCompleted(module.id);
+          result.textContent += ' — ¡Aprobado! ✅';
       } else {
-        result.textContent += ' — No aprobado. Inténtalo de nuevo.';
+          result.textContent += ' — No aprobado. Inténtalo de nuevo.';
       }
 
-      submitBtn.disabled = true; // Bloquea envío adicional
+      submitBtn.disabled = true;
     });
 
     resetBtn.addEventListener('click', () => {
       if(!module) return;
       Progress.resetModule(module.id);
-      renderQuiz();
-      result.textContent = 'Intento reiniciado.';
+      alert('Progreso reiniciado. Puedes volver a intentar el examen.');
+      location.reload();
     });
 
-    renderQuiz();
+    loadCourse().then(course => {
+      if (course) {
+        const module = course.modules.find(m => m.id === modId && m.type === 'quiz');
+        renderModule(module);
+      }
+    });
   </script>
 </body>
 </html>

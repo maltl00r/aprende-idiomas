@@ -1,7 +1,6 @@
-const course = {
+{
   "title": "Francés A1 - A2",
   "modules": [
-    // BLOQUE DE FLASHCARDS
     { "id": "pronombres_personales", "name": "Pronombres personales", "thumbnail": "https://i.ytimg.com/vi/PRayCdcfSoM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCTDpQaEDPpzsbaFNmpIZd-nFtpuw", "type": "flashcards", "items": [
         { "icon": "😀", "fr": "Je", "pron": "[ʒə]" },
         { "icon": "😀", "fr": "Tu", "pron": "[ty]" },
@@ -296,29 +295,21 @@ const course = {
         { "icon": "🤚", "fr": "paume", "pron": "[pom]" },
         { "icon": "🦵", "fr": "jambe", "pron": "[ʒɑ̃b]" },
         { "icon": "🦶", "fr": "pied", "pron": "[pje]" },
-
-        // Ropa
         { "icon": "👕", "fr": "t-shirt", "pron": "[tiʃœʁt]" },
         { "icon": "👖", "fr": "pantalon", "pron": "[pɑ̃talɔ̃]" },
         { "icon": "👗", "fr": "robe", "pron": "[ʁɔb]" },
         { "icon": "👟", "fr": "chaussure", "pron": "[ʃosyʁ]" },
         { "icon": "🧥", "fr": "manteau", "pron": "[mɑ̃to]" },
-
-        // Familia
         { "icon": "👨", "fr": "père", "pron": "[pɛʁ]" },
         { "icon": "👩", "fr": "mère", "pron": "[mɛʁ]" },
         { "icon": "👶", "fr": "enfant", "pron": "[ɑ̃fɑ̃]" },
         { "icon": "👴", "fr": "grand-père", "pron": "[ɡʁɑ̃pɛʁ]" },
         { "icon": "👵", "fr": "grand-mère", "pron": "[ɡʁɑ̃mɛʁ]" },
-
-        // Casa
         { "icon": "🏠", "fr": "maison", "pron": "[mɛzɔ̃]" },
         { "icon": "🛋️", "fr": "canapé", "pron": "[kanape]" },
         { "icon": "🛏️", "fr": "lit", "pron": "[li]" },
         { "icon": "🚪", "fr": "porte", "pron": "[pɔʁt]" },
         { "icon": "🪟", "fr": "fenêtre", "pron": "[fənɛtʁ]" },
-
-        // Finanzas
         { "icon": "💰", "fr": "argent", "pron": "[aʁʒɑ̃]" },
         { "icon": "💳", "fr": "carte bancaire", "pron": "[kaʁt bɑ̃kɛʁ]" },
         { "icon": "💵", "fr": "billet", "pron": "[bilɛ]" },
@@ -402,8 +393,6 @@ const course = {
         { "icon": "🥣", "fr": "bol", "pron": "[bɔl]" },
         { "icon": "🍼", "fr": "biberon", "pron": "[bibʁɔ̃]" }
       ] },
-
-    // BLOQUE  DE EXAMENES
     { "id": "practice_review1", "name": "Practicar vocabulario y repasar tiempos", "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png", "type": "quiz", "resources": [] },
     { "id": "online_exercises1", "name": "Ejercicios online + repasar vocabulario + Pimsleur", "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png", "type": "quiz", "resources": [] },
     { "id": "online_exercises2", "name": "Ejercicios online + repasar vocabulario + Pimsleur", "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png", "type": "quiz", "resources": [] },
@@ -435,15 +424,11 @@ const course = {
     { "id": "preposiciones_tiempo_lugar", "name": "Preposiciones y expresiones de tiempo y lugar", "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png", "type": "quiz", "resources": [] },
     { "id": "les_partitifs", "name": "Les partitifs", "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png", "type": "quiz", "resources": [] },
     { "id": "semiauxiliares", "name": "Semiauxiliares", "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png", "type": "quiz", "resources": [] },
-
-    // BLOQUE DE MÚSICAS
     { "id": "musica1", "name": "Aprender Música #1 (Bacyardigans)", "thumbnail": "https://www.programme-tv.net/imgre/fit/~2~program~418a9c2f1bdfb69d.jpg/630x355/quality/80/les-melodilous.jpg", "type": "video", "url": "https://www.youtube.com/embed/6hhjVUeKVYk?si=J-Vl-xeHW_ShkXJz"},
     { "id": "musica2", "name": "Aprender Música #2 (Un canard a dit à sa cane)", "thumbnail": "https://i.ytimg.com/vi/aD9ymMUWV4s/maxresdefault.jpg", "type": "video", "url": "https://www.youtube.com/embed/7vZ4STUdfjU?si=xyub5p87sh4HW6Ln"},
     { "id": "musica3", "name": "Aprender Música #3 (La mist'en laire)", "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_MZ483YsLoF_HjaTttXO9zdVXxieU2bfMA&s", "type": "video", "url": "https://www.youtube.com/embed/p3BIAajoMNU?si=ncNdJxMdTvX0BFRB"},
     { "id": "musica4", "name": "Aprender Música #4 (Sous le ciel de paris)", "thumbnail": "https://frenchmoments.eu/wp-content/uploads/2013/06/Notre-Dame-chevet-Seine-copyright-French-Moments.jpg", "type": "video", "url": "https://www.youtube.com/embed/TagTKLG86Vk?si=8GYa_M_bC6jGzG0d"},
     { "id": "musica5", "name": "Aprender Música #5 (Et si tu n'existais pas)", "thumbnail": "https://i.ytimg.com/vi/_JXfXhBiIG8/maxresdefault.jpg", "type": "video", "url": "https://www.youtube.com/embed/yFMcp5gHbwI?si=pSp0vgdCiaDs4aKO"},
-
-    // BLOQUE DE LECTURAS
     { "id": "reading1", "name": "Leer capítulo 1 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-1.pdf" },
     { "id": "reading2", "name": "Leer capítulo 2 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-2.pdf" },
     { "id": "reading3", "name": "Leer capítulo 3 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-3.pdf" },
@@ -461,114 +446,105 @@ const course = {
     { "id": "reading15", "name": "Leer capítulo 15 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-15.pdf" },
     { "id": "reading16", "name": "Leer capítulo 16 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-16.pdf" },
     { "id": "reading17", "name": "Leer capítulo 17 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-17.pdf" },
-    { "id": 'reading18', "name": 'Leer capítulo 18 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-18.pdf' },
-    { "id": 'reading19', "name": 'Leer capítulo 19 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-19.pdf' },
-    { "id": 'reading20', "name": 'Leer capítulo 20 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-20.pdf' },
-    { "id": 'reading21', "name": 'Leer capítulo 21 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-21.pdf' },
-    { "id": 'reading22', "name": 'Leer capítulo 22 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-22.pdf' },
-    { "id": 'reading23', "name": 'Leer capítulo 23 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-23.pdf' },
-    { "id": 'reading24', "name": 'Leer capítulo 24 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-24.pdf' },
-    { "id": 'reading25', "name": 'Leer capítulo 25 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-25.pdf' },
-    { "id": 'reading26', "name": 'Leer capítulo 26 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-26.pdf' },
-    { "id": 'reading27', "name": 'Leer capítulo 27 Le Petit Prince/Nicolas', "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": 'reading', "file": 'pdf/le petit prince-27.pdf' },
-    
-    // BLOQUE DE AUDIOS
-    {  id: "pimsleur1", name: "Lección Pimsleur 1", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #1", file: "audio/Pimsleur - French I - Lesson 01.mp3" }
+    { "id": "reading18", "name": "Leer capítulo 18 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-18.pdf" },
+    { "id": "reading19", "name": "Leer capítulo 19 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-19.pdf" },
+    { "id": "reading20", "name": "Leer capítulo 20 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-20.pdf" },
+    { "id": "reading21", "name": "Leer capítulo 21 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-21.pdf" },
+    { "id": "reading22", "name": "Leer capítulo 22 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-22.pdf" },
+    { "id": "reading23", "name": "Leer capítulo 23 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-23.pdf" },
+    { "id": "reading24", "name": "Leer capítulo 24 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-24.pdf" },
+    { "id": "reading25", "name": "Leer capítulo 25 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-25.pdf" },
+    { "id": "reading26", "name": "Leer capítulo 26 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-26.pdf" },
+    { "id": "reading27", "name": "Leer capítulo 27 Le Petit Prince/Nicolas", "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg", "type": "reading", "file": "pdf/le petit prince-27.pdf" },
+    {  "id": "pimsleur1", "name": "Lección Pimsleur 1", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #1", "file": "audio/Pimsleur - French I - Lesson 01.mp3" }
       ] },
-    {  id: "pimsleur2", name: "Lección Pimsleur 2", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #2", file: "audio/Pimsleur - French I - Lesson 02.mp3" }
+    {  "id": "pimsleur2", "name": "Lección Pimsleur 2", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #2", "file": "audio/Pimsleur - French I - Lesson 02.mp3" }
       ] },
-    {  id: "pimsleur3", name: "Lección Pimsleur 3", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #3", file: "audio/Pimsleur - French I - Lesson 03.mp3" }
+    {  "id": "pimsleur3", "name": "Lección Pimsleur 3", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #3", "file": "audio/Pimsleur - French I - Lesson 03.mp3" }
       ] },
-    {  id: "pimsleur4", name: "Lección Pimsleur 4", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #4", file: "audio/Pimsleur - French I - Lesson 04.mp3" }
+    {  "id": "pimsleur4", "name": "Lección Pimsleur 4", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #4", "file": "audio/Pimsleur - French I - Lesson 04.mp3" }
       ] },
-    {  id: "pimsleur5", name: "Lección Pimsleur 5", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #5", file: "audio/Pimsleur - French I - Lesson 05.mp3" }
+    {  "id": "pimsleur5", "name": "Lección Pimsleur 5", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #5", "file": "audio/Pimsleur - French I - Lesson 05.mp3" }
       ] },
-    {  id: "pimsleur6", name: "Lección Pimsleur 6", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #6", file: "audio/Pimsleur - French I - Lesson 06.mp3" }
+    {  "id": "pimsleur6", "name": "Lección Pimsleur 6", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #6", "file": "audio/Pimsleur - French I - Lesson 06.mp3" }
       ] },
-    {  id: "pimsleur7", name: "Lección Pimsleur 7", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #7", file: "audio/Pimsleur - French I - Lesson 07.mp3" }
+    {  "id": "pimsleur7", "name": "Lección Pimsleur 7", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #7", "file": "audio/Pimsleur - French I - Lesson 07.mp3" }
       ] },
-    {  id: "pimsleur8", name: "Lección Pimsleur 8", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #8", file: "audio/Pimsleur - French I - Lesson 08.mp3" }
+    {  "id": "pimsleur8", "name": "Lección Pimsleur 8", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #8", "file": "audio/Pimsleur - French I - Lesson 08.mp3" }
       ] },
-    {  id: "pimsleur9", name: "Lección Pimsleur 9", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #9", file: "audio/Pimsleur - French I - Lesson 09.mp3" }
+    {  "id": "pimsleur9", "name": "Lección Pimsleur 9", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #9", "file": "audio/Pimsleur - French I - Lesson 09.mp3" }
       ] },
-    {  id: "pimsleur10", name: "Lección Pimsleur 10", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #10", file: "audio/Pimsleur - French I - Lesson 10.mp3" }
+    {  "id": "pimsleur10", "name": "Lección Pimsleur 10", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #10", "file": "audio/Pimsleur - French I - Lesson 10.mp3" }
       ] },
-    {  id: "pimsleur11", name: "Lección Pimsleur 11", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #11", file: "audio/Pimsleur - French I - Lesson 11.mp3" }
+    {  "id": "pimsleur11", "name": "Lección Pimsleur 11", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #11", "file": "audio/Pimsleur - French I - Lesson 11.mp3" }
       ] },
-    {  id: "pimsleur12", name: "Lección Pimsleur 12", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #12", file: "audio/Pimsleur - French I - Lesson 12.mp3" }
+    {  "id": "pimsleur12", "name": "Lección Pimsleur 12", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #12", "file": "audio/Pimsleur - French I - Lesson 12.mp3" }
       ] },
-    {  id: "pimsleur13", name: "Lección Pimsleur 13", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #13", file: "audio/Pimsleur - French I - Lesson 13.mp3" }
+    {  "id": "pimsleur13", "name": "Lección Pimsleur 13", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #13", "file": "audio/Pimsleur - French I - Lesson 13.mp3" }
       ] },
-    {  id: "pimsleur14", name: "Lección Pimsleur 14", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #14", file: "audio/Pimsleur - French I - Lesson 14.mp3" }
+    {  "id": "pimsleur14", "name": "Lección Pimsleur 14", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #14", "file": "audio/Pimsleur - French I - Lesson 14.mp3" }
       ] },
-    {  id: "pimsleur15", name: "Lección Pimsleur 15", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #15", file: "audio/Pimsleur - French I - Lesson 15.mp3" }
+    {  "id": "pimsleur15", "name": "Lección Pimsleur 15", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #15", "file": "audio/Pimsleur - French I - Lesson 15.mp3" }
       ] },
-    {  id: "pimsleur16", name: "Lección Pimsleur 16", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #16", file: "audio/Pimsleur - French I - Lesson 16.mp3" }
+    {  "id": "pimsleur16", "name": "Lección Pimsleur 16", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #16", "file": "audio/Pimsleur - French I - Lesson 16.mp3" }
       ] },
-    {  id: "pimsleur17", name: "Lección Pimsleur 17", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #17", file: "audio/Pimsleur - French I - Lesson 17.mp3" }
+    {  "id": "pimsleur17", "name": "Lección Pimsleur 17", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #17", "file": "audio/Pimsleur - French I - Lesson 17.mp3" }
       ] },
-    {  id: "pimsleur18", name: "Lección Pimsleur 18", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #18", file: "audio/Pimsleur - French I - Lesson 18.mp3" }
+    {  "id": "pimsleur18", "name": "Lección Pimsleur 18", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #18", "file": "audio/Pimsleur - French I - Lesson 18.mp3" }
       ] },
-    {  id: "pimsleur19", name: "Lección Pimsleur 19", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #19", file: "audio/Pimsleur - French I - Lesson 19.mp3" }
+    {  "id": "pimsleur19", "name": "Lección Pimsleur 19", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #19", "file": "audio/Pimsleur - French I - Lesson 19.mp3" }
       ] },
-    {  id: "pimsleur20", name: "Lección Pimsleur 20", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #20", file: "audio/Pimsleur - French I - Lesson 20.mp3" }
+    {  "id": "pimsleur20", "name": "Lección Pimsleur 20", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #20", "file": "audio/Pimsleur - French I - Lesson 20.mp3" }
       ] },
-    {  id: "pimsleur21", name: "Lección Pimsleur 21", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #21", file: "audio/Pimsleur - French I - Lesson 21.mp3" }
+    {  "id": "pimsleur21", "name": "Lección Pimsleur 21", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #21", "file": "audio/Pimsleur - French I - Lesson 21.mp3" }
       ] },
-    {  id: "pimsleur22", name: "Lección Pimsleur 22", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #22", file: "audio/Pimsleur - French I - Lesson 22.mp3" }
+    {  "id": "pimsleur22", "name": "Lección Pimsleur 22", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #22", "file": "audio/Pimsleur - French I - Lesson 22.mp3" }
       ] },
-    {  id: "pimsleur23", name: "Lección Pimsleur 23", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #23", file: "audio/Pimsleur - French I - Lesson 23.mp3" }
+    {  "id": "pimsleur23", "name": "Lección Pimsleur 23", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #23", "file": "audio/Pimsleur - French I - Lesson 23.mp3" }
       ] },
-    {  id: "pimsleur24", name: "Lección Pimsleur 24", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #24", file: "audio/Pimsleur - French I - Lesson 24.mp3" }
+    {  "id": "pimsleur24", "name": "Lección Pimsleur 24", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #24", "file": "audio/Pimsleur - French I - Lesson 24.mp3" }
       ] },
-    {  id: "pimsleur25", name: "Lección Pimsleur 25", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #25", file: "audio/Pimsleur - French I - Lesson 25.mp3" }
+    {  "id": "pimsleur25", "name": "Lección Pimsleur 25", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #25", "file": "audio/Pimsleur - French I - Lesson 25.mp3" }
       ] },
-    {  id: "pimsleur26", name: "Lección Pimsleur 26", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #26", file: "audio/Pimsleur - French I - Lesson 26.mp3" }
+    {  "id": "pimsleur26", "name": "Lección Pimsleur 26", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #26", "file": "audio/Pimsleur - French I - Lesson 26.mp3" }
       ] },
-    {  id: "pimsleur27", name: "Lección Pimsleur 27", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #27", file: "audio/Pimsleur - French I - Lesson 27.mp3" }
+    {  "id": "pimsleur27", "name": "Lección Pimsleur 27", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #27", "file": "audio/Pimsleur - French I - Lesson 27.mp3" }
       ] },
-    {  id: "pimsleur28", name: "Lección Pimsleur 28", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #28", file: "audio/Pimsleur - French I - Lesson 28.mp3" }
+    {  "id": "pimsleur28", "name": "Lección Pimsleur 28", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #28", "file": "audio/Pimsleur - French I - Lesson 28.mp3" }
       ] },
-    {  id: "pimsleur29", name: "Lección Pimsleur 29", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #29", file: "audio/Pimsleur - French I - Lesson 29.mp3" }
+    {  "id": "pimsleur29", "name": "Lección Pimsleur 29", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #29", "file": "audio/Pimsleur - French I - Lesson 29.mp3" }
       ] },
-    {  id: "pimsleur30", name: "Lección Pimsleur 30", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", type: "audio",items: [
-        { name: "Audio de lección #30", file: "audio/Pimsleur - French I - Lesson 30.mp3" }
+    {  "id": "pimsleur30", "name": "Lección Pimsleur 30", "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg", "type": "audio","items": [
+        { "name": "Audio de lección #30", "file": "audio/Pimsleur - French I - Lesson 30.mp3" }
       ] }
   ]
-};
-const courseConfig = {
-  "title": "Francés A1 - A2",
-  "description": "Curso completo de francés desde nivel A1 hasta A2, con módulos de vocabulario, gramática, práctica auditiva y escrita.",
-  "language": "fr",
-  "level": "A1-A2",
-  "modules": course.modules
-};    
+}
