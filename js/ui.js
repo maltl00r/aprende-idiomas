@@ -11,6 +11,7 @@ const UI = (() => {
       quiz:        `quiz.html?id=${id}`,
       reading:     `reading.html?id=${id}`,
       video:       `video.html?id=${id}`,
+      dragdrop:    `dragdrop.html?id=${id}` // <-- añadido
     };
     const link = linkMap[type] || '#';
 
@@ -25,7 +26,8 @@ const UI = (() => {
           type === 'audio' ? 'Audio' :
           type === 'quiz' ? 'Examen' :
           type === 'reading' ? 'Lectura' :
-          'Video'
+          type === 'video' ? 'Video' :
+          type === 'dragdrop' ? 'Drag & Drop' : ''
         }</span>
         ${score != null ? `<span> Puntuación: ${score}%</span>` : ''}
       </div>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drag & Drop - Francés A1-A2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Drag & Drop</h1>
+    <nav class="top-nav">
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2 id="ddTitle">Asocia la palabra con el emoji</h2>
+      <div class="dd-container" id="ddItems"></div>
+      <div class="dd-container" id="ddTargets"></div>
+      <div class="actions">
+        <button id="resetBtn" class="btn-complete" style="display:none;">Marcar como no completado</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Arrastra cada palabra a su emoji correcto.</small>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script>
+    let module, course;
+    let words = [];
+    let ttsCooldown = false;
+
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('id');
+    const ddTitle = document.getElementById('ddTitle');
+    const ddItems = document.getElementById('ddItems');
+    const ddTargets = document.getElementById('ddTargets');
+    const resetBtn = document.getElementById('resetBtn');
+
+    async function loadCourse() {
+      try {
+        const response = await fetch('course.json');
+        if (!response.ok) throw new Error('No se pudo cargar el archivo course.json');
+        return await response.json();
+      } catch (error) {
+        console.error("Error al cargar el curso:", error);
+        return null;
+      }
+    }
+
+    function speakWord(text, lang = 'fr-FR') {
+      if (ttsCooldown) return;
+      ttsCooldown = true;
+
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = lang;
+      speechSynthesis.speak(utter);
+
+      utter.onend = () => { ttsCooldown = false; };
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function handleDrop(e) {
+      e.preventDefault();
+      const draggedId = e.dataTransfer.getData('text/plain');
+      if (!draggedId) return;
+
+      const draggedEl = document.querySelector(`.dd-item[data-id='${draggedId}']`);
+      const previousTarget = draggedEl.parentElement;
+      if (previousTarget.classList.contains('dd-target')) {
+        previousTarget.classList.remove('correct', 'incorrect');
+      }
+
+      if (e.currentTarget.querySelector('.dd-item')) return;
+
+      e.currentTarget.appendChild(draggedEl);
+      const draggedWord = words.find(w => w.id === draggedId);
+
+      if (draggedId === e.currentTarget.dataset.match) {
+        e.currentTarget.classList.add('correct');
+        e.currentTarget.classList.remove('incorrect');
+        speakWord(draggedWord.fr);
+      } else {
+        e.currentTarget.classList.add('incorrect');
+        e.currentTarget.classList.remove('correct');
+        speakWord("L'objet n'a pas été associé correctement, essayez encore.");
+      }
+
+      // Click para devolver la palabra si es incorrecta
+      draggedEl.addEventListener('click', () => {
+        if (e.currentTarget.classList.contains('incorrect')) {
+          ddItems.appendChild(draggedEl);
+          e.currentTarget.classList.remove('incorrect');
+        }
+      }, { once: true });
+
+      checkModuleCompletion();
+    }
+
+    function renderModule(mod) {
+      if (!mod) {
+        ddTitle.textContent = 'Módulo no encontrado';
+        return;
+      }
+
+      module = mod;
+
+      // Tomar items de módulo fuente si existe "from"
+      if (mod.from) {
+        const sourceMod = course.modules.find(m => m.id === mod.from);
+        if (sourceMod && sourceMod.items) {
+          words = sourceMod.items.map((i, idx) => ({
+            id: `w${idx}`,
+            fr: i.fr,
+            icon: i.icon,
+            pron: i.pron
+          }));
+        }
+      } else {
+        words = module.words || [];
+      }
+
+      const shuffledWords = shuffleArray(words.slice());
+      const shuffledTargets = shuffleArray(words.slice());
+
+      ddTitle.textContent = module.name;
+      ddItems.innerHTML = '';
+      ddTargets.innerHTML = '';
+
+      shuffledWords.forEach(word => {
+        const item = document.createElement('div');
+        item.className = 'dd-item';
+        item.draggable = true;
+        item.textContent = word.fr;
+        item.dataset.id = word.id;
+
+        item.addEventListener('click', () => {
+          speakWord(word.fr);
+        });
+
+        item.addEventListener('dragstart', e => {
+          e.dataTransfer.setData('text/plain', word.id);
+        });
+
+        ddItems.appendChild(item);
+      });
+
+      shuffledTargets.forEach(word => {
+        const target = document.createElement('div');
+        target.className = 'dd-target';
+        target.textContent = word.icon;
+        target.dataset.match = word.id;
+
+        target.addEventListener('dragover', e => e.preventDefault());
+        target.addEventListener('drop', handleDrop);
+
+        ddTargets.appendChild(target);
+      });
+
+      // Mostrar botón según estado del módulo
+      const state = Progress.getModuleState(module.id);
+      if (state?.completed) {
+        resetBtn.style.display = 'inline-block';
+        resetBtn.textContent = 'Módulo completado ✔️';
+      } else {
+        resetBtn.style.display = 'none';
+      }
+    }
+
+    function checkModuleCompletion() {
+      const allTargets = ddTargets.querySelectorAll('.dd-target');
+      const allCorrect = Array.from(allTargets).every(t => {
+        const it = t.querySelector('.dd-item');
+        return it && it.dataset.id === t.dataset.match;
+      });
+
+      if (allCorrect) {
+        Progress.markCompleted(module.id);
+        resetBtn.style.display = 'inline-block';
+        resetBtn.textContent = 'Módulo completado ✔️';
+      } else {
+        Progress.resetModule(module.id);
+        resetBtn.style.display = 'none';
+      }
+    }
+
+    resetBtn.addEventListener('click', () => {
+      Progress.resetModule(module.id);
+      renderModule(module);
+    });
+
+    loadCourse().then(c => {
+      if (!c) return;
+      course = c;
+      const mod = course.modules.find(m => m.id === modId && m.type === 'dragdrop');
+      renderModule(mod);
+    });
+  </script>
+</body>
+</html>
