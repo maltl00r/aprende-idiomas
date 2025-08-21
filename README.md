@@ -26,7 +26,9 @@ Plataforma educativa de francés de niveles A1 y A2. El proyecto se basa en una 
 * `reading.html`: Página para las lecciones de lectura.
 * `video.html`: Página para las lecciones en video.
 * `quiz.html`: Página para los exámenes.
+* `course.json`: Datos del curso y la estructura de los módulos.
 * `css/style.css`: Hojas de estilo que definen el diseño.
-* `js/course.js`: Datos del curso y la estructura de los módulos.
 * `js/progress.js`: Lógica para el seguimiento del progreso del usuario.
 * `js/ui.js`: Funciones para renderizar la interfaz de usuario.
+* `pdf`: Carpeta que contiene archivos PDF para lectura.
+* `audio`: Carpeta que contiene archivos de audio.
