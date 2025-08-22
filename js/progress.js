@@ -1,9 +1,12 @@
 const Progress = (() => {
-  const KEY = 'french_platform_progress_v2';
+  function getKey() {
+    const currentLang = localStorage.getItem('courseLang') || 'fr';
+    return `${currentLang}_platform_progress_v2`;
+  }
 
   function _load(){
     try{
-      const raw = localStorage.getItem(KEY);
+      const raw = localStorage.getItem(getKey());
       return raw ? JSON.parse(raw) : { modules: {} };
     }catch(e){
       return { modules: {} };
@@ -11,7 +14,7 @@ const Progress = (() => {
   }
 
   function _save(state){
-    localStorage.setItem(KEY, JSON.stringify(state));
+    localStorage.setItem(getKey(), JSON.stringify(state));
   }
 
   function getModuleState(id){
@@ -42,21 +45,19 @@ const Progress = (() => {
   function getGlobalProgress(course){
     const s = _load();
     const total = course.modules.length;
-    const completed = course.modules.reduce((acc, m) => acc + (s.modules[m.id]?.completed ? 1 : 0), 0);
-    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
-    return { completed, total, totalPercent: percent };
+    const completed = course.modules.reduce((acc, m) => acc + (s.modules[m.id] && s.modules[m.id].completed ? 1 : 0), 0);
+    return {
+      total,
+      completed,
+      totalPercent: total > 0 ? Math.floor((completed / total) * 100) : 0
+    };
   }
-
-  function completeAudioModule(id){
-    markCompleted(id);
-  }
-
+  
   return {
     getModuleState,
     markCompleted,
     setScore,
     resetModule,
-    getGlobalProgress,
-    completeAudioModule
+    getGlobalProgress
   };
 })();

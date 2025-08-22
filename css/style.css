@@ -216,7 +216,7 @@ body {
 }
 
 /* Reglas de estilo para el GIF/icono */
-.flashcard .flashcard-icon img {
+.flashcard .icon {
   max-width: 120px;
   max-height: 120px;
   width: auto;
@@ -226,25 +226,19 @@ body {
   transition: transform 0.3s ease;
 }
 
-.flashcard:hover .flashcard-icon img {
+.flashcard:hover .icon {
   transform: scale(1.15) rotate(5deg);
 }
 
 /* Aumenta el tamaño de la fuente y ajusta el espaciado para mejor legibilidad */
-.flashcard .flashcard-word {
+.flashcard .flashcard-word,
+.flashcard .pronunciation {
     margin: 0;
     font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.2;
     color: var(--text);
     margin-top: 0.5rem;
-}
-
-.flashcard .pronunciation {
-    font-size: 1.2rem;
-    font-weight: normal;
-    color: var(--muted);
-    margin-top: 0.25rem;
 }
 
 /* Audio items */

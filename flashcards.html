@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flashcards - Francés A1-A2</title>
+  <title id="pageTitle">Flashcards</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -32,84 +32,79 @@
   <script>
     async function loadCourse() {
       try {
-        const response = await fetch('course.json');
+        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+        const response = await fetch(`course_${currentLang}.json`);
         if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo course.json');
+            throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
         }
         const course = await response.json();
         return course;
-      } catch (error) {
-        console.error('Error:', error);
+      } catch (e) {
+        console.error('Error al cargar el curso:', e);
         return null;
       }
     }
 
-    const title = document.getElementById('moduleTitle');
-    const grid = document.getElementById('flashcardsGrid');
-    const toggleBtn = document.getElementById('toggleModuleBtn');
-    const urlParams = new URLSearchParams(window.location.search);
-    const modId = urlParams.get('mod');
-    const currentLang = urlParams.get('lang') || 'fr';
+    function speakWord(text, lang) {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
 
-    const langMap = {
-      'fr': 'fr-FR',
-      'en': 'en-US'
-    };
-
-    const speak = (text, lang) => {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = langMap[lang] || 'en-US';
-      window.speechSynthesis.speak(utterance);
-    };
-
-    function makeCard(card) {
+    function makeCard(card, lang) {
       const btn = document.createElement('button');
       btn.className = 'flashcard';
-      btn.tabIndex = 0;
-      let isFront = true;
+      btn.setAttribute('role', 'button');
+      btn.innerHTML = `
+        <div class="flashcard-content">
+          <img src="${card.icon}" alt="" class="icon">
+          <p class="flashcard-word">${card.spell}</p>
+          <span class="pronunciation" style="display: none;">${card.pron}</span>
+        </div>
+      `;
 
-      function renderWord() {
-        btn.innerHTML = '';
+      const wordElement = btn.querySelector('.flashcard-word');
+      const pronunciationElement = btn.querySelector('.pronunciation');
+      let showingWord = true;
 
-        const iconDiv = document.createElement('div');
-        iconDiv.className = 'flashcard-icon';
-        if (card.icon && card.icon.includes('.gif')) {
-          const img = document.createElement('img');
-          img.src = card.icon;
-          img.alt = 'Icono para ' + (card[currentLang]?.spell || '');
-          iconDiv.appendChild(img);
+      const toggle = () => {
+        if (showingWord) {
+          wordElement.style.display = 'none';
+          pronunciationElement.style.display = 'block';
+          showingWord = false;
         } else {
-          iconDiv.textContent = card.icon ?? '💡';
+          wordElement.style.display = 'block';
+          pronunciationElement.style.display = 'none';
+          showingWord = true;
         }
-
-        const wordData = card[currentLang] || {};
-        const wordDiv = document.createElement('div');
-        wordDiv.className = 'flashcard-word';
-        wordDiv.textContent = isFront ? (wordData.spell || '') : (wordData.pron || '');
-
-        btn.appendChild(iconDiv);
-        btn.appendChild(wordDiv);
-      }
-
-      function toggle() {
-        isFront = !isFront;
-        renderWord();
-        const wordData = card[currentLang];
-        if (wordData && wordData.spell) {
-          speak(wordData.spell, currentLang);
-        }
-      }
+        // Se asegura de que siempre se lea la palabra escrita al hacer clic
+        speakWord(card.spell, lang);
+      };
 
       btn.addEventListener('click', toggle);
       btn.addEventListener('keydown', e => {
         if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
 
-      renderWord();
+      // Se mantiene la lectura de la palabra al inicio
+      speakWord(card.spell, lang);
+
       return btn;
     }
 
-    function renderModule(module){
+    function renderModule(module, course){
+      const title = document.getElementById('moduleTitle');
+      const grid = document.getElementById('flashcardsGrid');
+      const toggleBtn = document.getElementById('toggleModuleBtn');
+      const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+      const langMap = {
+        'fr': 'fr-FR',
+        'en': 'en-US'
+      };
+      const speakLang = langMap && langMap.hasOwnProperty(currentLang) ? langMap[`${currentLang}`] : 'fr-FR';
+
       if(!module){
         title.textContent = 'Módulo no encontrado';
         toggleBtn.style.display = 'none';
@@ -118,7 +113,9 @@
 
       title.textContent = module.name;
       grid.innerHTML = '';
-      (module.items || []).forEach(card => grid.appendChild(makeCard(card)));
+      (module.items || []).forEach(card => grid.appendChild(makeCard(card, speakLang)));
+
+      document.getElementById('pageTitle').textContent = `${module.name} - ${course.title}`;
 
       const state = Progress.getModuleState(module.id);
       if(state?.completed){
@@ -126,27 +123,33 @@
       } else {
         toggleBtn.textContent = 'Marcar módulo como completado';
       }
+
+      toggleBtn.addEventListener('click', () => {
+        const state = Progress.getModuleState(module.id);
+        if(state?.completed){
+          Progress.resetModule(module.id);
+          alert('¡Módulo desmarcado!');
+        } else {
+          Progress.markCompleted(module.id);
+          alert('¡Módulo completado!');
+        }
+        renderModule(module, course);
+      });
     }
 
-    loadCourse().then(course => {
-      if (course) {
-        const module = course.modules.find(m => m.id === modId && m.type === 'flashcards');
-        renderModule(module);
-
-        if (module) {
-          toggleBtn.addEventListener('click', () => {
-            const state = Progress.getModuleState(module.id);
-            if(state?.completed){
-              Progress.resetModule(module.id);
-              alert('¡Módulo desmarcado!');
-            } else {
-              Progress.completeModule(module.id);
-              alert('¡Módulo completado!');
-            }
-            renderModule(module);
-          });
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      const modId = new URLSearchParams(window.location.search).get('mod');
+      if (!modId) {
+        document.getElementById('moduleTitle').textContent = 'Error: ID de módulo no especificado.';
+        return;
       }
+
+      loadCourse().then(course => {
+        if (course) {
+          const module = course.modules.find(m => m.id === modId && m.type === 'flashcards');
+          renderModule(module, course);
+        }
+      });
     });
   </script>
 </body>
