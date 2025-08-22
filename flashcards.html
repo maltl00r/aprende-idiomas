@@ -39,39 +39,66 @@
         const course = await response.json();
         return course;
       } catch (error) {
-        console.error("Error al cargar el curso:", error);
+        console.error('Error:', error);
         return null;
       }
     }
-    const params = new URLSearchParams(window.location.search);
-    const modId = params.get('id');
 
     const title = document.getElementById('moduleTitle');
     const grid = document.getElementById('flashcardsGrid');
     const toggleBtn = document.getElementById('toggleModuleBtn');
+    const urlParams = new URLSearchParams(window.location.search);
+    const modId = urlParams.get('mod');
+    const currentLang = urlParams.get('lang') || 'fr';
 
-    function speak(text){
-      const s = new SpeechSynthesisUtterance(text);
-      s.lang = 'fr-FR';
-      window.speechSynthesis.speak(s);
-    }
+    const langMap = {
+      'fr': 'fr-FR',
+      'en': 'en-US'
+    };
+
+    const speak = (text, lang) => {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = langMap[lang] || 'en-US';
+      window.speechSynthesis.speak(utterance);
+    };
 
     function makeCard(card) {
       const btn = document.createElement('button');
-      // Línea corregida: ahora usa la clase 'flashcard' que está en style.css
       btn.className = 'flashcard';
-      btn.setAttribute('role', 'button');
-      btn.setAttribute('aria-label', `Flashcard para ${card.fr}`);
-      btn.dataset.state = 'word';
+      btn.tabIndex = 0;
+      let isFront = true;
 
-      function renderWord(){ btn.innerHTML = `<span class="icon">${card.icon ?? '💡'}</span><p>${card.fr}</p>`; }
-      function renderPron(){ btn.innerHTML = `<span class="pronunciation">${card.pron}</span>`; }
+      function renderWord() {
+        btn.innerHTML = '';
 
-      const toggle = () => {
-        if(btn.dataset.state === 'word'){ renderPron(); btn.dataset.state = 'pron'; }
-        else { renderWord(); btn.dataset.state = 'word'; }
-        speak(card.fr);
-      };
+        const iconDiv = document.createElement('div');
+        iconDiv.className = 'flashcard-icon';
+        if (card.icon && card.icon.includes('.gif')) {
+          const img = document.createElement('img');
+          img.src = card.icon;
+          img.alt = 'Icono para ' + (card[currentLang]?.spell || '');
+          iconDiv.appendChild(img);
+        } else {
+          iconDiv.textContent = card.icon ?? '💡';
+        }
+
+        const wordData = card[currentLang] || {};
+        const wordDiv = document.createElement('div');
+        wordDiv.className = 'flashcard-word';
+        wordDiv.textContent = isFront ? (wordData.spell || '') : (wordData.pron || '');
+
+        btn.appendChild(iconDiv);
+        btn.appendChild(wordDiv);
+      }
+
+      function toggle() {
+        isFront = !isFront;
+        renderWord();
+        const wordData = card[currentLang];
+        if (wordData && wordData.spell) {
+          speak(wordData.spell, currentLang);
+        }
+      }
 
       btn.addEventListener('click', toggle);
       btn.addEventListener('keydown', e => {
@@ -113,7 +140,7 @@
               Progress.resetModule(module.id);
               alert('¡Módulo desmarcado!');
             } else {
-              Progress.markCompleted(module.id);
+              Progress.completeModule(module.id);
               alert('¡Módulo completado!');
             }
             renderModule(module);

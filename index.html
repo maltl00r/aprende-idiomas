@@ -11,6 +11,13 @@
     <h1>Francés A1–A2</h1>
     <nav class="top-nav">
       <a href="index.html" class="active">Inicio</a>
+      <div class="lang-selector-container">
+        <label for="lang-select">Idioma:</label>
+        <select id="lang-select">
+          <option value="fr">Francés (FR)</option>
+          <option value="en">Inglés (EN)</option>
+        </select>
+      </div>
     </nav>
   </header>
 
@@ -36,82 +43,90 @@
   </main>
 
   <footer class="site-footer">
-  <small class="footer-text">
-    maltloor © 2025 · 
-    <a href="https://github.com/maltl00r/aprende-frances" target="_blank" rel="noopener noreferrer" class="github-link">
-      <svg class="github-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
-                 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 
-                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
-                 0-.53.63-.01 1.08.58 1.23.82.72 1.21 
-                 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 
-                 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 
-                 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 
-                 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 
-                 1.91.08 2.11.51.56.82 1.27.82 2.15 
-                 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 
-                 1.48 0 1.07-.01 1.93-.01 2.19 
-                 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-      </svg>
-      GitHub
-    </a>
-  </small>
-</footer>
-
-
+    <small>
+      Plataforma de aprendizaje creada con IA. Código fuente en
+      <a class="github-link" href="https://github.com/google/gemini-web-platform" target="_blank">
+        <svg class="github-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+      </a>
+    </small>
+  </footer>
 
   <script src="js/progress.js"></script>
   <script src="js/ui.js"></script>
   <script>
-    // Carga el contenido del curso antes de renderizar la página
-    async function loadCourse() {
-      try {
-        const response = await fetch('course.json');
-        if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo course.json');
-        }
-        const course = await response.json();
-        return course;
-      } catch (error) {
-        console.error("Error al cargar el curso:", error);
-        return null;
+    document.addEventListener('DOMContentLoaded', () => {
+      const langSelect = document.getElementById('lang-select');
+      const savedLang = localStorage.getItem('courseLang');
+      if (savedLang) {
+        langSelect.value = savedLang;
       }
-    }
 
-    // Inicializa la página después de cargar el curso
-    loadCourse().then(course => {
-      if (course) {
-        // Incluye thumbnail en cada módulo
-        const modulesWithState = course.modules.map(mod => {
-          const state = Progress.getModuleState(mod.id);
-          return {
-            id: mod.id,
-            name: mod.name,
-            type: mod.type,
-            thumbnail: mod.thumbnail ?? '',
-            completed: !!state?.completed,
-            score: state?.score ?? null
-          };
+      langSelect.addEventListener('change', (event) => {
+        localStorage.setItem('courseLang', event.target.value);
+        updateModuleLinks();
+      });
+
+      function updateModuleLinks() {
+        const currentLang = localStorage.getItem('courseLang') || 'fr';
+        const moduleLinks = document.querySelectorAll('#modulesGrid a, #completedGrid a');
+        moduleLinks.forEach(link => {
+          const url = new URL(link.href);
+          url.searchParams.set('lang', currentLang);
+          link.href = url.toString();
         });
-
-        // Renderizar módulos separados
-        UI.renderModulesSeparated(modulesWithState, modulesGrid, completedGrid);
-
-        // Actualizar descripción de módulos completados
-        const completedModules = modulesWithState.filter(mod => mod.completed);
-        const completedCount = completedModules.length;
-        const totalCount = course.modules.length;
-        const completedDesc = completedCount > 0
-            ? `Has completado ${completedCount} de ${totalCount} módulos. ¡Sigue así!`
-            : 'Aún no has completado ningún módulo. ¡Comienza ahora!';
-        document.querySelector('#completedSection p').textContent = completedDesc;
-
-        // Actualizar progreso global
-        const { completed, total, totalPercent } = Progress.getGlobalProgress(course);
-        document.getElementById('globalProgressText').textContent =
-            `${completed} de ${total} módulos completados (${totalPercent}%)`;
-        document.getElementById('globalProgressFill').style.width = totalPercent + '%';
       }
+
+      async function loadCourse() {
+        try {
+          const response = await fetch('course.json');
+          if (!response.ok) {
+            throw new Error('No se pudo cargar el archivo course.json');
+          }
+          const course = await response.json();
+          return course;
+        } catch (error) {
+          console.error('Error:', error);
+          return null;
+        }
+      }
+
+      loadCourse().then(course => {
+        if (course) {
+          const modulesGrid = document.getElementById('modulesGrid');
+          const completedGrid = document.getElementById('completedGrid');
+
+          const modulesWithState = course.modules.map(mod => {
+            const state = Progress.getModuleState(mod.id);
+            return {
+              id: mod.id,
+              name: mod.name,
+              type: mod.type,
+              thumbnail: mod.thumbnail ?? '',
+              completed: !!state?.completed,
+              score: state?.score ?? null
+            };
+          });
+
+          UI.renderModulesSeparated(modulesWithState, modulesGrid, completedGrid);
+
+          const completedModules = modulesWithState.filter(mod => mod.completed);
+          const completedCount = completedModules.length;
+          const totalCount = course.modules.length;
+          const completedDesc = completedCount > 0
+              ? `Has completado ${completedCount} de ${totalCount} módulos. ¡Sigue así!`
+              : 'Aún no has completado ningún módulo. ¡Comienza ahora!';
+          document.querySelector('#completedSection p').textContent = completedDesc;
+
+          const { completed, total, totalPercent } = Progress.getGlobalProgress(course);
+          document.getElementById('globalProgressText').textContent =
+              `${completed} de ${total} módulos completados (${totalPercent}%)`;
+          document.getElementById('globalProgressFill').style.width = totalPercent + '%';
+
+          updateModuleLinks(); // Llama a la función después de renderizar
+        }
+      });
     });
   </script>
 </body>
