@@ -87,10 +87,6 @@
       btn.addEventListener('keydown', e => {
         if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
-
-      // Se mantiene la lectura de la palabra al inicio
-      speakWord(card.spell, lang);
-
       return btn;
     }
 
