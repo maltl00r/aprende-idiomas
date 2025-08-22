@@ -1,5 +1,5 @@
 {
-  "title": "Francés A1 - A2",
+  "title": "Idiomas A1 - A2",
   "modules": [
     { "id": "drag1", "name": "Asocia palabras (100 palabras más comunes)", "type": "dragdrop", "completed": false, "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png", "from": "top100_words"},
     { "id": "drag2", "name": "Asocia palabras (Verbos más comunes)", "type": "dragdrop", "completed": false, "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png", "from": "vocab_verbs"},
@@ -117,38 +117,344 @@
         { "icon": "🧭", "fr": "boussole", "pron": "[busɔl]" },
         { "icon": "📡", "fr": "antenne", "pron": "[ɑ̃tɛn]" }
       ] },
-    { "id": "vocab_verbs", "name": "Verbos más comunes", "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png", "type": "flashcards", "items": [
-        { "icon": "🏃", "fr": "aller", "pron": "[ale]" },
-        { "icon": "📖", "fr": "lire", "pron": "[liʁ]" },
-        { "icon": "✍️", "fr": "écrire", "pron": "[ekʁiʁ]" },
-        { "icon": "🛌", "fr": "dormir", "pron": "[dɔʁmiʁ]" },
-        { "icon": "🍽️", "fr": "manger", "pron": "[mɑ̃ʒe]" },
-        { "icon": "💧", "fr": "boire", "pron": "[bwaʁ]" },
-        { "icon": "🎵", "fr": "écouter", "pron": "[ekute]" },
-        { "icon": "🗣️", "fr": "parler", "pron": "[paʁle]" },
-        { "icon": "👀", "fr": "voir", "pron": "[vwaʁ]" },
-        { "icon": "✈️", "fr": "voyager", "pron": "[vwajaʒe]" },
-        { "icon": "🏠", "fr": "habiter", "pron": "[abitɛ]" },
-        { "icon": "💻", "fr": "travailler", "pron": "[tʁavaje]" },
-        { "icon": "🎓", "fr": "étudier", "pron": "[etydje]" },
-        { "icon": "📚", "fr": "apprendre", "pron": "[apʁɑ̃dʁ]" },
-        { "icon": "💬", "fr": "répondre", "pron": "[ʁepɔ̃dʁ]" },
-        { "icon": "🛒", "fr": "acheter", "pron": "[aʃte]" },
-        { "icon": "💰", "fr": "payer", "pron": "[peje]" },
-        { "icon": "🚶", "fr": "marcher", "pron": "[maʁʃe]" },
-        { "icon": "🏋️", "fr": "courir", "pron": "[kuʁiʁ]" },
-        { "icon": "🤝", "fr": "aider", "pron": "[ede]" },
-        { "icon": "🖌️", "fr": "peindre", "pron": "[pɛ̃dʁ]" },
-        { "icon": "📅", "fr": "commencer", "pron": "[kɔmɑ̃se]" },
-        { "icon": "✅", "fr": "finir", "pron": "[finiʁ]" },
-        { "icon": "💡", "fr": "penser", "pron": "[pɑ̃se]" },
-        { "icon": "❤️", "fr": "aimer", "pron": "[eme]" },
-        { "icon": "🤔", "fr": "croire", "pron": "[kʁwɑʁ]" },
-        { "icon": "📦", "fr": "prendre", "pron": "[pʁɑ̃dʁ]" },
-        { "icon": "🛠️", "fr": "réparer", "pron": "[ʁepaʁe]" },
-        { "icon": "🎯", "fr": "essayer", "pron": "[esɛje]" },
-        { "icon": "🕒", "fr": "attendre", "pron": "[atɑ̃dʁ]" }
-      ] },
+    {
+  "id": "vocab_verbs",
+  "name": "Verbos más comunes",
+  "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",
+  "type": "flashcards",
+  "items": [
+    {
+      "icon": "icons/verbs/go.gif",
+      "fr": {
+        "spell": "aller",
+        "pron": "[ale]"
+      },
+      "en": {
+        "spell": "go",
+        "pron": "[ɡoʊ]"
+      }
+    },
+    {
+      "icon": "icons/verbs/jump.gif",
+      "fr": {
+        "spell": "sauter",
+        "pron": "[sote]"
+      },
+      "en": {
+        "spell": "jump",
+        "pron": "[dʒʌmp]"
+      }
+    },
+    {
+      "icon": "icons/verbs/read.gif",
+      "fr": {
+        "spell": "lire",
+        "pron": "[liʁ]"
+      },
+      "en": {
+        "spell": "read",
+        "pron": "[riːd]"
+      }
+    },
+    {
+      "icon": "icons/verbs/write.gif",
+      "fr": {
+        "spell": "écrire",
+        "pron": "[ekʁiʁ]"
+      },
+      "en": {
+        "spell": "write",
+        "pron": "[raɪt]"
+      }
+    },
+    {
+      "icon": "icons/verbs/sleep.gif",
+      "fr": {
+        "spell": "dormir",
+        "pron": "[dɔʁmiʁ]"
+      },
+      "en": {
+        "spell": "sleep",
+        "pron": "[sliːp]"
+      }
+    },
+    {
+      "icon": "icons/verbs/eat.gif",
+      "fr": {
+        "spell": "manger",
+        "pron": "[mɑ̃ʒe]"
+      },
+      "en": {
+        "spell": "eat",
+        "pron": "[iːt]"
+      }
+    },
+    {
+      "icon": "icons/verbs/drink.gif",
+      "fr": {
+        "spell": "boire",
+        "pron": "[bwaʁ]"
+      },
+      "en": {
+        "spell": "drink",
+        "pron": "[drɪŋk]"
+      }
+    },
+    {
+      "icon": "icons/verbs/listen.gif",
+      "fr": {
+        "spell": "écouter",
+        "pron": "[ekute]"
+      },
+      "en": {
+        "spell": "listen",
+        "pron": "[ˈlɪsən]"
+      }
+    },
+    {
+      "icon": "icons/verbs/speak.gif",
+      "fr": {
+        "spell": "parler",
+        "pron": "[paʁle]"
+      },
+      "en": {
+        "spell": "speak",
+        "pron": "[spiːk]"
+      }
+    },
+    {
+      "icon": "icons/verbs/see.gif",
+      "fr": {
+        "spell": "voir",
+        "pron": "[vwaʁ]"
+      },
+      "en": {
+        "spell": "see",
+        "pron": "[siː]"
+      }
+    },
+    {
+      "icon": "icons/verbs/travel.gif",
+      "fr": {
+        "spell": "voyager",
+        "pron": "[vwajaʒe]"
+      },
+      "en": {
+        "spell": "travel",
+        "pron": "[ˈtrævəl]"
+      }
+    },
+    {
+      "icon": "icons/verbs/work.gif",
+      "fr": {
+        "spell": "travailler",
+        "pron": "[tʁavaje]"
+      },
+      "en": {
+        "spell": "work",
+        "pron": "[wɜːrk]"
+      }
+    },
+    {
+      "icon": "icons/verbs/study.gif",
+      "fr": {
+        "spell": "étudier",
+        "pron": "[etydje]"
+      },
+      "en": {
+        "spell": "study",
+        "pron": "[ˈstʌdi]"
+      }
+    },
+    {
+      "icon": "icons/verbs/learn.gif",
+      "fr": {
+        "spell": "apprendre",
+        "pron": "[apʁɑ̃dʁ]"
+      },
+      "en": {
+        "spell": "learn",
+        "pron": "[lɜːrn]"
+      }
+    },
+    {
+      "icon": "icons/verbs/answer.gif",
+      "fr": {
+        "spell": "répondre",
+        "pron": "[ʁepɔ̃dʁ]"
+      },
+      "en": {
+        "spell": "answer",
+        "pron": "[ˈænsər]"
+      }
+    },
+    {
+      "icon": "icons/verbs/buy.gif",
+      "fr": {
+        "spell": "acheter",
+        "pron": "[aʃte]"
+      },
+      "en": {
+        "spell": "buy",
+        "pron": "[baɪ]"
+      }
+    },
+    {
+      "icon": "icons/verbs/pay.gif",
+      "fr": {
+        "spell": "payer",
+        "pron": "[peje]"
+      },
+      "en": {
+        "spell": "pay",
+        "pron": "[peɪ]"
+      }
+    },
+    {
+      "icon": "icons/verbs/walk.gif",
+      "fr": {
+        "spell": "marcher",
+        "pron": "[maʁʃe]"
+      },
+      "en": {
+        "spell": "walk",
+        "pron": "[wɔːk]"
+      }
+    },
+    {
+      "icon": "icons/verbs/run.gif",
+      "fr": {
+        "spell": "courir",
+        "pron": "[kuʁiʁ]"
+      },
+      "en": {
+        "spell": "run",
+        "pron": "[rʌn]"
+      }
+    },
+    {
+      "icon": "icons/verbs/help.gif",
+      "fr": {
+        "spell": "aider",
+        "pron": "[ede]"
+      },
+      "en": {
+        "spell": "help",
+        "pron": "[hɛlp]"
+      }
+    },
+    {
+      "icon": "icons/verbs/paint.gif",
+      "fr": {
+        "spell": "peindre",
+        "pron": "[pɛ̃dʁ]"
+      },
+      "en": {
+        "spell": "paint",
+        "pron": "[peɪnt]"
+      }
+    },
+    {
+      "icon": "icons/verbs/start.gif",
+      "fr": {
+        "spell": "commencer",
+        "pron": "[kɔmɑ̃se]"
+      },
+      "en": {
+        "spell": "start",
+        "pron": "[stɑːrt]"
+      }
+    },
+    {
+      "icon": "icons/verbs/finish.gif",
+      "fr": {
+        "spell": "finir",
+        "pron": "[finiʁ]"
+      },
+      "en": {
+        "spell": "finish",
+        "pron": "[ˈfɪnɪʃ]"
+      }
+    },
+    {
+      "icon": "icons/verbs/think.gif",
+      "fr": {
+        "spell": "penser",
+        "pron": "[pɑ̃se]"
+      },
+      "en": {
+        "spell": "think",
+        "pron": "[θɪŋk]"
+      }
+    },
+    {
+      "icon": "icons/verbs/love.gif",
+      "fr": {
+        "spell": "aimer",
+        "pron": "[eme]"
+      },
+      "en": {
+        "spell": "love",
+        "pron": "[lʌv]"
+      }
+    },
+    {
+      "icon": "icons/verbs/believe.gif",
+      "fr": {
+        "spell": "croire",
+        "pron": "[kʁwɑʁ]"
+      },
+      "en": {
+        "spell": "believe",
+        "pron": "[bɪˈliːv]"
+      }
+    },
+    {
+      "icon": "icons/verbs/take.gif",
+      "fr": {
+        "spell": "prendre",
+        "pron": "[pʁɑ̃dʁ]"
+      },
+      "en": {
+        "spell": "take",
+        "pron": "[teɪk]"
+      }
+    },
+    {
+      "icon": "icons/verbs/repair.gif",
+      "fr": {
+        "spell": "réparer",
+        "pron": "[ʁepaʁe]"
+      },
+      "en": {
+        "spell": "repair",
+        "pron": "[rɪˈpɛər]"
+      }
+    },
+    {
+      "icon": "icons/verbs/try.gif",
+      "fr": {
+        "spell": "essayer",
+        "pron": "[esɛje]"
+      },
+      "en": {
+        "spell": "try",
+        "pron": "[traɪ]"
+      }
+    },
+    {
+      "icon": "icons/verbs/wait.gif",
+      "fr": {
+        "spell": "attendre",
+        "pron": "[atɑ̃dʁ]"
+      },
+      "en": {
+        "spell": "wait",
+        "pron": "[weɪt]"
+      }
+    }
+  ]
+},
     { "id": "vocab_countries", "name": "Países", "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrFJgRFHsWzg_gAfpkZTUh-S5zJCGs0OYarQ&s", "type": "flashcards", "items": [
         { "icon": "🇫🇷", "fr": "France", "pron": "[fʁɑ̃s]" },
         { "icon": "🇪🇸", "fr": "Espagne", "pron": "[ɛspaɲ]" },
