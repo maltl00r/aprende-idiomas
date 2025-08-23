@@ -212,8 +212,6 @@
         Progress.markCompleted(module.id);
         resetBtn.style.display = 'inline-block';
         resetBtn.textContent = 'Módulo completado ✔️';
-        speakWord(module.completionSound || '¡Módulo completado!', currentLang);
-        feedbackDiv.textContent = module.completionSound || '¡Módulo completado!';
         feedbackDiv.className = 'feedback-correct';
       } else {
         const state = Progress.getModuleState(module.id);
