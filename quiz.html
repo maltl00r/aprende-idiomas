@@ -101,9 +101,20 @@
     }
 
     function checkQuiz() {
+      const questions = module.questions || [];
+      
+      // Validar si todas las preguntas han sido respondidas
+      const allAnswered = questions.every((q, idx) => {
+        return document.querySelector(`input[name="q${idx}"]:checked`);
+      });
+
+      if (!allAnswered) {
+        alert('Por favor, responde todas las preguntas antes de enviar.');
+        return; // Detiene la ejecución de la función
+      }
+
       let correct = 0;
       feedbackContainer.innerHTML = '';
-      const questions = module.questions || [];
 
       questions.forEach((q, idx) => {
         const chosen = document.querySelector(`input[name="q${idx}"]:checked`);
