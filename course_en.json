@@ -144,12 +144,33 @@
       "from": "vocab_verbs"
     },
     {
-      "id": "practice_review1",
-      "name": "Practicar vocabulario y repasar tiempos",
+      "id": "practice_mixed_verbs",
+      "name": "Repaso verbos y to be",
       "type": "quiz",
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png",
-      "items": [],
-      "resources": []
+      "questions": [
+        { "question": "El verbo 'to be' en primera persona singular (I) es:", "options": ["am", "is", "are"], "answer": 0 },
+        { "question": "El verbo 'to be' en tercera persona singular (he) es:", "options": ["am", "is", "are"], "answer": 1 },
+        { "question": "El verbo 'to be' en segunda persona plural (you) es:", "options": ["am", "is", "are"], "answer": 2 },
+        { "question": "¿Cuál es el equivalente en inglés de 'trabajar'?", "options": ["work", "study", "play", "run"], "answer": 0 },
+        { "question": "¿Cuál es el equivalente en inglés de 'leer'?", "options": ["read", "write", "listen", "speak"], "answer": 0 },
+        { "question": "Completa: I ___ a student.", "options": ["am", "is", "are"], "answer": 0 },
+        { "question": "Completa: She ___ at home.", "options": ["am", "is", "are"], "answer": 1 },
+        { "question": "¿Cuál es el equivalente en inglés de 'comer'?", "options": ["drink", "eat", "buy", "take"], "answer": 1 },
+        { "question": "¿Cuál es el equivalente en inglés de 'beber'?", "options": ["drink", "eat", "see", "love"], "answer": 0 },
+        { "question": "El verbo 'to be' en primera persona plural (we) es:", "options": ["am", "is", "are"], "answer": 2 },
+        { "question": "¿Cuál es el equivalente en inglés de 'caminar'?", "options": ["walk", "run", "jump", "go"], "answer": 0 },
+        { "question": "¿Cuál es el equivalente en inglés de 'correr'?", "options": ["walk", "run", "jump", "play"], "answer": 1 },
+        { "question": "El verbo 'to be' en tercera persona plural (they) es:", "options": ["am", "is", "are"], "answer": 2 },
+        { "question": "Completa: They ___ ready to start.", "options": ["am", "is", "are"], "answer": 2 },
+        { "question": "¿Cuál es el equivalente en inglés de 'escuchar'?", "options": ["listen", "speak", "see", "read"], "answer": 0 },
+        { "question": "¿Cuál es el equivalente en inglés de 'hablar'?", "options": ["listen", "speak", "see", "read"], "answer": 1 },
+        { "question": "Completa: You ___ my friend.", "options": ["am", "is", "are"], "answer": 2 },
+        { "question": "¿Cuál es el equivalente en inglés de 'estudiar'?", "options": ["study", "learn", "work", "paint"], "answer": 0 },
+        { "question": "¿Cuál es el equivalente en inglés de 'aprender'?", "options": ["study", "learn", "work", "paint"], "answer": 1 },
+        { "question": "Completa: He ___ a teacher.", "options": ["am", "is", "are"], "answer": 1 }
+      ],
+      "pass": 60
     },
     {
       "id": "pimsleur1",
