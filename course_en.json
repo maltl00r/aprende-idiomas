@@ -2,12 +2,53 @@
   "title": "Francés A1 - A2",
   "modules": [
     {
-      "id": "drag2",
-      "name": "Asocia palabras (Verbos más comunes)",
-      "type": "dragdrop",
-      "completed": false,
-      "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
-      "from": "vocab_verbs"
+      "id": "ipa1",
+      "name": "Vocales de la lengua inglesa | Parte 1",
+      "type": "video",
+      "thumbnail": "https://teflonlinepro.com/wp-content/uploads/2019/04/ipa-chart.jpg",
+      "url": "https://www.youtube.com/embed/UP8NACB4C5w"
+    },
+    {
+      "id": "ipa2",
+      "name": "Vocales de la lengua inglesa | Parte 2",
+      "type": "video",
+      "thumbnail": "https://teflonlinepro.com/wp-content/uploads/2019/04/ipa-chart.jpg",
+      "url": "https://www.youtube.com/embed/S99L2Z52VDw"
+    },
+    {
+      "id": "ipa3",
+      "name": "Vocales de la lengua inglesa | Parte 3",
+      "type": "video",
+      "thumbnail": "https://teflonlinepro.com/wp-content/uploads/2019/04/ipa-chart.jpg",
+      "url": "https://www.youtube.com/embed/EYMeHGTu0nc"
+    },
+    {
+      "id": "ipa4",
+      "name": "Diptongos (IPA) | Parte 1",
+      "type": "video",
+      "thumbnail": "https://teflonlinepro.com/wp-content/uploads/2019/04/ipa-chart.jpg",
+      "url": "https://www.youtube.com/embed/RA0YJpD-hoY"
+    },
+    {
+      "id": "ipa5",
+      "name": "Diptongos (IPA) | Parte 2",
+      "type": "video",
+      "thumbnail": "https://teflonlinepro.com/wp-content/uploads/2019/04/ipa-chart.jpg",
+      "url": "https://www.youtube.com/embed/LpwsZzz5NDQ"
+    },
+    {
+      "id": "ipa6",
+      "name": "Diptongos (IPA) | Parte 3",
+      "type": "video",
+      "thumbnail": "https://teflonlinepro.com/wp-content/uploads/2019/04/ipa-chart.jpg",
+      "url": "https://www.youtube.com/embed/QkHy7cr1Shs"
+    },
+    {
+      "id": "ipa7",
+      "name": "Lectura del AFI/IPA para la lengua inglesa",
+      "type": "video",
+      "thumbnail": "https://teflonlinepro.com/wp-content/uploads/2019/04/ipa-chart.jpg",
+      "url": "https://www.youtube.com/embed/PLkpvzOF30M"
     },
     {
       "id": "vocab_verbs",
@@ -48,19 +89,35 @@
       ]
     },
     {
+      "id": "vocab_pronouns",
+      "name": "Pronombres personales",
+      "thumbnail": "https://blog.trainlang.com/wp-content/uploads/2020/12/english-pronouns-1-scaled.jpg",
+      "type": "flashcards",
+      "items": [
+          { "icon": "icons/pronouns/i.gif", "spell": "I", "pron": "[aɪ]" },
+          { "icon": "icons/pronouns/you.gif", "spell": "you", "pron": "[juː]" },
+          { "icon": "icons/pronouns/he.gif", "spell": "he", "pron": "[hiː]" },
+          { "icon": "icons/pronouns/she.gif", "spell": "she", "pron": "[ʃiː]" },
+          { "icon": "icons/pronouns/it.gif", "spell": "it", "pron": "[ɪt]" },
+          { "icon": "icons/pronouns/we.gif", "spell": "we", "pron": "[wiː]" },
+          { "icon": "icons/pronouns/they.gif", "spell": "they", "pron": "[ðeɪ]" }
+      ]
+    },
+    {
+      "id": "drag1",
+      "name": "Asocia palabras (Verbos más comunes)",
+      "type": "dragdrop",
+      "completed": false,
+      "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
+      "from": "vocab_verbs"
+    },
+    {
       "id": "practice_review1",
       "name": "Practicar vocabulario y repasar tiempos",
       "type": "quiz",
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png",
       "items": [],
       "resources": []
-    },
-    {
-      "id": "musica1",
-      "name": "Aprender Música #1 (Bacyardigans)",
-      "type": "video",
-      "thumbnail": "https://www.programme-tv.net/imgre/fit/~2~program~418a9c2f1bdfb69d.jpg/630x355/quality/80/les-melodilous.jpg",
-      "url": "https://www.youtube.com/embed/6hhjVUeKVYk?si=J-Vl-xeHW_ShkXJz"
     },
     {
       "id": "reading1",
