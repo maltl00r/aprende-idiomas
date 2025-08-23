@@ -1,0 +1,89 @@
+{
+  "title": "Francés A1 - A2",
+  "modules": [
+    {
+      "id": "drag2",
+      "name": "Asocia palabras (Verbos más comunes)",
+      "type": "dragdrop",
+      "completed": false,
+      "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
+      "from": "vocab_verbs"
+    },
+    {
+      "id": "vocab_verbs",
+      "name": "Common Verbs",
+      "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",
+      "type": "flashcards",
+      "items": [
+        { "icon": "icons/verbs/go.gif", "spell": "go", "pron": "[goʊ]" },
+        { "icon": "icons/verbs/jump.gif", "spell": "jump", "pron": "[dʒʌmp]" },
+        { "icon": "icons/verbs/read.gif", "spell": "read", "pron": "[riːd]" },
+        { "icon": "icons/verbs/write.gif", "spell": "write", "pron": "[raɪt]" },
+        { "icon": "icons/verbs/sleep.gif", "spell": "sleep", "pron": "[sliːp]" },
+        { "icon": "icons/verbs/eat.gif", "spell": "eat", "pron": "[iːt]" },
+        { "icon": "icons/verbs/drink.gif", "spell": "drink", "pron": "[drɪŋk]" },
+        { "icon": "icons/verbs/listen.gif", "spell": "listen", "pron": "[ˈlɪsən]" },
+        { "icon": "icons/verbs/speak.gif", "spell": "speak", "pron": "[spiːk]" },
+        { "icon": "icons/verbs/see.gif", "spell": "see", "pron": "[siː]" },
+        { "icon": "icons/verbs/travel.gif", "spell": "travel", "pron": "[ˈtrævəl]" },
+        { "icon": "icons/verbs/work.gif", "spell": "work", "pron": "[wɜrk]" },
+        { "icon": "icons/verbs/study.gif", "spell": "study", "pron": "[ˈstʌdi]" },
+        { "icon": "icons/verbs/learn.gif", "spell": "learn", "pron": "[lɜrn]" },
+        { "icon": "icons/verbs/answer.gif", "spell": "answer", "pron": "[ˈænsər]" },
+        { "icon": "icons/verbs/buy.gif", "spell": "buy", "pron": "[baɪ]" },
+        { "icon": "icons/verbs/pay.gif", "spell": "pay", "pron": "[peɪ]" },
+        { "icon": "icons/verbs/walk.gif", "spell": "walk", "pron": "[wɔːk]" },
+        { "icon": "icons/verbs/run.gif", "spell": "run", "pron": "[rʌn]" },
+        { "icon": "icons/verbs/help.gif", "spell": "help", "pron": "[hɛlp]" },
+        { "icon": "icons/verbs/paint.gif", "spell": "paint", "pron": "[peɪnt]" },
+        { "icon": "icons/verbs/start.gif", "spell": "start", "pron": "[stɑːrt]" },
+        { "icon": "icons/verbs/finish.gif", "spell": "finish", "pron": "[ˈfɪnɪʃ]" },
+        { "icon": "icons/verbs/think.gif", "spell": "think", "pron": "[θɪŋk]" },
+        { "icon": "icons/verbs/love.gif", "spell": "love", "pron": "[lʌv]" },
+        { "icon": "icons/verbs/believe.gif", "spell": "believe", "pron": "[bɪˈliːv]" },
+        { "icon": "icons/verbs/take.gif", "spell": "take", "pron": "[teɪk]" },
+        { "icon": "icons/verbs/repair.gif", "spell": "repair", "pron": "[rɪˈpɛər]" },
+        { "icon": "icons/verbs/try.gif", "spell": "try", "pron": "[traɪ]" },
+        { "icon": "icons/verbs/wait.gif", "spell": "wait", "pron": "[weɪt]" }
+      ]
+    },
+    {
+      "id": "practice_review1",
+      "name": "Practicar vocabulario y repasar tiempos",
+      "type": "quiz",
+      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png",
+      "items": [],
+      "resources": []
+    },
+    {
+      "id": "musica1",
+      "name": "Aprender Música #1 (Bacyardigans)",
+      "type": "video",
+      "thumbnail": "https://www.programme-tv.net/imgre/fit/~2~program~418a9c2f1bdfb69d.jpg/630x355/quality/80/les-melodilous.jpg",
+      "url": "https://www.youtube.com/embed/6hhjVUeKVYk?si=J-Vl-xeHW_ShkXJz"
+    },
+    {
+      "id": "reading1",
+      "name": "Leer capítulo 1 Le Petit Prince/Nicolas",
+      "type": "reading",
+      "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg",
+      "items": [
+        {
+          "file": "pdf/le petit prince-1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pimsleur1",
+      "name": "Lección Pimsleur 1",
+      "type": "audio",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Pimsleur_Logo.jpg/1200px-Pimsleur_Logo.jpg",
+      "items": [
+        {
+          "name": "Audio de lección #1",
+          "file": "audio/lesson01.mp3"
+        }
+      ]
+    }
+  ]
+}
