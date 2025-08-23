@@ -39,6 +39,7 @@
 
     const params = new URLSearchParams(window.location.search);
     const modId = params.get('id');
+    const currentLang = params.get('lang') || 'fr';
     const ddTitle = document.getElementById('ddTitle');
     const ddItems = document.getElementById('ddItems');
     const ddTargets = document.getElementById('ddTargets');
@@ -46,7 +47,6 @@
 
     async function loadCourse() {
       try {
-        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
         const response = await fetch(`course_${currentLang}.json`);
         if (!response.ok) {
             throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
@@ -58,7 +58,7 @@
       }
     }
 
-    function speakWord(text, lang = 'fr-FR') {
+    function speakWord(text, lang) {
       if (ttsCooldown) return;
       ttsCooldown = true;
 
@@ -97,7 +97,7 @@
       const draggedId = e.dataTransfer.getData('text/plain');
       if (!draggedId) return;
 
-      const draggedEl = document.querySelector(`.dd-item.dragging`) || document.querySelector(`.dd-item\[data-id='${draggedId}'\]`);
+      const draggedEl = document.querySelector(`.dd-item.dragging`) || document.querySelector(`.dd-item[data-id='${draggedId}']`);
       if (!draggedEl) return;
       draggedEl.classList.remove('dragging');
 
@@ -115,12 +115,12 @@
         const isCorrect = draggedEl.dataset.id === dropTarget.dataset.match;
         if (isCorrect) {
           dropTarget.classList.add('correct');
-          draggedEl.classList.add('matched'); // Add matched class
-          speakWord(draggedEl.textContent);
+          draggedEl.classList.add('matched');
+          speakWord(draggedEl.textContent, currentLang);
           feedbackDiv.textContent = module.correctSound || '¡Correcto!';
           feedbackDiv.className = 'feedback-correct';
         } else {
-          speakWord(module.incorrectSound || 'Inténtalo de nuevo.');
+          speakWord(module.incorrectSound || 'Inténtalo de nuevo.', currentLang);
           feedbackDiv.textContent = module.incorrectSound || 'Inténtalo de nuevo.';
           feedbackDiv.className = 'feedback-incorrect';
           setTimeout(() => {
@@ -148,20 +148,25 @@
       ddItems.innerHTML = '';
       ddTargets.innerHTML = '';
 
-      const mod = moduleData.from
+      // The 'dragdrop' module itself
+      const dragdropModule = moduleData;
+
+      // The module that provides the items (if it exists)
+      const itemsModule = moduleData.from
         ? courseData.modules.find(m => m.id === moduleData.from)
         : moduleData;
 
-      if (!mod || !mod.items || mod.items.length === 0) {
+      if (!itemsModule || !itemsModule.items || itemsModule.items.length === 0) {
         ddTitle.textContent = 'Módulo no encontrado o sin contenido';
         return;
       }
 
-      module = mod; // Assign the loaded module to the global module variable
+      // The global 'module' variable must be the dragdrop module
+      module = dragdropModule;
       ddTitle.textContent = module.title || ddTitle.textContent;
 
-      const items = shuffleArray([...mod.items]);
-      const targets = shuffleArray([...mod.items]);
+      const items = shuffleArray([...itemsModule.items]);
+      const targets = shuffleArray([...itemsModule.items]);
 
       items.forEach(item => {
         const dragItem = document.createElement('button');
@@ -170,7 +175,7 @@
         dragItem.dataset.id = item.spell;
         dragItem.textContent = item.spell;
         dragItem.addEventListener('dragstart', handleDragStart);
-        dragItem.addEventListener('click', () => speakWord(item.spell));
+        dragItem.addEventListener('click', () => speakWord(item.spell, currentLang));
         dragItem.addEventListener('drag', () => dragItem.classList.add('dragging'));
         dragItem.addEventListener('dragend', () => dragItem.classList.remove('dragging'));
         ddItems.appendChild(dragItem);
@@ -207,7 +212,7 @@
         Progress.markCompleted(module.id);
         resetBtn.style.display = 'inline-block';
         resetBtn.textContent = 'Módulo completado ✔️';
-        speakWord(module.completionSound || '¡Módulo completado!');
+        speakWord(module.completionSound || '¡Módulo completado!', currentLang);
         feedbackDiv.textContent = module.completionSound || '¡Módulo completado!';
         feedbackDiv.className = 'feedback-correct';
       } else {
