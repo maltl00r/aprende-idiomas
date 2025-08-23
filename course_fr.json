@@ -15,156 +15,36 @@
       "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",
       "type": "flashcards",
       "items": [
-        {
-          "icon": "icons/verbs/go.gif",
-          "spell": "aller",
-          "pron": "[ale]"
-        },
-        {
-          "icon": "icons/verbs/jump.gif",
-          "spell": "sauter",
-          "pron": "[sote]"
-        },
-        {
-          "icon": "icons/verbs/read.gif",
-          "spell": "lire",
-          "pron": "[liʁ]"
-        },
-        {
-          "icon": "icons/verbs/write.gif",
-          "spell": "écrire",
-          "pron": "[ekʁiʁ]"
-        },
-        {
-          "icon": "icons/verbs/sleep.gif",
-          "spell": "dormir",
-          "pron": "[dɔʁmiʁ]"
-        },
-        {
-          "icon": "icons/verbs/eat.gif",
-          "spell": "manger",
-          "pron": "[mɑ̃ʒe]"
-        },
-        {
-          "icon": "icons/verbs/drink.gif",
-          "spell": "boire",
-          "pron": "[bwaʁ]"
-        },
-        {
-          "icon": "icons/verbs/listen.gif",
-          "spell": "écouter",
-          "pron": "[ekute]"
-        },
-        {
-          "icon": "icons/verbs/speak.gif",
-          "spell": "parler",
-          "pron": "[paʁle]"
-        },
-        {
-          "icon": "icons/verbs/see.gif",
-          "spell": "voir",
-          "pron": "[vwaʁ]"
-        },
-        {
-          "icon": "icons/verbs/travel.gif",
-          "spell": "voyager",
-          "pron": "[vwajaʒe]"
-        },
-        {
-          "icon": "icons/verbs/work.gif",
-          "spell": "travailler",
-          "pron": "[tʁavaje]"
-        },
-        {
-          "icon": "icons/verbs/study.gif",
-          "spell": "étudier",
-          "pron": "[etydje]"
-        },
-        {
-          "icon": "icons/verbs/learn.gif",
-          "spell": "apprendre",
-          "pron": "[apʁɑ̃dʁ]"
-        },
-        {
-          "icon": "icons/verbs/answer.gif",
-          "spell": "répondre",
-          "pron": "[ʁepɔ̃dʁ]"
-        },
-        {
-          "icon": "icons/verbs/buy.gif",
-          "spell": "acheter",
-          "pron": "[aʃte]"
-        },
-        {
-          "icon": "icons/verbs/pay.gif",
-          "spell": "payer",
-          "pron": "[peje]"
-        },
-        {
-          "icon": "icons/verbs/walk.gif",
-          "spell": "marcher",
-          "pron": "[maʁʃe]"
-        },
-        {
-          "icon": "icons/verbs/run.gif",
-          "spell": "courir",
-          "pron": "[kuʁiʁ]"
-        },
-        {
-          "icon": "icons/verbs/help.gif",
-          "spell": "aider",
-          "pron": "[ede]"
-        },
-        {
-          "icon": "icons/verbs/paint.gif",
-          "spell": "peindre",
-          "pron": "[pɛ̃dʁ]"
-        },
-        {
-          "icon": "icons/verbs/start.gif",
-          "spell": "commencer",
-          "pron": "[kɔmɑ̃se]"
-        },
-        {
-          "icon": "icons/verbs/finish.gif",
-          "spell": "finir",
-          "pron": "[finiʁ]"
-        },
-        {
-          "icon": "icons/verbs/think.gif",
-          "spell": "penser",
-          "pron": "[pɑ̃se]"
-        },
-        {
-          "icon": "icons/verbs/love.gif",
-          "spell": "aimer",
-          "pron": "[eme]"
-        },
-        {
-          "icon": "icons/verbs/believe.gif",
-          "spell": "croire",
-          "pron": "[kʁwɑʁ]"
-        },
-        {
-          "icon": "icons/verbs/take.gif",
-          "spell": "prendre",
-          "pron": "[pʁɑ̃dʁ]"
-        },
-        {
-          "icon": "icons/verbs/repair.gif",
-          "spell": "réparer",
-          "pron": "[ʁepaʁe]"
-        },
-        {
-          "icon": "icons/verbs/try.gif",
-          "spell": "essayer",
-          "pron": "[esɛje]"
-        },
-        {
-          "icon": "icons/verbs/wait.gif",
-          "spell": "attendre",
-          "pron": "[atɑ̃dʁ]"
-        }
+        { "icon": "icons/verbs/go.gif", "spell": "aller", "pron": "[ale]" },
+        { "icon": "icons/verbs/jump.gif", "spell": "sauter", "pron": "[sote]" },
+        { "icon": "icons/verbs/read.gif", "spell": "lire", "pron": "[liʁ]" },
+        { "icon": "icons/verbs/write.gif", "spell": "écrire", "pron": "[ekʁiʁ]" },
+        { "icon": "icons/verbs/sleep.gif", "spell": "dormir", "pron": "[dɔʁmiʁ]" },
+        { "icon": "icons/verbs/eat.gif", "spell": "manger", "pron": "[mɑ̃ʒe]" },
+        { "icon": "icons/verbs/drink.gif", "spell": "boire", "pron": "[bwaʁ]" },
+        { "icon": "icons/verbs/listen.gif", "spell": "écouter", "pron": "[ekute]" },
+        { "icon": "icons/verbs/speak.gif", "spell": "parler", "pron": "[paʁle]" },
+        { "icon": "icons/verbs/see.gif", "spell": "voir", "pron": "[vwaʁ]" },
+        { "icon": "icons/verbs/travel.gif", "spell": "voyager", "pron": "[vwajaʒe]" },
+        { "icon": "icons/verbs/work.gif", "spell": "travailler", "pron": "[tʁavaje]" },
+        { "icon": "icons/verbs/study.gif", "spell": "étudier", "pron": "[etydje]" },
+        { "icon": "icons/verbs/learn.gif", "spell": "apprendre", "pron": "[apʁɑ̃dʁ]" },
+        { "icon": "icons/verbs/answer.gif", "spell": "répondre", "pron": "[ʁepɔ̃dʁ]" },
+        { "icon": "icons/verbs/buy.gif", "spell": "acheter", "pron": "[aʃte]" },
+        { "icon": "icons/verbs/pay.gif", "spell": "payer", "pron": "[peje]" },
+        { "icon": "icons/verbs/walk.gif", "spell": "marcher", "pron": "[maʁʃe]" },
+        { "icon": "icons/verbs/run.gif", "spell": "courir", "pron": "[kuʁiʁ]" },
+        { "icon": "icons/verbs/help.gif", "spell": "aider", "pron": "[ede]" },
+        { "icon": "icons/verbs/paint.gif", "spell": "peindre", "pron": "[pɛ̃dʁ]" },
+        { "icon": "icons/verbs/start.gif", "spell": "commencer", "pron": "[kɔmɑ̃se]" },
+        { "icon": "icons/verbs/finish.gif", "spell": "finir", "pron": "[finiʁ]" },
+        { "icon": "icons/verbs/think.gif", "spell": "penser", "pron": "[pɑ̃se]" },
+        { "icon": "icons/verbs/love.gif", "spell": "aimer", "pron": "[eme]" },
+        { "icon": "icons/verbs/believe.gif", "spell": "croire", "pron": "[kʁwɑʁ]" },
+        { "icon": "icons/verbs/take.gif", "spell": "prendre", "pron": "[pʁɑ̃dʁ]" },
+        { "icon": "icons/verbs/repair.gif", "spell": "réparer", "pron": "[ʁepaʁe]" },
+        { "icon": "icons/verbs/try.gif", "spell": "essayer", "pron": "[esɛje]" },
+        { "icon": "icons/verbs/wait.gif", "spell": "attendre", "pron": "[atɑ̃dʁ]" }
       ]
     },
     {
