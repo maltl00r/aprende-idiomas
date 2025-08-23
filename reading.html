@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lectura - Francés A1-A2</title>
+  <title id="pageTitle">Lectura</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -32,9 +32,10 @@
   <script>
     async function loadCourse() {
       try {
-        const response = await fetch('course.json');
+        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+        const response = await fetch(`course_${currentLang}.json`);
         if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo course.json');
+            throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
         }
         const course = await response.json();
         return course;
@@ -48,18 +49,30 @@
     const modId = params.get('id');
 
     const title = document.getElementById('readingTitle');
+    const pageTitle = document.getElementById('pageTitle');
     const container = document.getElementById('readingContainer');
     const toggleBtn = document.getElementById('toggleModuleBtn');
+    let module;
 
-    function renderModule(module) {
-      if(!module){
-        title.textContent = 'Módulo no encontrado';
+    function renderModule(readingModule, course) {
+      if (!readingModule || readingModule.type !== 'reading') {
+        title.textContent = 'Módulo no encontrado o no es un módulo de lectura';
         toggleBtn.style.display = 'none';
         return;
       }
 
+      module = readingModule;
       title.textContent = module.name;
-      container.innerHTML = `<iframe src="${module.file}" width="100%" height="600px"></iframe>`;
+      pageTitle.textContent = `${module.name} - ${course.title}`;
+
+      if ((module.items || []).length === 0 || !module.items[0].file) {
+        container.innerHTML = '<p>No se encontró ningún archivo de lectura para este módulo.</p>';
+        toggleBtn.style.display = 'none';
+        return;
+      }
+      
+      const filePath = module.items[0].file;
+      container.innerHTML = `<iframe src="${filePath}" width="100%" height="600px"></iframe>`;
 
       const state = Progress.getModuleState(module.id);
       if(state?.completed){
@@ -69,25 +82,33 @@
       }
     }
 
-    loadCourse().then(course => {
-      if (course) {
-        const module = course.modules.find(m => m.id === modId && m.type === 'reading');
-        renderModule(module);
-
-        if (module) {
-          toggleBtn.addEventListener('click', () => {
-            const state = Progress.getModuleState(module.id);
-            if (state?.completed) {
-              Progress.resetModule(module.id);
-              alert('¡Módulo desmarcado!');
-            } else {
-              Progress.markCompleted(module.id);
-              alert('¡Módulo completado!');
-            }
-            renderModule(module);
-          });
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!modId) {
+        title.textContent = 'Error: ID de módulo no especificado.';
+        toggleBtn.style.display = 'none';
+        return;
       }
+
+      loadCourse().then(course => {
+        if (course) {
+          const currentModule = course.modules.find(mod => mod.id === modId);
+          renderModule(currentModule, course);
+
+          if (currentModule) {
+            toggleBtn.addEventListener('click', () => {
+              const state = Progress.getModuleState(currentModule.id);
+              if (state?.completed) {
+                Progress.resetModule(currentModule.id);
+                alert('¡Módulo desmarcado!');
+              } else {
+                Progress.markCompleted(currentModule.id);
+                alert('¡Módulo completado!');
+              }
+              renderModule(currentModule, course);
+            });
+          }
+        }
+      });
     });
   </script>
 </body>

@@ -32,9 +32,10 @@
   <script>
     async function loadCourse() {
       try {
-        const response = await fetch('course.json');
+        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+        const response = await fetch(`course_${currentLang}.json`);
         if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo course.json');
+            throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
         }
         const course = await response.json();
         return course;
@@ -46,12 +47,11 @@
 
     const params = new URLSearchParams(window.location.search);
     const modId = params.get('id');
-
     const title = document.getElementById('moduleTitle');
     const list = document.getElementById('audioList');
     const toggleBtn = document.getElementById('toggleModuleBtn');
 
-    function renderModule(module) {
+    function renderModule(module, course) {
       if (!module) {
         title.textContent = 'Módulo no encontrado';
         toggleBtn.style.display = 'none';
@@ -60,6 +60,7 @@
 
       title.textContent = module.name;
       list.innerHTML = '';
+      document.title = `${module.name} - ${course.title}`;
 
       (module.items || []).forEach(item => {
         const wrapper = document.createElement('div');
@@ -79,25 +80,32 @@
       }
     }
 
-    loadCourse().then(course => {
-      if (course) {
-        const module = course.modules.find(m => m.id === modId && m.type === 'audio');
-        renderModule(module);
-
-        if (module) {
-          toggleBtn.addEventListener('click', () => {
-            const state = Progress.getModuleState(module.id);
-            if (state?.completed) {
-              Progress.resetModule(module.id);
-              alert('¡Módulo desmarcado!');
-            } else {
-              Progress.markCompleted(module.id);
-              alert('¡Módulo completado!');
-            }
-            renderModule(module);
-          });
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!modId) {
+        title.textContent = 'Error: ID de módulo no especificado.';
+        return;
       }
+
+      loadCourse().then(course => {
+        if (course) {
+          const module = course.modules.find(m => m.id === modId && m.type === 'audio');
+          renderModule(module, course);
+
+          if (module) {
+            toggleBtn.addEventListener('click', () => {
+              const state = Progress.getModuleState(module.id);
+              if (state?.completed) {
+                Progress.resetModule(module.id);
+                alert('¡Módulo desmarcado!');
+              } else {
+                Progress.markCompleted(module.id);
+                alert('¡Módulo completado!');
+              }
+              renderModule(module, course);
+            });
+          }
+        }
+      });
     });
   </script>
 </body>

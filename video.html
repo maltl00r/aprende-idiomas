@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Videos - Francés A1-A2</title>
+  <title id="pageTitle">Videos - Francés A1-A2</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     .video-wrapper {
@@ -12,6 +12,7 @@
       padding-bottom: 56.25%; /* 16:9 ratio */
       height: 0;
       overflow: hidden;
+      background-color: #000;
     }
     .video-wrapper iframe {
       position: absolute;
@@ -19,6 +20,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border: none;
     }
     .actions {
       margin-top: 1rem;
@@ -52,9 +54,10 @@
   <script>
     async function loadCourse() {
       try {
-        const response = await fetch('course.json');
+        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+        const response = await fetch(`course_${currentLang}.json`);
         if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo course.json');
+            throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
         }
         const course = await response.json();
         return course;
@@ -63,22 +66,26 @@
         return null;
       }
     }
+
     const params = new URLSearchParams(window.location.search);
     const modId = params.get('id');
 
     const title = document.getElementById('moduleTitle');
+    const pageTitle = document.getElementById('pageTitle');
     const container = document.getElementById('videoContainer');
     const toggleBtn = document.getElementById('toggleModuleBtn');
+    let module;
 
-    function renderModule(module) {
-      if (!module) {
-        title.textContent = 'Módulo no encontrado';
+    function renderModule(videoModule, course) {
+      if (!videoModule || videoModule.type !== 'video') {
+        title.textContent = 'Módulo no encontrado o no es un módulo de video';
         toggleBtn.style.display = 'none';
         return;
       }
 
+      module = videoModule;
       title.textContent = module.name;
-      container.innerHTML = '';
+      pageTitle.textContent = `${module.name} - ${course.title}`;
 
       if (module.url) {
         const iframe = document.createElement('iframe');
@@ -86,6 +93,9 @@
         iframe.frameBorder = '0';
         iframe.allowFullscreen = true;
         container.appendChild(iframe);
+      } else {
+        container.innerHTML = '<p style="color:white; text-align:center; padding:2rem;">No se encontró la URL del video.</p>';
+        toggleBtn.style.display = 'none';
       }
 
       const state = Progress.getModuleState(module.id);
@@ -96,25 +106,33 @@
       }
     }
 
-    loadCourse().then(course => {
-      if (course) {
-        const module = course.modules.find(m => m.id === modId && m.type === 'video');
-        renderModule(module);
-
-        if (module) {
-          toggleBtn.addEventListener('click', () => {
-            const state = Progress.getModuleState(module.id);
-            if (state?.completed) {
-              Progress.resetModule(module.id);
-              alert('¡Módulo desmarcado!');
-            } else {
-              Progress.markCompleted(module.id);
-              alert('¡Módulo completado!');
-            }
-            renderModule(module);
-          });
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!modId) {
+        title.textContent = 'Error: ID de módulo no especificado.';
+        toggleBtn.style.display = 'none';
+        return;
       }
+
+      loadCourse().then(course => {
+        if (course) {
+          const currentModule = course.modules.find(mod => mod.id === modId);
+          renderModule(currentModule, course);
+
+          if (currentModule) {
+            toggleBtn.addEventListener('click', () => {
+              const state = Progress.getModuleState(currentModule.id);
+              if (state?.completed) {
+                Progress.resetModule(currentModule.id);
+                alert('¡Módulo desmarcado!');
+              } else {
+                Progress.markCompleted(currentModule.id);
+                alert('¡Módulo completado!');
+              }
+              renderModule(currentModule, course);
+            });
+          }
+        }
+      });
     });
   </script>
 </body>

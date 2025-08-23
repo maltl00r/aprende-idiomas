@@ -35,9 +35,10 @@
   <script>
     async function loadCourse() {
       try {
-        const response = await fetch('course.json');
+        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+        const response = await fetch(`course_${currentLang}.json`);
         if (!response.ok) {
-            throw new Error('No se pudo cargar el archivo course.json');
+            throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
         }
         const course = await response.json();
         return course;
@@ -46,6 +47,7 @@
         return null;
       }
     }
+
     const params = new URLSearchParams(window.location.search);
     const modId = params.get('id');
 
@@ -54,68 +56,72 @@
     const submitBtn = document.getElementById('submitBtn');
     const resetBtn = document.getElementById('resetBtn');
     const result = document.getElementById('quizResult');
+    const feedbackContainer = document.getElementById('feedbackContainer');
+    let module;
 
-    function renderModule(module) {
-      if(!module){
-        title.textContent = 'Módulo no encontrado';
+    function renderModule(quizModule, course) {
+      if (!quizModule || quizModule.type !== 'quiz') {
+        title.textContent = 'Módulo no encontrado o no es un examen';
         submitBtn.style.display = 'none';
         resetBtn.style.display = 'none';
         return;
       }
+
+      module = quizModule;
       title.textContent = module.name;
+      document.title = `${module.name} - ${course.title}`;
       container.innerHTML = '';
-      (module.questions || []).forEach((q, idx) => {
-          const fieldset = document.createElement('fieldset');
-          const legend = document.createElement('legend');
-          legend.textContent = q.question;
-          fieldset.appendChild(legend);
-          (q.options || []).forEach((opt, optIdx) => {
-              const wrapper = document.createElement('div');
-              wrapper.className = 'option-item';
-              wrapper.innerHTML = `
-                  <input type="radio" name="q${idx}" id="q${idx}o${optIdx}" value="${optIdx}">
-                  <label for="q${idx}o${optIdx}">${opt}</label>
-              `;
-              fieldset.appendChild(wrapper);
-          });
-          container.appendChild(fieldset);
-      });
-      const state = Progress.getModuleState(module.id);
-      if(state?.completed){
-        submitBtn.disabled = true;
-        result.textContent = 'Módulo completado ✔️';
+      feedbackContainer.innerHTML = '';
+
+      if ((module.questions || []).length === 0) {
+        container.innerHTML = '<p>Este examen aún no tiene preguntas.</p>';
+        submitBtn.style.display = 'none';
+        return;
       }
+
+      (module.questions || []).forEach((q, idx) => {
+        const fieldset = document.createElement('fieldset');
+        fieldset.className = 'quiz-question';
+        const legend = document.createElement('legend');
+        legend.textContent = `${idx + 1}. ${q.question}`;
+        fieldset.appendChild(legend);
+
+        (q.options || []).forEach((opt, optIdx) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'option-item';
+          wrapper.innerHTML = `
+            <input type="radio" id="q${idx}opt${optIdx}" name="q${idx}" value="${optIdx}">
+            <label for="q${idx}opt${optIdx}">${opt}</label>
+          `;
+          fieldset.appendChild(wrapper);
+        });
+        container.appendChild(fieldset);
+      });
+      submitBtn.style.display = 'block';
     }
 
-    submitBtn.addEventListener('click', () => {
-      if (!module) return;
-      const state = Progress.getModuleState(module.id);
-      if (state?.completed) {
-          alert('Ya enviaste este examen.');
-          return;
-      }
-
-      const feedbackContainer = document.getElementById('feedbackContainer');
-      feedbackContainer.innerHTML = '';
+    function checkQuiz() {
       let correct = 0;
+      feedbackContainer.innerHTML = '';
+      const questions = module.questions || [];
 
-      (module.questions || []).forEach((q, idx) => {
-          const chosen = document.querySelector(`input[name="q${idx}"]:checked`);
-          const isCorrect = chosen && Number(chosen.value) === q.answer;
-          if (isCorrect) {
-              correct++;
-          } else {
-              const feedbackEl = document.createElement('p');
-              feedbackEl.className = 'quiz-feedback';
-              feedbackEl.innerHTML = `❌ La respuesta correcta para "${q.question}" era: <strong>${q.options[q.answer]}</strong>`;
-              feedbackContainer.appendChild(feedbackEl);
-          }
+      questions.forEach((q, idx) => {
+        const chosen = document.querySelector(`input[name="q${idx}"]:checked`);
+        const isCorrect = chosen && Number(chosen.value) === q.answer;
+        if (isCorrect) {
+            correct++;
+        } else {
+            const feedbackEl = document.createElement('p');
+            feedbackEl.className = 'quiz-feedback incorrect';
+            feedbackEl.innerHTML = `❌ La respuesta correcta para la pregunta ${idx + 1} era: <strong>${q.options[q.answer]}</strong>`;
+            feedbackContainer.appendChild(feedbackEl);
+        }
       });
 
-      const score = Math.round((correct / (module.questions?.length || 1)) * 100);
+      const score = Math.round((correct / (questions.length || 1)) * 100);
       const passed = score >= (module.pass ?? 60);
 
-      result.textContent = `Puntuación: ${score}% (${correct}/${module.questions.length})`;
+      result.textContent = `Puntuación: ${score}% (${correct}/${questions.length})`;
 
       Progress.setScore(module.id, score);
       if (passed) {
@@ -124,22 +130,30 @@
       } else {
           result.textContent += ' — No aprobado. Inténtalo de nuevo.';
       }
-
       submitBtn.disabled = true;
-    });
+    }
+
+    submitBtn.addEventListener('click', checkQuiz);
 
     resetBtn.addEventListener('click', () => {
       if(!module) return;
       Progress.resetModule(module.id);
-      alert('Progreso reiniciado. Puedes volver a intentar el examen.');
       location.reload();
     });
 
-    loadCourse().then(course => {
-      if (course) {
-        const module = course.modules.find(m => m.id === modId && m.type === 'quiz');
-        renderModule(module);
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!modId) {
+        title.textContent = 'Error: ID de módulo no especificado.';
+        submitBtn.style.display = 'none';
+        resetBtn.style.display = 'none';
+        return;
       }
+      loadCourse().then(course => {
+        if (course) {
+          const currentModule = course.modules.find(mod => mod.id === modId);
+          renderModule(currentModule, course);
+        }
+      });
     });
   </script>
 </body>
