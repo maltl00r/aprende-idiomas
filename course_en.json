@@ -104,6 +104,38 @@
       ]
     },
     {
+      "id": "reading1",
+      "name": "Infografía de pronombres personales",
+      "type": "reading",
+      "thumbnail": "https://i.imgur.com/SvUjKxS.png",
+      "items": [
+        {
+          "file": "pdf/en_subject-pronouns.pdf"
+        }
+      ]
+    },
+    {
+      "id": "to-be1",
+      "name": "Verbo To Be",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/-I4HNsY9fkQ/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/-I4HNsY9fkQ"
+    },
+    {
+      "id": "to-be2",
+      "name": "Verbo To Be (Forma negativa)",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/Xm7VnH8YinQ/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/Xm7VnH8YinQ"
+    },
+    {
+      "id": "to-be3",
+      "name": "Verbo To Be (Forma interrogativa)",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/tAb_SRdXYBY/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/tAb_SRdXYBY"
+    },
+    {
       "id": "drag1",
       "name": "Asocia palabras (Verbos más comunes)",
       "type": "dragdrop",
@@ -118,17 +150,6 @@
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png",
       "items": [],
       "resources": []
-    },
-    {
-      "id": "reading1",
-      "name": "Leer capítulo 1 Le Petit Prince/Nicolas",
-      "type": "reading",
-      "thumbnail": "https://s.rfi.fr/media/display/e1e4c852-0d48-11ea-b3fe-005056a9aa4d/w:1024/p:16x9/petit_prince_folio_gallimar.jpg",
-      "items": [
-        {
-          "file": "pdf/le petit prince-1.pdf"
-        }
-      ]
     },
     {
       "id": "pimsleur1",
