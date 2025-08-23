@@ -170,11 +170,11 @@
         { "question": "¿Cuál es el equivalente en inglés de 'aprender'?", "options": ["study", "learn", "work", "paint"], "answer": 1 },
         { "question": "Completa: He ___ a teacher.", "options": ["am", "is", "are"], "answer": 1 }
       ],
-      "pass": 60
+      "pass": 65
     },
     {
-      "id": "numbers_basic",
-      "name": "Números en inglés",
+      "id": "vocab_numbers",
+      "name": "Números (0-99)",
       "thumbnail": "https://i.imgur.com/8NnQM4h.png",
       "type": "flashcards",
       "items": [
@@ -211,8 +211,8 @@
       ]
     },
     {
-      "id": "alphabet_basic",
-      "name": "Abecedario en inglés",
+      "id": "vocab_alphabet",
+      "name": "Abecedario",
       "thumbnail": "https://i.ytimg.com/vi/um3YrKRfsr0/maxresdefault.jpg",
       "type": "flashcards",
       "items": [
@@ -247,7 +247,7 @@
     {
       "id": "vocab_animals",
       "name": "Animales",
-      "thumbnail": "https://i.imgur.com/3Nqz0Xg.png",
+      "thumbnail": "https://static.vecteezy.com/system/resources/thumbnails/012/084/533/small_2x/cartoon-wild-animals-on-white-background-vector.jpg",
       "type": "flashcards",
       "items": [
         { "icon": "icons/vocabulary/cat.gif", "spell": "cat", "pron": "[kæt]" },
@@ -272,6 +272,37 @@
         { "icon": "icons/vocabulary/gorilla.gif", "spell": "gorilla", "pron": "[gəˈrɪlə]" },
         { "icon": "icons/vocabulary/monkey.gif", "spell": "monkey", "pron": "[ˈmʌŋki]" }
       ]
+    },
+    {
+      "id": "wh-questions1  ",
+      "name": "Wh-Questions",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/kxcmChytgbo/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/kxcmChytgbo"
+    },
+    {
+      "id": "drag2",
+      "name": "Asocia palabras (Números (0-99)",
+      "type": "dragdrop",
+      "completed": false,
+      "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
+      "from": "vocab_numbers"
+    },
+    {
+      "id": "drag3",
+      "name": "Asocia palabras (Abecedario)",
+      "type": "dragdrop",
+      "completed": false,
+      "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
+      "from": "vocab_alphabet"
+    },
+    {
+      "id": "drag4",
+      "name": "Asocia palabras (Animales)",
+      "type": "dragdrop",
+      "completed": false,
+      "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
+      "from": "vocab_animals"
     },
     {
       "id": "pimsleur1",
