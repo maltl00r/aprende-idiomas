@@ -245,6 +245,35 @@
       ]
     },
     {
+      "id": "vocab_animals",
+      "name": "Animales",
+      "thumbnail": "https://i.imgur.com/3Nqz0Xg.png",
+      "type": "flashcards",
+      "items": [
+        { "icon": "icons/vocabulary/cat.gif", "spell": "cat", "pron": "[kæt]" },
+        { "icon": "icons/vocabulary/dog.gif", "spell": "dog", "pron": "[dɔg]" },
+        { "icon": "icons/vocabulary/bird.gif", "spell": "bird", "pron": "[bɜrd]" },
+        { "icon": "icons/vocabulary/fish.gif", "spell": "fish", "pron": "[fɪʃ]" },
+        { "icon": "icons/vocabulary/horse.gif", "spell": "horse", "pron": "[hɔrs]" },
+        { "icon": "icons/vocabulary/cow.gif", "spell": "cow", "pron": "[kaʊ]" },
+        { "icon": "icons/vocabulary/sheep.gif", "spell": "sheep", "pron": "[ʃiːp]" },
+        { "icon": "icons/vocabulary/pig.gif", "spell": "pig", "pron": "[pɪg]" },
+        { "icon": "icons/vocabulary/rabbit.gif", "spell": "rabbit", "pron": "[ˈræbɪt]" },
+        { "icon": "icons/vocabulary/lion.gif", "spell": "lion", "pron": "[ˈlaɪən]" },
+        { "icon": "icons/vocabulary/tiger.gif", "spell": "tiger", "pron": "[ˈtaɪgɚ]" },
+        { "icon": "icons/vocabulary/elephant.gif", "spell": "elephant", "pron": "[ˈɛlɪfənt]" },
+        { "icon": "icons/vocabulary/snake.gif", "spell": "snake", "pron": "[sneɪk]" },
+        { "icon": "icons/vocabulary/duck.gif", "spell": "duck", "pron": "[dʌk]" },
+        { "icon": "icons/vocabulary/camel.gif", "spell": "camel", "pron": "[ˈkæməl]" },
+        { "icon": "icons/vocabulary/armadillo.gif", "spell": "armadillo", "pron": "[ˌɑrməˈdɪloʊ]" },
+        { "icon": "icons/vocabulary/snail.gif", "spell": "snail", "pron": "[sneɪl]" },
+        { "icon": "icons/vocabulary/chicken.gif", "spell": "chicken", "pron": "[ˈʧɪkən]" },
+        { "icon": "icons/vocabulary/octopus.gif", "spell": "octopus", "pron": "[ˈɑktəpəs]" },
+        { "icon": "icons/vocabulary/gorilla.gif", "spell": "gorilla", "pron": "[gəˈrɪlə]" },
+        { "icon": "icons/vocabulary/monkey.gif", "spell": "monkey", "pron": "[ˈmʌŋki]" }
+      ]
+    },
+    {
       "id": "pimsleur1",
       "name": "Lección Pimsleur 1",
       "type": "audio",
