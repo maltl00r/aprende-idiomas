@@ -19,6 +19,7 @@
       <h2 id="ddTitle">Asocia la palabra con el emoji</h2>
       <div class="dd-container" id="ddItems"></div>
       <div class="dd-container" id="ddTargets"></div>
+      <div id="feedback" aria-live="polite" style="text-align: center; margin-top: 10px;"></div>
       <div class="actions">
         <button id="resetBtn" class="btn-complete" style="display:none;">Marcar como no completado</button>
       </div>
@@ -34,6 +35,7 @@
     let module, course;
     let words = [];
     let ttsCooldown = false;
+    const feedbackDiv = document.getElementById('feedback');
 
     const params = new URLSearchParams(window.location.search);
     const modId = params.get('id');
@@ -44,8 +46,11 @@
 
     async function loadCourse() {
       try {
-        const response = await fetch('course.json');
-        if (!response.ok) throw new Error('No se pudo cargar el archivo course.json');
+        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+        const response = await fetch(`course_${currentLang}.json`);
+        if (!response.ok) {
+            throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
+        }
         return await response.json();
       } catch (error) {
         console.error("Error al cargar el curso:", error);
@@ -61,15 +66,30 @@
       utter.lang = lang;
       speechSynthesis.speak(utter);
 
-      utter.onend = () => { ttsCooldown = false; };
+      utter.onend = () => {
+        ttsCooldown = false;
+      };
     }
 
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        ([array[(i)], array[(j)]] = [array[(j)], array[(i)]]);
       }
       return array;
+    }
+
+    function handleDragStart(e) {
+      if (e.target.classList.contains('matched')) {
+        e.preventDefault();
+        return;
+      }
+      e.dataTransfer.setData('text/plain', this.dataset.id);
+      setTimeout(() => (e.target.style.transform = 'translateY(5px) rotate(2deg) scale(0.95)'), 0);
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
     }
 
     function handleDrop(e) {
@@ -77,100 +97,97 @@
       const draggedId = e.dataTransfer.getData('text/plain');
       if (!draggedId) return;
 
-      const draggedEl = document.querySelector(`.dd-item[data-id='${draggedId}']`);
+      const draggedEl = document.querySelector(`.dd-item.dragging`) || document.querySelector(`.dd-item\[data-id='${draggedId}'\]`);
+      if (!draggedEl) return;
+      draggedEl.classList.remove('dragging');
+
       const previousTarget = draggedEl.parentElement;
-      if (previousTarget.classList.contains('dd-target')) {
-        previousTarget.classList.remove('correct', 'incorrect');
+      if (previousTarget && previousTarget.classList.contains('dd-target')) {
+        previousTarget.classList.remove('has-item', 'correct');
+        previousTarget.innerHTML = `<img src="${previousTarget.dataset.icon}" alt="Icono para ${previousTarget.dataset.match}">`;
       }
 
-      if (e.currentTarget.querySelector('.dd-item')) return;
-
-      e.currentTarget.appendChild(draggedEl);
-      const draggedWord = words.find(w => w.id === draggedId);
-
-      if (draggedId === e.currentTarget.dataset.match) {
-        e.currentTarget.classList.add('correct');
-        e.currentTarget.classList.remove('incorrect');
-        speakWord(draggedWord.fr);
-      } else {
-        e.currentTarget.classList.add('incorrect');
-        e.currentTarget.classList.remove('correct');
-        speakWord("L'objet n'a pas été associé correctement, essayez encore.");
-      }
-
-      // Click para devolver la palabra si es incorrecta
-      draggedEl.addEventListener('click', () => {
-        if (e.currentTarget.classList.contains('incorrect')) {
-          ddItems.appendChild(draggedEl);
-          e.currentTarget.classList.remove('incorrect');
+      const dropTarget = e.target.closest('.dd-target');
+      if (dropTarget && !dropTarget.classList.contains('has-item')) {
+        dropTarget.appendChild(draggedEl);
+        draggedEl.style.transform = 'none';
+        dropTarget.classList.add('has-item');
+        const isCorrect = draggedEl.dataset.id === dropTarget.dataset.match;
+        if (isCorrect) {
+          dropTarget.classList.add('correct');
+          draggedEl.classList.add('matched'); // Add matched class
+          speakWord(draggedEl.textContent);
+          feedbackDiv.textContent = module.correctSound || '¡Correcto!';
+          feedbackDiv.className = 'feedback-correct';
+        } else {
+          speakWord(module.incorrectSound || 'Inténtalo de nuevo.');
+          feedbackDiv.textContent = module.incorrectSound || 'Inténtalo de nuevo.';
+          feedbackDiv.className = 'feedback-incorrect';
+          setTimeout(() => {
+            feedbackDiv.textContent = '';
+            feedbackDiv.className = '';
+            ddItems.appendChild(draggedEl);
+            dropTarget.classList.remove('has-item');
+            dropTarget.innerHTML = `<img src="${dropTarget.dataset.icon}" alt="Icono para ${dropTarget.dataset.match}">`;
+            draggedEl.style.transform = 'none';
+          }, 1000);
         }
-      }, { once: true });
-
-      checkModuleCompletion();
+        setTimeout(checkModuleCompletion, 500);
+      } else if (dropTarget === null && previousTarget && previousTarget.classList.contains('dd-target')) {
+          previousTarget.classList.remove('has-item', 'correct');
+          previousTarget.innerHTML = `<img src="${previousTarget.dataset.icon}" alt="Icono para ${previousTarget.dataset.match}">`;
+          ddItems.appendChild(draggedEl);
+          draggedEl.style.transform = 'none';
+      } else if (dropTarget === null) {
+        ddItems.appendChild(draggedEl);
+        draggedEl.style.transform = 'none';
+      }
     }
 
-    function renderModule(mod) {
-      if (!mod) {
-        ddTitle.textContent = 'Módulo no encontrado';
-        return;
-      }
-
-      module = mod;
-
-      // Tomar items de módulo fuente si existe "from"
-      if (mod.from) {
-        const sourceMod = course.modules.find(m => m.id === mod.from);
-        if (sourceMod && sourceMod.items) {
-          words = sourceMod.items.map((i, idx) => ({
-            id: `w${idx}`,
-            fr: i.fr,
-            icon: i.icon,
-            pron: i.pron
-          }));
-        }
-      } else {
-        words = module.words || [];
-      }
-
-      const shuffledWords = shuffleArray(words.slice());
-      const shuffledTargets = shuffleArray(words.slice());
-
-      ddTitle.textContent = module.name;
+    function renderModule(moduleData, courseData) {
       ddItems.innerHTML = '';
       ddTargets.innerHTML = '';
 
-      shuffledWords.forEach(word => {
-        const item = document.createElement('div');
-        item.className = 'dd-item';
-        item.draggable = true;
-        item.textContent = word.fr;
-        item.dataset.id = word.id;
+      const mod = moduleData.from
+        ? courseData.modules.find(m => m.id === moduleData.from)
+        : moduleData;
 
-        item.addEventListener('click', () => {
-          speakWord(word.fr);
-        });
+      if (!mod || !mod.items || mod.items.length === 0) {
+        ddTitle.textContent = 'Módulo no encontrado o sin contenido';
+        return;
+      }
 
-        item.addEventListener('dragstart', e => {
-          e.dataTransfer.setData('text/plain', word.id);
-        });
+      module = mod; // Assign the loaded module to the global module variable
+      ddTitle.textContent = module.title || ddTitle.textContent;
 
-        ddItems.appendChild(item);
+      const items = shuffleArray([...mod.items]);
+      const targets = shuffleArray([...mod.items]);
+
+      items.forEach(item => {
+        const dragItem = document.createElement('button');
+        dragItem.className = 'dd-item';
+        dragItem.draggable = true;
+        dragItem.dataset.id = item.spell;
+        dragItem.textContent = item.spell;
+        dragItem.addEventListener('dragstart', handleDragStart);
+        dragItem.addEventListener('click', () => speakWord(item.spell));
+        dragItem.addEventListener('drag', () => dragItem.classList.add('dragging'));
+        dragItem.addEventListener('dragend', () => dragItem.classList.remove('dragging'));
+        ddItems.appendChild(dragItem);
       });
 
-      shuffledTargets.forEach(word => {
+      targets.forEach(targetItem => {
         const target = document.createElement('div');
         target.className = 'dd-target';
-        target.textContent = word.icon;
-        target.dataset.match = word.id;
-
-        target.addEventListener('dragover', e => e.preventDefault());
+        target.dataset.match = targetItem.spell;
+        target.dataset.icon = targetItem.icon;
+        target.innerHTML = `<img src="${targetItem.icon}" alt="Icono para ${targetItem.spell}">`;
+        target.addEventListener('dragover', handleDragOver);
         target.addEventListener('drop', handleDrop);
-
         ddTargets.appendChild(target);
       });
 
-      // Mostrar botón según estado del módulo
-      const state = Progress.getModuleState(module.id);
+      const state = Progress.getModuleState(moduleData.id);
       if (state?.completed) {
         resetBtn.style.display = 'inline-block';
         resetBtn.textContent = 'Módulo completado ✔️';
@@ -190,22 +207,44 @@
         Progress.markCompleted(module.id);
         resetBtn.style.display = 'inline-block';
         resetBtn.textContent = 'Módulo completado ✔️';
+        speakWord(module.completionSound || '¡Módulo completado!');
+        feedbackDiv.textContent = module.completionSound || '¡Módulo completado!';
+        feedbackDiv.className = 'feedback-correct';
       } else {
-        Progress.resetModule(module.id);
-        resetBtn.style.display = 'none';
+        const state = Progress.getModuleState(module.id);
+        if (state?.completed) {
+          Progress.resetModule(module.id);
+          resetBtn.style.display = 'none';
+          feedbackDiv.textContent = '';
+          feedbackDiv.className = '';
+        }
       }
     }
 
     resetBtn.addEventListener('click', () => {
       Progress.resetModule(module.id);
-      renderModule(module);
+      renderModule(module, course);
+      feedbackDiv.textContent = '';
+      feedbackDiv.className = '';
     });
 
-    loadCourse().then(c => {
-      if (!c) return;
-      course = c;
-      const mod = course.modules.find(m => m.id === modId && m.type === 'dragdrop');
-      renderModule(mod);
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!modId) {
+        ddTitle.textContent = 'Error: ID de módulo no especificado.';
+        return;
+      }
+
+      loadCourse().then(courseData => {
+        if (courseData) {
+          course = courseData;
+          const currentModule = course.modules.find(mod => mod.id === modId);
+          if (currentModule) {
+            renderModule(currentModule, course);
+          } else {
+            ddTitle.textContent = 'Error: Módulo no encontrado.';
+          }
+        }
+      });
     });
   </script>
 </body>

@@ -418,38 +418,24 @@ body {
   margin-top: 20px;
 }
 
-.dd-item, .dd-target {
+/* Estilos compartidos para elementos arrastrables y objetivos */
+.dd-item,
+.dd-target {
   padding: 10px 14px;
   border: 1px solid var(--border);
   border-radius: 6px;
   min-width: 120px;
   text-align: center;
-  cursor: grab;
   background-color: var(--card);
   color: var(--muted);
   transition: background-color 0.2s, border-color 0.2s;
   user-select: none;
+}
+
+/* Estilos específicos para los elementos arrastrables */
+.dd-item {
+  cursor: grab;
   font-size: 1.2rem;
-}
-
-.dd-target {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-style: dashed;
-  font-size: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.dd-target.correct {
-  background-color: rgba(40, 167, 69, 0.3);
-  border-color: var(--accent);
-}
-
-.dd-target.incorrect {
-  background-color: rgba(220, 53, 69, 0.3);
-  border-color: #ff4d4f;
 }
 
 .dd-item:hover {
@@ -458,4 +444,56 @@ body {
 
 .dd-item.dragging {
   opacity: 0.6;
+}
+
+/* Estilos específicos para los objetivos de soltar */
+.dd-target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-style: dashed;
+  font-size: 2.5rem;
+}
+
+.dd-target.correct {
+  background-color: rgba(40, 167, 69, 0.3);
+  border: 5px solid #034112; /* Aplicamos el borde más grueso y oscuro aquí */
+}
+
+.dd-target.incorrect {
+  background-color: rgba(220, 53, 69, 0.3);
+  border-color: #ff4d4f;
+}
+
+/* Estilos para las imágenes dentro de los objetivos */
+.dd-target img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mensajes de feedback */
+.feedback-correct,
+.feedback-incorrect {
+  font-weight: bold;
+  animation: fade-in-out 1.5s forwards;
+}
+
+.feedback-correct {
+  color: #28a745;
+}
+
+.feedback-incorrect {
+  color: red;
+}
+
+@keyframes fade-in-out {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
 }
