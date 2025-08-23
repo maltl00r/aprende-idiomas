@@ -20,16 +20,22 @@ Plataforma educativa de francés de niveles A1 y A2. El proyecto se basa en una 
 
 ### Estructura de Archivos
 
-* `index.html`: Página principal con el panel de progreso y los módulos.
-* `flashcards.html`: Página de lecciones con tarjetas interactivas.
-* `audio.html`: Página para las lecciones de audio.
-* `reading.html`: Página para las lecciones de lectura.
-* `video.html`: Página para las lecciones en video.
-* `quiz.html`: Página para los exámenes.
-* `dragdrop.html`: Página para el módulo de  drag&drop.
-* `course.json`: Datos del curso y la estructura de los módulos.
+* `audio`: Carpeta que contiene archivos de audio.
+* `pdf`: Carpeta que contiene archivos PDF para lectura.
+* `icons`: Carpeta que contiene archivos .gif para ilustrar.
 * `css/style.css`: Hojas de estilo que definen el diseño.
 * `js/progress.js`: Lógica para el seguimiento del progreso del usuario.
 * `js/ui.js`: Funciones para renderizar la interfaz de usuario.
-* `pdf`: Carpeta que contiene archivos PDF para lectura.
-* `audio`: Carpeta que contiene archivos de audio.
+* `audio.html`: Página para las lecciones de audio.
+* `course_en.json`: Datos del curso y la estructura de los módulos para el inglés.
+* `course_fr.json`: Datos del curso y la estructura de los módulos para el francés.
+* `dragdrop.html`: Página para el módulo de drag&drop.
+* `flashcards.html`: Página de lecciones con tarjetas interactivas.
+* `index.html`: Página principal con el panel de progreso y los módulos.
+* `quiz.html`: Página para los exámenes.
+* `reading.html`: Página para las lecciones de lectura.
+* `video.html`: Página para las lecciones en video.
+
+### Recursos utilizados
+* [El Rincón del Inglés](https://www.youtube.com/@elrincondelingles)
+* [Ale's Phonology](https://www.youtube.com/@lenglesa)
