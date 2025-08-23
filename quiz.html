@@ -86,15 +86,20 @@
         legend.textContent = `${idx + 1}. ${q.question}`;
         fieldset.appendChild(legend);
 
+        const optionsWrapper = document.createElement('div');
+        optionsWrapper.className = 'options-grid';
+
         (q.options || []).forEach((opt, optIdx) => {
+          const optionId = `q${idx}opt${optIdx}`;
           const wrapper = document.createElement('div');
           wrapper.className = 'option-item';
           wrapper.innerHTML = `
-            <input type="radio" id="q${idx}opt${optIdx}" name="q${idx}" value="${optIdx}">
-            <label for="q${idx}opt${optIdx}">${opt}</label>
+            <input type="radio" id="${optionId}" name="q${idx}" value="${optIdx}">
+            <label for="${optionId}">${opt}</label>
           `;
-          fieldset.appendChild(wrapper);
+          optionsWrapper.appendChild(wrapper);
         });
+        fieldset.appendChild(optionsWrapper);
         container.appendChild(fieldset);
       });
       submitBtn.style.display = 'block';
@@ -102,37 +107,55 @@
 
     function checkQuiz() {
       const questions = module.questions || [];
-      
-      // Validar si todas las preguntas han sido respondidas
+      const fieldsets = container.querySelectorAll('fieldset.quiz-question');
+      let correctCount = 0;
+      feedbackContainer.innerHTML = '';
+
       const allAnswered = questions.every((q, idx) => {
         return document.querySelector(`input[name="q${idx}"]:checked`);
       });
 
       if (!allAnswered) {
         alert('Por favor, responde todas las preguntas antes de enviar.');
-        return; // Detiene la ejecución de la función
+        return;
       }
+      
+      submitBtn.disabled = true;
 
-      let correct = 0;
-      feedbackContainer.innerHTML = '';
+      // Deshabilitar todos los radio buttons después de enviar el examen
+      const radioButtons = container.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(radio => {
+          radio.disabled = true;
+      });
 
-      questions.forEach((q, idx) => {
-        const chosen = document.querySelector(`input[name="q${idx}"]:checked`);
-        const isCorrect = chosen && Number(chosen.value) === q.answer;
+      questions.forEach((q, questionIndex) => {
+        const chosenInput = fieldsets.item(questionIndex)?.querySelector(`input:checked`);
+        const optionsGrid = fieldsets.item(questionIndex)?.querySelector('.options-grid');
+
+        const chosenAnswerIndex = Number(chosenInput.value);
+        const isCorrect = chosenAnswerIndex === q.answer;
+
+        Array.from(optionsGrid?.children || []).forEach((optionItem, optionIndex) => {
+            optionItem.classList.remove('correct', 'incorrect', 'was-correct');
+            if (optionIndex === q.answer) {
+                optionItem.classList.add('was-correct');
+            }
+            if (chosenAnswerIndex === optionIndex && !isCorrect) {
+                optionItem.classList.add('incorrect');
+            } else if (chosenAnswerIndex === optionIndex && isCorrect) {
+                optionItem.classList.add('correct');
+            }
+        });
+
         if (isCorrect) {
-            correct++;
-        } else {
-            const feedbackEl = document.createElement('p');
-            feedbackEl.className = 'quiz-feedback incorrect';
-            feedbackEl.innerHTML = `❌ La respuesta correcta para la pregunta ${idx + 1} era: <strong>${q.options[q.answer]}</strong>`;
-            feedbackContainer.appendChild(feedbackEl);
+            correctCount++;
         }
       });
 
-      const score = Math.round((correct / (questions.length || 1)) * 100);
+      const score = Math.round((correctCount / (questions.length || 1)) * 100);
       const passed = score >= (module.pass ?? 60);
 
-      result.textContent = `Puntuación: ${score}% (${correct}/${questions.length})`;
+      result.textContent = `Puntuación: ${score}% (${correctCount}/${questions.length})`;
 
       Progress.setScore(module.id, score);
       if (passed) {
@@ -141,7 +164,6 @@
       } else {
           result.textContent += ' — No aprobado. Inténtalo de nuevo.';
       }
-      submitBtn.disabled = true;
     }
 
     submitBtn.addEventListener('click', checkQuiz);
