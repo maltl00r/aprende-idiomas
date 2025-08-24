@@ -1302,6 +1302,1039 @@
       ]
     },
     {
+      "id": "adj-dem",
+      "name": "Adjetivos Demostrativos",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/IML5WSSCGYI/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/IML5WSSCGYI"
+    },
+    {
+      "id": "present-simple1",
+      "name": "Presente Simple: I, You, We, They (Afirmativo y Negativo)",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/PfSST_cM4fU/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/PfSST_cM4fU"
+    },
+    {
+      "id": "present-simple2",
+      "name": "Presente Simple: He, She, It (Afirmativo y Negativo)",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/E3InIqxxxug/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/E3InIqxxxug"
+    },
+    {
+      "id": "questions",
+      "name": "Cómo preguntar",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/nrJwoSRogn0/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/nrJwoSRogn0"
+    },
+    {
+      "id": "greetings",
+      "name": "Saludos",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/t1rRD4sHwVo/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/t1rRD4sHwVo"
+    },
+    {
+      "id": "possesive-adjetives",
+      "name": "Adjetivos posesivos",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/UnUf5BjXaa8/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/UnUf5BjXaa8"
+    },
+    {
+      "id": "a-an",
+      "name": "Indefinite Article a/an",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/bMNzRTWmKm0/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/bMNzRTWmKm0"
+    },
+    {
+      "id": "prepositions-of-time",
+      "name": "Preposiciones de tiempo",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/tXbTIzY_xdg/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/tXbTIzY_xdg"
+    },
+    {
+      "id": "advers-of-frequency",
+      "name": "Adverbios de frecuencia",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/dk3G-lOJiLQ/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/dk3G-lOJiLQ"
+    },
+    {
+      "id": "quiz-colors",
+      "name": "Colores en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Si el sol es amarillo, ¿cómo dirías 'amarillo' en inglés?",
+          "options": [
+            "Blue",
+            "Red",
+            "Yellow"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "¿Cuál es el color del cielo en un día despejado?",
+          "options": [
+            "Green",
+            "Blue",
+            "Black"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "El color de una fresa madura es...",
+          "options": [
+            "Red",
+            "Pink",
+            "Orange"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si una hoja es verde, ¿cómo se dice 'verde' en inglés?",
+          "options": [
+            "Green",
+            "Brown",
+            "Yellow"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El chocolate tiene este color:",
+          "options": [
+            "Black",
+            "Brown",
+            "Red"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "¿Qué color se asocia con la nieve?",
+          "options": [
+            "Grey",
+            "Blue",
+            "White"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Si algo es oscuro como la noche, su color es...",
+          "options": [
+            "Black",
+            "Purple",
+            "Blue"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El color de los limones es...",
+          "options": [
+            "Yellow",
+            "Green",
+            "Orange"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si mezclas rojo y azul, obtienes...",
+          "options": [
+            "Purple",
+            "Green",
+            "Orange"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El color del cielo al atardecer puede ser...",
+          "options": [
+            "Orange",
+            "Pink",
+            "Red"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-days",
+      "name": "Días de la Semana en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Si lunes es el primer día de la semana, ¿cuál es el quinto día en inglés?",
+          "options": [
+            "Wednesday",
+            "Thursday",
+            "v"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "El día que sigue a Tuesday se llama...",
+          "options": [
+            "Monday",
+            "Thursday",
+            "Wednesday"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "El último día de la semana se llama...",
+          "options": [
+            "Sunday",
+            "Saturday",
+            "Friday"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si hoy es Wednesday, ¿qué día fue ayer?",
+          "options": [
+            "Thursday",
+            "Tuesday",
+            "Monday"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "El día antes de Saturday es...",
+          "options": [
+            "Friday",
+            "Sunday",
+            "Thursday"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cómo se llama el tercer día de la semana?",
+          "options": [
+            "Wednesday",
+            "Tuesday",
+            "Thursday"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El día después de Sunday es...",
+          "options": [
+            "Monday",
+            "Saturday",
+            "Tuesday"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si hoy es Friday, mañana será...",
+          "options": [
+            "Saturday",
+            "Sunday",
+            "Thursday"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Qué día se asocia normalmente con el descanso?",
+          "options": [
+            "Sunday",
+            "Monday",
+            "Wednesday"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El día que sigue a Thursday es...",
+          "options": [
+            "Friday",
+            "Saturday",
+            "Wednesday"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-demonstrative-adjectives",
+      "name": "Adjetivos Demostrativos en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Si hablas de un objeto cerca de ti, usarías...",
+          "options": [
+            "This",
+            "That",
+            "These"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para hablar de varios objetos cerca de ti, dices...",
+          "options": [
+            "These",
+            "Those",
+            "This"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si señalas un objeto lejos de ti, dices...",
+          "options": [
+            "That",
+            "This",
+            "These"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para varios objetos lejos, usarías...",
+          "options": [
+            "Those",
+            "These",
+            "That"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Señalando un lápiz frente a ti, dices...",
+          "options": [
+            "This pencil",
+            "That pencil",
+            "These pencils"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Mostrando libros lejos de ti, dices...",
+          "options": [
+            "Those books",
+            "These books",
+            "That book"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si quieres indicar una manzana que está cerca, dices...",
+          "options": [
+            "This apple",
+            "That apple",
+            "These apples"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Hablando de varias sillas lejanas, dirías...",
+          "options": [
+            "Those chairs",
+            "These chairs",
+            "That chair"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Señalando un juguete que tienes en la mano, dices...",
+          "options": [
+            "This toy",
+            "That toy",
+            "These toys"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para varios lápices que están lejos, dices...",
+          "options": [
+            "Those pencils",
+            "These pencils",
+            "That pencil"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-wh-questions",
+      "name": "Preguntas WH en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "¿Qué preguntas si quieres saber el nombre de alguien?",
+          "options": [
+            "Where",
+            "Who",
+            "When"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Si quieres preguntar la hora, usarías...",
+          "options": [
+            "What",
+            "When",
+            "Why"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Para preguntar el motivo de algo, dices...",
+          "options": [
+            "Why",
+            "How",
+            "Which"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si quieres saber un lugar, preguntas...",
+          "options": [
+            "Where",
+            "Who",
+            "How"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para preguntar la manera de hacer algo, usas...",
+          "options": [
+            "How",
+            "What",
+            "Which"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si quieres elegir entre opciones, dices...",
+          "options": [
+            "Which",
+            "When",
+            "Why"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para preguntar edad de alguien, usas...",
+          "options": [
+            "How",
+            "Who",
+            "Where"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Qué preguntas si quieres saber la profesión de alguien?",
+          "options": [
+            "What",
+            "When",
+            "Why"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si quieres saber la cantidad de algo, preguntas...",
+          "options": [
+            "How much",
+            "Who",
+            "Where"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para preguntar la frecuencia de una acción, dirías...",
+          "options": [
+            "How often",
+            "What",
+            "Which"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-present-simple",
+      "name": "Presente Simple en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Completa: I ___ to school every day.",
+          "options": [
+            "go",
+            "goes",
+            "gone"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "He ___ a dog.",
+          "options": [
+            "have",
+            "has",
+            "haves"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "She ___ in a big house.",
+          "options": [
+            "live",
+            "lives",
+            "living"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "They ___ football every weekend.",
+          "options": [
+            "play",
+            "plays",
+            "playing"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "My cat ___ milk.",
+          "options": [
+            "drink",
+            "drinks",
+            "drinking"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "We ___ breakfast at 7 am.",
+          "options": [
+            "eat",
+            "eats",
+            "eating"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "He always ___ to music.",
+          "options": [
+            "listen",
+            "listens",
+            "listening"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "I usually ___ TV in the evening.",
+          "options": [
+            "watch",
+            "watches",
+            "watching"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "She never ___ coffee.",
+          "options": [
+            "drink",
+            "drinks",
+            "drinking"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "They ___ English at school.",
+          "options": [
+            "study",
+            "studies",
+            "studying"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-a-an",
+      "name": "Uso de A y An en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Selecciona la opción correcta: ___ apple a day keeps the doctor away.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "I saw ___ elephant at the zoo.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "She wants to buy ___ book.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "He is ___ honest man.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "I need ___ umbrella.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Can I have ___ orange?",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "She bought ___ car yesterday.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "He wants to eat ___ egg.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "I saw ___ lion in the safari.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "We need ___ hour to finish this.",
+          "options": [
+            "A",
+            "An"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-adverbs-frequency",
+      "name": "Adverbios de Frecuencia en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Si haces algo todos los días, ¿qué adverbio usas?",
+          "options": [
+            "Sometimes",
+            "Always",
+            "Never"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Si nunca comes carne, dirías...",
+          "options": [
+            "Never",
+            "Rarely",
+            "Often"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Haces ejercicio algunas veces por semana: 'I ___ exercise.'",
+          "options": [
+            "Sometimes",
+            "Always",
+            "Seldom"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si haces algo raramente, usas...",
+          "options": [
+            "Rarely",
+            "Often",
+            "Always"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si frecuentemente lees libros, dirías...",
+          "options": [
+            "Often",
+            "Seldom",
+            "Never"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Haces tareas todos los días: 'I ___ do my homework.'",
+          "options": [
+            "Always",
+            "Sometimes",
+            "Never"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Haces algo pocas veces: 'I ___ visit my uncle.'",
+          "options": [
+            "Seldom",
+            "Often",
+            "Always"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si siempre llegas tarde, dirías...",
+          "options": [
+            "Always",
+            "Never",
+            "Sometimes"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si ocasionalmente vas al cine, usarías...",
+          "options": [
+            "Sometimes",
+            "Always",
+            "Never"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si nunca dices mentiras, usas...",
+          "options": [
+            "Never",
+            "Often",
+            "Rarely"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-greetings",
+      "name": "Saludos en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Si ves a un amigo por la mañana, dices...",
+          "options": [
+            "Good morning",
+            "Good night",
+            "Hello"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al despedirte por la noche, dices...",
+          "options": [
+            "Good night",
+            "Good afternoon",
+            "Good morning"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al encontrarte con alguien, puedes decir...",
+          "options": [
+            "Hi",
+            "Bye",
+            "Thanks"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al saludar de forma formal, dices...",
+          "options": [
+            "Hello",
+            "Bye",
+            "Goodbye"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al despedirte, dirías...",
+          "options": [
+            "Goodbye",
+            "Hello",
+            "Hi"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al saludar por la tarde, dices...",
+          "options": [
+            "Good afternoon",
+            "Good evening",
+            "Good night"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Cuando contestas el teléfono puedes decir...",
+          "options": [
+            "Hello",
+            "Goodbye",
+            "Hi"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al saludar a alguien que llega por la noche, dices...",
+          "options": [
+            "Good evening",
+            "Good night",
+            "Good morning"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al despedirte de un amigo, puedes decir...",
+          "options": [
+            "Bye",
+            "Hello",
+            "Good morning"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al iniciar una conversación informal dices...",
+          "options": [
+            "Hi",
+            "Goodbye",
+            "Good night"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-possessive-adjectives",
+      "name": "Adjetivos Posesivos en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Si hablas de algo que es tuyo, dices...",
+          "options": [
+            "My",
+            "Your",
+            "His"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si algo pertenece a tu amigo, dices...",
+          "options": [
+            "Your",
+            "His",
+            "My"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El perro de él: ___ dog",
+          "options": [
+            "His",
+            "Her",
+            "Our"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "La casa de ella: ___ house",
+          "options": [
+            "Her",
+            "His",
+            "My"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Nuestro jardín: ___ garden",
+          "options": [
+            "Our",
+            "Your",
+            "Their"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Vuestro coche: ___ car",
+          "options": [
+            "Your",
+            "Our",
+            "Their"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Su mochila (de ellos): ___ backpack",
+          "options": [
+            "Their",
+            "His",
+            "Her"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Mi libro: ___ book",
+          "options": [
+            "My",
+            "Your",
+            "His"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Su gato (de ella): ___ cat",
+          "options": [
+            "Her",
+            "His",
+            "My"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Nuestro perro: ___ dog",
+          "options": [
+            "Our",
+            "Their",
+            "Your"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-prepositions-time",
+      "name": "Preposiciones de Tiempo en Inglés",
+      "type": "quiz",
+      "thumbnail": "https://tutoria.pk/blog/wp-content/uploads/2021/07/gh.jpg",
+      "questions": [
+        {
+          "question": "Usamos ___ para días de la semana: 'I go to school ___ Monday.'",
+          "options": [
+            "on",
+            "in",
+            "at"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Usamos ___ para meses: 'My birthday is ___ August.'",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para horas específicas usamos ___: 'I wake up ___ 7 am.'",
+          "options": [
+            "at",
+            "in",
+            "on"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para años usamos ___: 'She was born ___ 2010.'",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Usamos ___ para partes del día: 'I study ___ the morning.'",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para fechas completas usamos ___: 'I met her ___ 5th May.'",
+          "options": [
+            "on",
+            "in",
+            "at"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Usamos ___ para temporadas: 'We travel ___ summer.'",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para medianoche usamos ___: 'The train leaves ___ midnight.'",
+          "options": [
+            "at",
+            "in",
+            "on"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para siglos usamos ___: 'He lived ___ the 18th century.'",
+          "options": [
+            "in",
+            "on",
+            "at"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Para días específicos usamos ___: 'She arrived ___ Monday morning.'",
+          "options": [
+            "on",
+            "in",
+            "at"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
       "id": "pimsleur1",
       "name": "Lección Pimsleur 1",
       "type": "audio",
