@@ -10,54 +10,777 @@
       "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
       "from": "vocab_verbs"
     },
-    {
-      "id": "vocab_verbs",
-      "name": "Verbos más comunes",
-      "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",
-      "type": "flashcards",
-      "items": [
-        { "icon": "icons/verbs/go.gif", "spell": "aller", "pron": "[ale]" },
-        { "icon": "icons/verbs/jump.gif", "spell": "sauter", "pron": "[sote]" },
-        { "icon": "icons/verbs/read.gif", "spell": "lire", "pron": "[liʁ]" },
-        { "icon": "icons/verbs/write.gif", "spell": "écrire", "pron": "[ekʁiʁ]" },
-        { "icon": "icons/verbs/sleep.gif", "spell": "dormir", "pron": "[dɔʁmiʁ]" },
-        { "icon": "icons/verbs/eat.gif", "spell": "manger", "pron": "[mɑ̃ʒe]" },
-        { "icon": "icons/verbs/drink.gif", "spell": "boire", "pron": "[bwaʁ]" },
-        { "icon": "icons/verbs/listen.gif", "spell": "écouter", "pron": "[ekute]" },
-        { "icon": "icons/verbs/speak.gif", "spell": "parler", "pron": "[paʁle]" },
-        { "icon": "icons/verbs/see.gif", "spell": "voir", "pron": "[vwaʁ]" },
-        { "icon": "icons/verbs/travel.gif", "spell": "voyager", "pron": "[vwajaʒe]" },
-        { "icon": "icons/verbs/work.gif", "spell": "travailler", "pron": "[tʁavaje]" },
-        { "icon": "icons/verbs/study.gif", "spell": "étudier", "pron": "[etydje]" },
-        { "icon": "icons/verbs/learn.gif", "spell": "apprendre", "pron": "[apʁɑ̃dʁ]" },
-        { "icon": "icons/verbs/answer.gif", "spell": "répondre", "pron": "[ʁepɔ̃dʁ]" },
-        { "icon": "icons/verbs/buy.gif", "spell": "acheter", "pron": "[aʃte]" },
-        { "icon": "icons/verbs/pay.gif", "spell": "payer", "pron": "[peje]" },
-        { "icon": "icons/verbs/walk.gif", "spell": "marcher", "pron": "[maʁʃe]" },
-        { "icon": "icons/verbs/run.gif", "spell": "courir", "pron": "[kuʁiʁ]" },
-        { "icon": "icons/verbs/help.gif", "spell": "aider", "pron": "[ede]" },
-        { "icon": "icons/verbs/paint.gif", "spell": "peindre", "pron": "[pɛ̃dʁ]" },
-        { "icon": "icons/verbs/start.gif", "spell": "commencer", "pron": "[kɔmɑ̃se]" },
-        { "icon": "icons/verbs/finish.gif", "spell": "finir", "pron": "[finiʁ]" },
-        { "icon": "icons/verbs/think.gif", "spell": "penser", "pron": "[pɑ̃se]" },
-        { "icon": "icons/verbs/love.gif", "spell": "aimer", "pron": "[eme]" },
-        { "icon": "icons/verbs/believe.gif", "spell": "croire", "pron": "[kʁwɑʁ]" },
-        { "icon": "icons/verbs/take.gif", "spell": "prendre", "pron": "[pʁɑ̃dʁ]" },
-        { "icon": "icons/verbs/repair.gif", "spell": "réparer", "pron": "[ʁepaʁe]" },
-        { "icon": "icons/verbs/try.gif", "spell": "essayer", "pron": "[esɛje]" },
-        { "icon": "icons/verbs/wait.gif", "spell": "attendre", "pron": "[atɑ̃dʁ]" }
-      ]
-    },
-    {
-      "id": "practice_review1",
-      "name": "Practicar vocabulario y repasar tiempos",
-      "type": "quiz",
-      "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png",
-      "questions": [
-        { "question": "El verbo 'to be' en primera persona singular (I) es:", "options": ["am", "is", "are"], "answer": 0 }
-      ],
-      "pass": 65
-    },
+      {
+        "id": "vocab_verbs",
+        "name": "Verbos más comunes",
+        "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",
+        "type": "flashcards",
+        "items": [
+          {
+            "icon": "icons/verbs/go.gif",
+            "spell": "aller",
+            "pron": "[a.le]"
+          },
+          {
+            "icon": "icons/verbs/jump.gif",
+            "spell": "sauter",
+            "pron": "[so.te]"
+          },
+          {
+            "icon": "icons/verbs/read.gif",
+            "spell": "lire",
+            "pron": "[liʁ]"
+          },
+          {
+            "icon": "icons/verbs/write.gif",
+            "spell": "écrire",
+            "pron": "[e.kʁiʁ]"
+          },
+          {
+            "icon": "icons/verbs/sleep.gif",
+            "spell": "dormir",
+            "pron": "[dɔʁ.miʁ]"
+          },
+          {
+            "icon": "icons/verbs/eat.gif",
+            "spell": "manger",
+            "pron": "[mɑ̃.ʒe]"
+          },
+          {
+            "icon": "icons/verbs/drink.gif",
+            "spell": "boire",
+            "pron": "[bwaʁ]"
+          },
+          {
+            "icon": "icons/verbs/listen.gif",
+            "spell": "écouter",
+            "pron": "[e.ku.te]"
+          },
+          {
+            "icon": "icons/verbs/speak.gif",
+            "spell": "parler",
+            "pron": "[paʁ.le]"
+          },
+          {
+            "icon": "icons/verbs/see.gif",
+            "spell": "voir",
+            "pron": "[vwaʁ]"
+          },
+          {
+            "icon": "icons/verbs/travel.gif",
+            "spell": "voyager",
+            "pron": "[vwa.ja.ʒe]"
+          },
+          {
+            "icon": "icons/verbs/work.gif",
+            "spell": "travailler",
+            "pron": "[tʁa.va.je]"
+          },
+          {
+            "icon": "icons/verbs/study.gif",
+            "spell": "étudier",
+            "pron": "[e.ty.dje]"
+          },
+          {
+            "icon": "icons/verbs/learn.gif",
+            "spell": "apprendre",
+            "pron": "[a.pʁɑ̃dʁ]"
+          },
+          {
+            "icon": "icons/verbs/answer.gif",
+            "spell": "répondre",
+            "pron": "[ʁe.pɔ̃dʁ]"
+          },
+          {
+            "icon": "icons/verbs/buy.gif",
+            "spell": "acheter",
+            "pron": "[aʃ.te]"
+          },
+          {
+            "icon": "icons/verbs/pay.gif",
+            "spell": "payer",
+            "pron": "[pe.je]"
+          },
+          {
+            "icon": "icons/verbs/walk.gif",
+            "spell": "marcher",
+            "pron": "[maʁ.ʃe]"
+          },
+          {
+            "icon": "icons/verbs/run.gif",
+            "spell": "courir",
+            "pron": "[ku.ʁiʁ]"
+          },
+          {
+            "icon": "icons/verbs/help.gif",
+            "spell": "aider",
+            "pron": "[ɛ.de]"
+          },
+          {
+            "icon": "icons/verbs/paint.gif",
+            "spell": "peindre",
+            "pron": "[pɛ̃dʁ]"
+          },
+          {
+            "icon": "icons/verbs/start.gif",
+            "spell": "commencer",
+            "pron": "[kɔ.mɑ̃.se]"
+          },
+          {
+            "icon": "icons/verbs/finish.gif",
+            "spell": "finir",
+            "pron": "[fi.niʁ]"
+          },
+          {
+            "icon": "icons/verbs/think.gif",
+            "spell": "penser",
+            "pron": "[pɑ̃.se]"
+          },
+          {
+            "icon": "icons/verbs/love.gif",
+            "spell": "aimer",
+            "pron": "[e.me]"
+          },
+          {
+            "icon": "icons/verbs/believe.gif",
+            "spell": "croire",
+            "pron": "[kʁwaʁ]"
+          },
+          {
+            "icon": "icons/verbs/take.gif",
+            "spell": "prendre",
+            "pron": "[pʁɑ̃dʁ]"
+          },
+          {
+            "icon": "icons/verbs/repair.gif",
+            "spell": "réparer",
+            "pron": "[ʁe.pa.ʁe]"
+          },
+          {
+            "icon": "icons/verbs/try.gif",
+            "spell": "essayer",
+            "pron": "[e.se.je]"
+          },
+          {
+            "icon": "icons/verbs/wait.gif",
+            "spell": "attendre",
+            "pron": "[a.tɑ̃dʁ]"
+          }
+        ]
+      },
+      {
+        "id": "vocab_pronouns",
+        "name": "Pronombres personales",
+        "thumbnail": "https://blog.trainlang.com/wp-content/uploads/2020/12/english-pronouns-1-scaled.jpg",
+        "type": "flashcards",
+        "items": [
+          {
+            "icon": "icons/pronouns/i.gif",
+            "spell": "je",
+            "pron": "[ʒə]"
+          },
+          {
+            "icon": "icons/pronouns/you.gif",
+            "spell": "tu",
+            "pron": "[ty]"
+          },
+          {
+            "icon": "icons/pronouns/he.gif",
+            "spell": "il",
+            "pron": "[il]"
+          },
+          {
+            "icon": "icons/pronouns/she.gif",
+            "spell": "elle",
+            "pron": "[ɛl]"
+          },
+          {
+            "icon": "icons/pronouns/it.gif",
+            "spell": "il/elle",
+            "pron": "[il/ɛl]"
+          },
+          {
+            "icon": "icons/pronouns/we.gif",
+            "spell": "nous",
+            "pron": "[nu]"
+          },
+          {
+            "icon": "icons/pronouns/they.gif",
+            "spell": "ils/elles",
+            "pron": "[il/ɛl]"
+          }
+        ]
+      },
+      {
+        "id": "vocab_numbers",
+        "name": "Números (0-99)",
+        "thumbnail": "https://i.imgur.com/8NnQM4h.png",
+        "type": "flashcards",
+        "items": [
+          {
+            "icon": "icons/vocabulary/0.gif",
+            "spell": "zéro",
+            "pron": "[ze.ʁo]"
+          },
+          {
+            "icon": "icons/vocabulary/1.gif",
+            "spell": "un",
+            "pron": "[œ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/2.gif",
+            "spell": "deux",
+            "pron": "[dø]"
+          },
+          {
+            "icon": "icons/vocabulary/3.gif",
+            "spell": "trois",
+            "pron": "[tʁwa]"
+          },
+          {
+            "icon": "icons/vocabulary/4.gif",
+            "spell": "quatre",
+            "pron": "[katʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/5.gif",
+            "spell": "cinq",
+            "pron": "[sɛ̃k]"
+          },
+          {
+            "icon": "icons/vocabulary/6.gif",
+            "spell": "six",
+            "pron": "[sis]"
+          },
+          {
+            "icon": "icons/vocabulary/7.gif",
+            "spell": "sept",
+            "pron": "[sɛt]"
+          },
+          {
+            "icon": "icons/vocabulary/8.gif",
+            "spell": "huit",
+            "pron": "[ɥit]"
+          },
+          {
+            "icon": "icons/vocabulary/9.gif",
+            "spell": "neuf",
+            "pron": "[nœf]"
+          },
+          {
+            "icon": "icons/vocabulary/10.gif",
+            "spell": "dix",
+            "pron": "[dis]"
+          },
+          {
+            "icon": "icons/vocabulary/11.gif",
+            "spell": "onze",
+            "pron": "[ɔ̃z]"
+          },
+          {
+            "icon": "icons/vocabulary/12.gif",
+            "spell": "douze",
+            "pron": "[duz]"
+          },
+          {
+            "icon": "icons/vocabulary/13.gif",
+            "spell": "treize",
+            "pron": "[tʁɛz]"
+          },
+          {
+            "icon": "icons/vocabulary/14.gif",
+            "spell": "quatorze",
+            "pron": "[ka.tɔʁz]"
+          },
+          {
+            "icon": "icons/vocabulary/15.gif",
+            "spell": "quinze",
+            "pron": "[kɛ̃z]"
+          },
+          {
+            "icon": "icons/vocabulary/16.gif",
+            "spell": "seize",
+            "pron": "[sɛz]"
+          },
+          {
+            "icon": "icons/vocabulary/17.gif",
+            "spell": "dix-sept",
+            "pron": "[di.sɛt]"
+          },
+          {
+            "icon": "icons/vocabulary/18.gif",
+            "spell": "dix-huit",
+            "pron": "[di.zɥit]"
+          },
+          {
+            "icon": "icons/vocabulary/19.gif",
+            "spell": "dix-neuf",
+            "pron": "[di.znœf]"
+          },
+          {
+            "icon": "icons/vocabulary/20.gif",
+            "spell": "vingt",
+            "pron": "[vɛ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/30.gif",
+            "spell": "trente",
+            "pron": "[tʁɑ̃t]"
+          },
+          {
+            "icon": "icons/vocabulary/40.gif",
+            "spell": "quarante",
+            "pron": "[ka.ʁɑ̃t]"
+          },
+          {
+            "icon": "icons/vocabulary/50.gif",
+            "spell": "cinquante",
+            "pron": "[sɛ̃.kɑ̃t]"
+          },
+          {
+            "icon": "icons/vocabulary/60.gif",
+            "spell": "soixante",
+            "pron": "[swa.sɑ̃t]"
+          },
+          {
+            "icon": "icons/vocabulary/70.gif",
+            "spell": "soixante-dix",
+            "pron": "[swa.sɑ̃t.dis]"
+          },
+          {
+            "icon": "icons/vocabulary/80.gif",
+            "spell": "quatre-vingts",
+            "pron": "[ka.tʁə.vɛ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/90.gif",
+            "spell": "quatre-vingt-dix",
+            "pron": "[ka.tʁə.vɛ̃.dis]"
+          }
+        ]
+      },
+      {
+        "id": "vocab_alphabet",
+        "name": "Abecedario",
+        "thumbnail": "https://i.ytimg.com/vi/um3YrKRfsr0/maxresdefault.jpg",
+        "type": "flashcards",
+        "items": [
+          {
+            "icon": "icons/vocabulary/a.gif",
+            "spell": "A",
+            "pron": "[a]"
+          },
+          {
+            "icon": "icons/vocabulary/b.gif",
+            "spell": "B",
+            "pron": "[be]"
+          },
+          {
+            "icon": "icons/vocabulary/c.gif",
+            "spell": "C",
+            "pron": "[se]"
+          },
+          {
+            "icon": "icons/vocabulary/d.gif",
+            "spell": "D",
+            "pron": "[de]"
+          },
+          {
+            "icon": "icons/vocabulary/e.gif",
+            "spell": "E",
+            "pron": "[ə]"
+          },
+          {
+            "icon": "icons/vocabulary/f.gif",
+            "spell": "F",
+            "pron": "[ɛf]"
+          },
+          {
+            "icon": "icons/vocabulary/g.gif",
+            "spell": "G",
+            "pron": "[ʒe]"
+          },
+          {
+            "icon": "icons/vocabulary/h.gif",
+            "spell": "H",
+            "pron": "[aʃ]"
+          },
+          {
+            "icon": "icons/vocabulary/i.gif",
+            "spell": "I",
+            "pron": "[i]"
+          },
+          {
+            "icon": "icons/vocabulary/j.gif",
+            "spell": "J",
+            "pron": "[ʒi]"
+          },
+          {
+            "icon": "icons/vocabulary/k.gif",
+            "spell": "K",
+            "pron": "[ka]"
+          },
+          {
+            "icon": "icons/vocabulary/l.gif",
+            "spell": "L",
+            "pron": "[ɛl]"
+          },
+          {
+            "icon": "icons/vocabulary/m.gif",
+            "spell": "M",
+            "pron": "[ɛm]"
+          },
+          {
+            "icon": "icons/vocabulary/n.gif",
+            "spell": "N",
+            "pron": "[ɛn]"
+          },
+          {
+            "icon": "icons/vocabulary/o.gif",
+            "spell": "O",
+            "pron": "[o]"
+          },
+          {
+            "icon": "icons/vocabulary/p.gif",
+            "spell": "P",
+            "pron": "[pe]"
+          },
+          {
+            "icon": "icons/vocabulary/q.gif",
+            "spell": "Q",
+            "pron": "[ky]"
+          },
+          {
+            "icon": "icons/vocabulary/r.gif",
+            "spell": "R",
+            "pron": "[ɛʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/s.gif",
+            "spell": "S",
+            "pron": "[ɛs]"
+          },
+          {
+            "icon": "icons/vocabulary/t.gif",
+            "spell": "T",
+            "pron": "[te]"
+          },
+          {
+            "icon": "icons/vocabulary/u.gif",
+            "spell": "U",
+            "pron": "[y]"
+          },
+          {
+            "icon": "icons/vocabulary/v.gif",
+            "spell": "V",
+            "pron": "[ve]"
+          },
+          {
+            "icon": "icons/vocabulary/w.gif",
+            "spell": "W",
+            "pron": "[dublə ve]"
+          },
+          {
+            "icon": "icons/vocabulary/x.gif",
+            "spell": "X",
+            "pron": "[iks]"
+          },
+          {
+            "icon": "icons/vocabulary/y.gif",
+            "spell": "Y",
+            "pron": "[i.ɡʁɛk]"
+          },
+          {
+            "icon": "icons/vocabulary/z.gif",
+            "spell": "Z",
+            "pron": "[zɛd]"
+          }
+        ]
+      },
+      {
+        "id": "vocab_animals",
+        "name": "Animales",
+        "thumbnail": "https://static.vecteezy.com/system/resources/thumbnails/012/084/533/small_2x/cartoon-wild-animals-on-white-background-vector.jpg",
+        "type": "flashcards",
+        "items": [
+          {
+            "icon": "icons/vocabulary/cat.gif",
+            "spell": "chat",
+            "pron": "[ʃa]"
+          },
+          {
+            "icon": "icons/vocabulary/dog.gif",
+            "spell": "chien",
+            "pron": "[ʃjɛ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/bird.gif",
+            "spell": "oiseau",
+            "pron": "[wa.zo]"
+          },
+          {
+            "icon": "icons/vocabulary/fish.gif",
+            "spell": "poisson",
+            "pron": "[pwa.sɔ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/horse.gif",
+            "spell": "cheval",
+            "pron": "[ʃə.val]"
+          },
+          {
+            "icon": "icons/vocabulary/cow.gif",
+            "spell": "vache",
+            "pron": "[vaʃ]"
+          },
+          {
+            "icon": "icons/vocabulary/sheep.gif",
+            "spell": "mouton",
+            "pron": "[mu.tɔ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/pig.gif",
+            "spell": "cochon",
+            "pron": "[kɔ.ʃɔ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/rabbit.gif",
+            "spell": "lapin",
+            "pron": "[la.pɛ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/lion.gif",
+            "spell": "lion",
+            "pron": "[ljɔ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/tiger.gif",
+            "spell": "tigre",
+            "pron": "[tiɡʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/elephant.gif",
+            "spell": "éléphant",
+            "pron": "[e.le.fɑ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/snake.gif",
+            "spell": "serpent",
+            "pron": "[sɛʁ.pɑ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/duck.gif",
+            "spell": "canard",
+            "pron": "[ka.naʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/camel.gif",
+            "spell": "chameau",
+            "pron": "[ʃa.mo]"
+          },
+          {
+            "icon": "icons/vocabulary/armadillo.gif",
+            "spell": "tatou",
+            "pron": "[ta.tu]"
+          },
+          {
+            "icon": "icons/vocabulary/snail.gif",
+            "spell": "escargot",
+            "pron": "[ɛs.kaʁ.ɡo]"
+          },
+          {
+            "icon": "icons/vocabulary/chicken.gif",
+            "spell": "poulet",
+            "pron": "[pu.lɛ]"
+          },
+          {
+            "icon": "icons/vocabulary/octopus.gif",
+            "spell": "poulpe",
+            "pron": "[pulp]"
+          },
+          {
+            "icon": "icons/vocabulary/gorilla.gif",
+            "spell": "gorille",
+            "pron": "[ɡɔ.ʁij]"
+          },
+          {
+            "icon": "icons/vocabulary/monkey.gif",
+            "spell": "singe",
+            "pron": "[sɛ̃ʒ]"
+          }
+        ]
+      },
+      {
+        "id": "vocab_food",
+        "name": "Comida",
+        "thumbnail": "https://www.learnenglish.com/wp-content/uploads/foods-1.jpg",
+        "type": "flashcards",
+        "items": [
+          {
+            "icon": "icons/vocabulary/apple.gif",
+            "spell": "pomme",
+            "pron": "[pɔm]"
+          },
+          {
+            "icon": "icons/vocabulary/banana.gif",
+            "spell": "banane",
+            "pron": "[ba.nan]"
+          },
+          {
+            "icon": "icons/vocabulary/bread.gif",
+            "spell": "pain",
+            "pron": "[pɛ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/cheese.gif",
+            "spell": "fromage",
+            "pron": "[fʁɔ.maʒ]"
+          },
+          {
+            "icon": "icons/vocabulary/egg.gif",
+            "spell": "œuf",
+            "pron": "[œf]"
+          },
+          {
+            "icon": "icons/vocabulary/milk.gif",
+            "spell": "lait",
+            "pron": "[lɛ]"
+          },
+          {
+            "icon": "icons/vocabulary/rice.gif",
+            "spell": "riz",
+            "pron": "[ʁi]"
+          },
+          {
+            "icon": "icons/vocabulary/pizza.gif",
+            "spell": "pizza",
+            "pron": "[pid.za]"
+          },
+          {
+            "icon": "icons/vocabulary/salad.gif",
+            "spell": "salade",
+            "pron": "[sa.lad]"
+          },
+          {
+            "icon": "icons/vocabulary/soup.gif",
+            "spell": "soupe",
+            "pron": "[sup]"
+          },
+          {
+            "icon": "icons/vocabulary/steak.gif",
+            "spell": "steak",
+            "pron": "[stɛk]"
+          },
+          {
+            "icon": "icons/vocabulary/tomato.gif",
+            "spell": "tomate",
+            "pron": "[tɔ.mat]"
+          },
+          {
+            "icon": "icons/vocabulary/onion.gif",
+            "spell": "oignon",
+            "pron": "[ɔ.ɲɔ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/potato.gif",
+            "spell": "pomme de terre",
+            "pron": "[pɔm də tɛʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/burger.gif",
+            "spell": "hamburger",
+            "pron": "[ɑ̃.bœʁ.ɡɛʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/cake.gif",
+            "spell": "gâteau",
+            "pron": "[ɡa.to]"
+          },
+          {
+            "icon": "icons/vocabulary/icecream.gif",
+            "spell": "glace",
+            "pron": "[ɡlas]"
+          },
+          {
+            "icon": "icons/vocabulary/cookie.gif",
+            "spell": "biscuit",
+            "pron": "[bis.kɥi]"
+          },
+          {
+            "icon": "icons/vocabulary/vegetables.gif",
+            "spell": "légumes",
+            "pron": "[le.ɡym]"
+          },
+          {
+            "icon": "icons/vocabulary/carrot.gif",
+            "spell": "carotte",
+            "pron": "[ka.ʁɔt]"
+          },
+          {
+            "icon": "icons/vocabulary/water.gif",
+            "spell": "eau",
+            "pron": "[o]"
+          },
+          {
+            "icon": "icons/vocabulary/coffee.gif",
+            "spell": "café",
+            "pron": "[ka.fe]"
+          }
+        ]
+      },
+      {
+        "id": "vocab_colors",
+        "name": "Colores",
+        "type": "flashcards",
+        "thumbnail": "https://i.ytimg.com/vi/8VWfK4SleTs/maxresdefault.jpg",
+        "items": [
+          {
+            "icon": "icons/vocabulary/banana.gif",
+            "spell": "jaune",
+            "pron": "[ʒon]"
+          },
+          {
+            "icon": "icons/vocabulary/red-flag.gif",
+            "spell": "rouge",
+            "pron": "[ʁuʒ]"
+          },
+          {
+            "icon": "icons/vocabulary/tea-leaves-powder.gif",
+            "spell": "vert",
+            "pron": "[vɛʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/waves.gif",
+            "spell": "bleu",
+            "pron": "[blø]"
+          },
+          {
+            "icon": "icons/vocabulary/sea-lion.gif",
+            "spell": "violet",
+            "pron": "[vjɔ.lɛ]"
+          },
+          {
+            "icon": "icons/vocabulary/logs.gif",
+            "spell": "marron",
+            "pron": "[ma.ʁɔ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/black-square.gif",
+            "spell": "noir",
+            "pron": "[nwaʁ]"
+          },
+          {
+            "icon": "icons/vocabulary/white-flag.gif",
+            "spell": "blanc",
+            "pron": "[blɑ̃]"
+          },
+          {
+            "icon": "icons/vocabulary/pink-ribbon.gif",
+            "spell": "rose",
+            "pron": "[ʁoz]"
+          }
+        ]
+      },
     {
       "id": "musica1",
       "name": "Aprender Música #1 (Bacyardigans)",
