@@ -309,6 +309,44 @@
       "from": "vocab_animals"
     },
     {
+      "id": "vocab_food",
+      "name": "Comida",
+      "thumbnail": "https://www.learnenglish.com/wp-content/uploads/foods-1.jpg",
+      "type": "flashcards",
+      "items": [
+        { "icon": "icons/vocabulary/apple.gif", "spell": "apple", "pron": "[ˈæpəl]" },
+        { "icon": "icons/vocabulary/banana.gif", "spell": "banana", "pron": "[bəˈnænə]" },
+        { "icon": "icons/vocabulary/bread.gif", "spell": "bread", "pron": "[brɛd]" },
+        { "icon": "icons/vocabulary/cheese.gif", "spell": "cheese", "pron": "[ʧiːz]" },
+        { "icon": "icons/vocabulary/egg.gif", "spell": "egg", "pron": "[ɛg]" },
+        { "icon": "icons/vocabulary/milk.gif", "spell": "milk", "pron": "[mɪlk]" },
+        { "icon": "icons/vocabulary/rice.gif", "spell": "rice", "pron": "[raɪs]" },
+        { "icon": "icons/vocabulary/pizza.gif", "spell": "pizza", "pron": "[ˈpiːtsə]" },
+        { "icon": "icons/vocabulary/salad.gif", "spell": "salad", "pron": "[ˈsæləd]" },
+        { "icon": "icons/vocabulary/soup.gif", "spell": "soup", "pron": "[suːp]" },
+        { "icon": "icons/vocabulary/steak.gif", "spell": "steak", "pron": "[steɪk]" },
+        { "icon": "icons/vocabulary/tomato.gif", "spell": "tomato", "pron": "[təˈmeɪtoʊ]" },
+        { "icon": "icons/vocabulary/onion.gif", "spell": "onion", "pron": "[ˈʌnjən]" },
+        { "icon": "icons/vocabulary/potato.gif", "spell": "potato", "pron": "[pəˈteɪtoʊ]" },
+        { "icon": "icons/vocabulary/burger.gif", "spell": "burger", "pron": "[bɜrgər]" },
+        { "icon": "icons/vocabulary/cake.gif", "spell": "cake", "pron": "[keɪk]" },
+        { "icon": "icons/vocabulary/icecream.gif", "spell": "ice cream", "pron": "[aɪs kriːm]" },
+        { "icon": "icons/vocabulary/cookie.gif", "spell": "cookie", "pron": "[ˈkʊki]" },
+        { "icon": "icons/vocabulary/vegetables.gif", "spell": "vegetables", "pron": "[ˈvɛdʒtəblz]" },
+        { "icon": "icons/vocabulary/carrot.gif", "spell": "carrot", "pron": "[ˈkærət]" },
+        { "icon": "icons/vocabulary/water.gif", "spell": "water", "pron": "[ˈwɔtər]" },
+        { "icon": "icons/vocabulary/coffee.gif", "spell": "coffee", "pron": "[ˈkɔfi]" }
+      ]
+    },
+    {
+      "id": "drag5",
+      "name": "Asocia palabras (Comida)",
+      "type": "dragdrop",
+      "incorrectSound": "Try again.",
+      "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
+      "from": "vocab_food"
+    },
+    {
       "id": "pimsleur1",
       "name": "Lección Pimsleur 1",
       "type": "audio",
