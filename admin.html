@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="pageTitle">Admin de Módulos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 id="siteTitle">Admin de Módulos <span id="langDisplay"></span></h1>
+    <nav class="top-nav">
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div id="langSelectorWrapper" class="lang-selector-center">
+      <h2>Seleccione un idioma para comenzar</h2>
+      <div class="lang-selector-container">
+        <label for="lang-select" class="sr-only">Idioma:</label>
+        <select id="lang-select">
+          <option value="">Seleccione su idioma</option>
+          <option value="fr">Francés</option>
+          <option value="en">Inglés</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="editModuleForm" style="display:none;">
+      <h2>Editar/Crear Módulo</h2>
+      <form class="admin-form">
+        <label for="moduleId">ID:</label>
+        <input type="text" id="moduleId" required>
+
+        <label for="moduleName">Nombre:</label>
+        <input type="text" id="moduleName" required>
+
+        <label for="moduleType">Tipo:</label>
+        <select id="moduleType" required>
+            <option value="video">Video</option>
+            <option value="flashcards">Flashcards</option>
+            <option value="reading">Lectura</option>
+            <option value="quiz">Quiz</option>
+            <option value="dragdrop">Dragdrop</option>
+        </select>
+        
+        <label for="moduleThumbnail">Miniatura (URL):</label>
+        <input type="text" id="moduleThumbnail">
+
+        <div id="specificFields"></div>
+
+        <button type="submit" class="btn-save">Guardar Módulo</button>
+        <button type="button" class="btn-delete" id="deleteModuleBtn">Eliminar Módulo</button>
+        <button type="button" class="btn-cancel" id="cancelBtn">Cancelar</button>
+      </form>
+    </div>
+    
+    <div id="contentWrapper" style="display:none;">
+      <section>
+        <h2>Módulos</h2>
+        <div class="button-container">
+          <button id="createModuleBtn" class="btn-new">Crear nuevo módulo</button>
+          <button id="changeLangBtn" class="btn-new">Modificar otro idioma</button>
+          <button id="saveBtn" class="btn-save">💾 Guardar cambios</button>
+        </div>
+        <div id="modulesAdminGrid" class="modules-grid"></div>
+      </section>
+    </div>
+  </main>
+  
+  <footer class="site-footer">
+    <small class="footer-text">
+      <a class="github-link" href="https://github.com/maltl00r/aprende-idiomas" target="_blank">
+        <svg class="github-icon" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0c-4.42 0-8 3.58-8 8a8.01 8.01 0 005.45 7.59c.2.04.27-.09.27-.2v-1.55c-2.34.5-2.83-1.1-2.83-1.1-.38-.96-.93-1.22-.93-1.22-.76-.52.06-.5.06-.5.84.06 1.28.87 1.28.87.75 1.29 1.97.92 2.45.7.08-.55.29-.92.53-1.12-1.87-.2-3.84-.94-3.84-4.17 0-.92.33-1.67.87-2.26.09-.22-.4-1.07.08-2.22 0 0 .68-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.52-1.03 2.2-.82 2.2-.82.48 1.15.01 2.0.09 2.22.54.59.87 1.34.87 2.26 0 3.24-1.97 3.97-3.85 4.17.29.25.54.73.54 1.48v2.21c0 .11.07.24.27.2a8.01 8.01 0 005.45-7.59c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+      </a>
+    </small>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
