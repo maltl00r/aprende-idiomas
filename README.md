@@ -24,8 +24,10 @@ Plataforma educativa de francés de niveles A1 y A2. El proyecto se basa en una 
 * `pdf`: Carpeta que contiene archivos PDF para lectura.
 * `icons`: Carpeta que contiene archivos .gif para ilustrar.
 * `css/style.css`: Hojas de estilo que definen el diseño.
+* `js/admin.js`: Lógica ajustar el funcionamiento de admin.html
 * `js/progress.js`: Lógica para el seguimiento del progreso del usuario.
 * `js/ui.js`: Funciones para renderizar la interfaz de usuario.
+* `admin.html`: Archivo exclusivo del personal administrativo, usado para crear, editar o eliminar módulos de forma fácil.
 * `audio.html`: Página para las lecciones de audio.
 * `course_en.json`: Datos del curso y la estructura de los módulos para el inglés.
 * `course_fr.json`: Datos del curso y la estructura de los módulos para el francés.
