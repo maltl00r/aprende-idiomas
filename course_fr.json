@@ -53,8 +53,10 @@
       "name": "Practicar vocabulario y repasar tiempos",
       "type": "quiz",
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png",
-      "items": [],
-      "resources": []
+      "questions": [
+        { "question": "El verbo 'to be' en primera persona singular (I) es:", "options": ["am", "is", "are"], "answer": 0 }
+      ],
+      "pass": 65
     },
     {
       "id": "musica1",
