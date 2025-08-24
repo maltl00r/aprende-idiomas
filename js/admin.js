@@ -275,8 +275,9 @@ function addQuizQuestion(container, question, number) {
     container.appendChild(questionDiv);
 
     const optionsContainer = questionDiv.querySelector('.quiz-options-container');
-    (question.options || []).forEach(opt => {
-        addQuizOption(optionsContainer, opt.text, opt.isCorrect);
+    (question.options || []).forEach((opt, index) => {
+        const isCorrect = question.answer === index;
+        addQuizOption(optionsContainer, opt, isCorrect);
     });
     addNewQuizOptionPlaceholder(optionsContainer);
     
@@ -484,13 +485,14 @@ function getModuleFromForm() {
                 const questionText = qDiv.querySelector('input[name="questionText"]').value.trim();
                 if (questionText) {
                     const options = [];
-                    qDiv.querySelectorAll('.quiz-option-item:not(.quiz-placeholder)').forEach(oDiv => {
+                    let correctAnswerIndex = -1;
+                    qDiv.querySelectorAll('.quiz-option-item:not(.quiz-placeholder)').forEach((oDiv, optionIndex) => {
                         const optionText = oDiv.querySelector('input[name="optionText"]').value.trim();
                         if (optionText) {
-                            options.push({
-                                text: optionText,
-                                isCorrect: oDiv.classList.contains('correct')
-                            });
+                            options.push(optionText);
+                            if (oDiv.classList.contains('correct')) {
+                                correctAnswerIndex = optionIndex;
+                            }
                         }
                     });
                     
@@ -500,8 +502,7 @@ function getModuleFromForm() {
                         return;
                     }
                     
-                    const correctOptions = options.filter(opt => opt.isCorrect);
-                    if (correctOptions.length !== 1) {
+                    if (correctAnswerIndex === -1) {
                          alert(`La Pregunta #${index + 1} debe tener exactamente 1 respuesta correcta.`);
                         hasError = true;
                         return;
@@ -509,7 +510,8 @@ function getModuleFromForm() {
                     
                     quizQuestions.push({
                         question: questionText,
-                        options: options
+                        options: options,
+                        answer: correctAnswerIndex
                     });
                 }
             });
