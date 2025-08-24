@@ -39,5 +39,7 @@ Plataforma educativa de francés de niveles A1 y A2. El proyecto se basa en una 
 * `video.html`: Página para las lecciones en video.
 
 ### Recursos utilizados
+Canales de Youtube:
 * [El Rincón del Inglés](https://www.youtube.com/@elrincondelingles)
 * [Ale's Phonology](https://www.youtube.com/@lenglesa)
+* [Marcus Carter](https://www.youtube.com/@marcuscarter)
