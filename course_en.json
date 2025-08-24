@@ -56,36 +56,156 @@
       "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",
       "type": "flashcards",
       "items": [
-        { "icon": "icons/verbs/go.gif", "spell": "go", "pron": "[goʊ]" },
-        { "icon": "icons/verbs/jump.gif", "spell": "jump", "pron": "[dʒʌmp]" },
-        { "icon": "icons/verbs/read.gif", "spell": "read", "pron": "[riːd]" },
-        { "icon": "icons/verbs/write.gif", "spell": "write", "pron": "[raɪt]" },
-        { "icon": "icons/verbs/sleep.gif", "spell": "sleep", "pron": "[sliːp]" },
-        { "icon": "icons/verbs/eat.gif", "spell": "eat", "pron": "[iːt]" },
-        { "icon": "icons/verbs/drink.gif", "spell": "drink", "pron": "[drɪŋk]" },
-        { "icon": "icons/verbs/listen.gif", "spell": "listen", "pron": "[ˈlɪsən]" },
-        { "icon": "icons/verbs/speak.gif", "spell": "speak", "pron": "[spiːk]" },
-        { "icon": "icons/verbs/see.gif", "spell": "see", "pron": "[siː]" },
-        { "icon": "icons/verbs/travel.gif", "spell": "travel", "pron": "[ˈtrævəl]" },
-        { "icon": "icons/verbs/work.gif", "spell": "work", "pron": "[wɜrk]" },
-        { "icon": "icons/verbs/study.gif", "spell": "study", "pron": "[ˈstʌdi]" },
-        { "icon": "icons/verbs/learn.gif", "spell": "learn", "pron": "[lɜrn]" },
-        { "icon": "icons/verbs/answer.gif", "spell": "answer", "pron": "[ˈænsər]" },
-        { "icon": "icons/verbs/buy.gif", "spell": "buy", "pron": "[baɪ]" },
-        { "icon": "icons/verbs/pay.gif", "spell": "pay", "pron": "[peɪ]" },
-        { "icon": "icons/verbs/walk.gif", "spell": "walk", "pron": "[wɔːk]" },
-        { "icon": "icons/verbs/run.gif", "spell": "run", "pron": "[rʌn]" },
-        { "icon": "icons/verbs/help.gif", "spell": "help", "pron": "[hɛlp]" },
-        { "icon": "icons/verbs/paint.gif", "spell": "paint", "pron": "[peɪnt]" },
-        { "icon": "icons/verbs/start.gif", "spell": "start", "pron": "[stɑːrt]" },
-        { "icon": "icons/verbs/finish.gif", "spell": "finish", "pron": "[ˈfɪnɪʃ]" },
-        { "icon": "icons/verbs/think.gif", "spell": "think", "pron": "[θɪŋk]" },
-        { "icon": "icons/verbs/love.gif", "spell": "love", "pron": "[lʌv]" },
-        { "icon": "icons/verbs/believe.gif", "spell": "believe", "pron": "[bɪˈliːv]" },
-        { "icon": "icons/verbs/take.gif", "spell": "take", "pron": "[teɪk]" },
-        { "icon": "icons/verbs/repair.gif", "spell": "repair", "pron": "[rɪˈpɛər]" },
-        { "icon": "icons/verbs/try.gif", "spell": "try", "pron": "[traɪ]" },
-        { "icon": "icons/verbs/wait.gif", "spell": "wait", "pron": "[weɪt]" }
+        {
+          "icon": "icons/verbs/go.gif",
+          "spell": "go",
+          "pron": "[goʊ]"
+        },
+        {
+          "icon": "icons/verbs/jump.gif",
+          "spell": "jump",
+          "pron": "[dʒʌmp]"
+        },
+        {
+          "icon": "icons/verbs/read.gif",
+          "spell": "read",
+          "pron": "[riːd]"
+        },
+        {
+          "icon": "icons/verbs/write.gif",
+          "spell": "write",
+          "pron": "[raɪt]"
+        },
+        {
+          "icon": "icons/verbs/sleep.gif",
+          "spell": "sleep",
+          "pron": "[sliːp]"
+        },
+        {
+          "icon": "icons/verbs/eat.gif",
+          "spell": "eat",
+          "pron": "[iːt]"
+        },
+        {
+          "icon": "icons/verbs/drink.gif",
+          "spell": "drink",
+          "pron": "[drɪŋk]"
+        },
+        {
+          "icon": "icons/verbs/listen.gif",
+          "spell": "listen",
+          "pron": "[ˈlɪsən]"
+        },
+        {
+          "icon": "icons/verbs/speak.gif",
+          "spell": "speak",
+          "pron": "[spiːk]"
+        },
+        {
+          "icon": "icons/verbs/see.gif",
+          "spell": "see",
+          "pron": "[siː]"
+        },
+        {
+          "icon": "icons/verbs/travel.gif",
+          "spell": "travel",
+          "pron": "[ˈtrævəl]"
+        },
+        {
+          "icon": "icons/verbs/work.gif",
+          "spell": "work",
+          "pron": "[wɜrk]"
+        },
+        {
+          "icon": "icons/verbs/study.gif",
+          "spell": "study",
+          "pron": "[ˈstʌdi]"
+        },
+        {
+          "icon": "icons/verbs/learn.gif",
+          "spell": "learn",
+          "pron": "[lɜrn]"
+        },
+        {
+          "icon": "icons/verbs/answer.gif",
+          "spell": "answer",
+          "pron": "[ˈænsər]"
+        },
+        {
+          "icon": "icons/verbs/buy.gif",
+          "spell": "buy",
+          "pron": "[baɪ]"
+        },
+        {
+          "icon": "icons/verbs/pay.gif",
+          "spell": "pay",
+          "pron": "[peɪ]"
+        },
+        {
+          "icon": "icons/verbs/walk.gif",
+          "spell": "walk",
+          "pron": "[wɔːk]"
+        },
+        {
+          "icon": "icons/verbs/run.gif",
+          "spell": "run",
+          "pron": "[rʌn]"
+        },
+        {
+          "icon": "icons/verbs/help.gif",
+          "spell": "help",
+          "pron": "[hɛlp]"
+        },
+        {
+          "icon": "icons/verbs/paint.gif",
+          "spell": "paint",
+          "pron": "[peɪnt]"
+        },
+        {
+          "icon": "icons/verbs/start.gif",
+          "spell": "start",
+          "pron": "[stɑːrt]"
+        },
+        {
+          "icon": "icons/verbs/finish.gif",
+          "spell": "finish",
+          "pron": "[ˈfɪnɪʃ]"
+        },
+        {
+          "icon": "icons/verbs/think.gif",
+          "spell": "think",
+          "pron": "[θɪŋk]"
+        },
+        {
+          "icon": "icons/verbs/love.gif",
+          "spell": "love",
+          "pron": "[lʌv]"
+        },
+        {
+          "icon": "icons/verbs/believe.gif",
+          "spell": "believe",
+          "pron": "[bɪˈliːv]"
+        },
+        {
+          "icon": "icons/verbs/take.gif",
+          "spell": "take",
+          "pron": "[teɪk]"
+        },
+        {
+          "icon": "icons/verbs/repair.gif",
+          "spell": "repair",
+          "pron": "[rɪˈpɛər]"
+        },
+        {
+          "icon": "icons/verbs/try.gif",
+          "spell": "try",
+          "pron": "[traɪ]"
+        },
+        {
+          "icon": "icons/verbs/wait.gif",
+          "spell": "wait",
+          "pron": "[weɪt]"
+        }
       ]
     },
     {
@@ -94,13 +214,41 @@
       "thumbnail": "https://blog.trainlang.com/wp-content/uploads/2020/12/english-pronouns-1-scaled.jpg",
       "type": "flashcards",
       "items": [
-          { "icon": "icons/pronouns/i.gif", "spell": "I", "pron": "[aɪ]" },
-          { "icon": "icons/pronouns/you.gif", "spell": "you", "pron": "[juː]" },
-          { "icon": "icons/pronouns/he.gif", "spell": "he", "pron": "[hiː]" },
-          { "icon": "icons/pronouns/she.gif", "spell": "she", "pron": "[ʃiː]" },
-          { "icon": "icons/pronouns/it.gif", "spell": "it", "pron": "[ɪt]" },
-          { "icon": "icons/pronouns/we.gif", "spell": "we", "pron": "[wiː]" },
-          { "icon": "icons/pronouns/they.gif", "spell": "they", "pron": "[ðeɪ]" }
+        {
+          "icon": "icons/pronouns/i.gif",
+          "spell": "I",
+          "pron": "[aɪ]"
+        },
+        {
+          "icon": "icons/pronouns/you.gif",
+          "spell": "you",
+          "pron": "[juː]"
+        },
+        {
+          "icon": "icons/pronouns/he.gif",
+          "spell": "he",
+          "pron": "[hiː]"
+        },
+        {
+          "icon": "icons/pronouns/she.gif",
+          "spell": "she",
+          "pron": "[ʃiː]"
+        },
+        {
+          "icon": "icons/pronouns/it.gif",
+          "spell": "it",
+          "pron": "[ɪt]"
+        },
+        {
+          "icon": "icons/pronouns/we.gif",
+          "spell": "we",
+          "pron": "[wiː]"
+        },
+        {
+          "icon": "icons/pronouns/they.gif",
+          "spell": "they",
+          "pron": "[ðeɪ]"
+        }
       ]
     },
     {
@@ -140,7 +288,6 @@
       "name": "Asocia palabras (Verbos más comunes)",
       "type": "dragdrop",
       "incorrectSound": "Try again.",
-      
       "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
       "from": "vocab_verbs"
     },
@@ -150,26 +297,196 @@
       "type": "quiz",
       "thumbnail": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBqMB7aPZvyVjnUtUYufRaT6bz3mSkMeZTEp3zmmyNeLYhEfbxA2up-EkUs3ZT0XvgQTasXI9w9Y7irca7KpL2Tunif3WwUcjrinLiUnkHQfPvc675_HavjPkQoNohjEcpFAO06aTnZ_95/s1600/examen.png",
       "questions": [
-        { "question": "El verbo 'to be' en primera persona singular (I) es:", "options": ["am", "is", "are"], "answer": 0 },
-        { "question": "El verbo 'to be' en tercera persona singular (he) es:", "options": ["am", "is", "are"], "answer": 1 },
-        { "question": "El verbo 'to be' en segunda persona plural (you) es:", "options": ["am", "is", "are"], "answer": 2 },
-        { "question": "¿Cuál es el equivalente en inglés de 'trabajar'?", "options": ["work", "study", "play", "run"], "answer": 0 },
-        { "question": "¿Cuál es el equivalente en inglés de 'leer'?", "options": ["read", "write", "listen", "speak"], "answer": 0 },
-        { "question": "Completa: I ___ a student.", "options": ["am", "is", "are"], "answer": 0 },
-        { "question": "Completa: She ___ at home.", "options": ["am", "is", "are"], "answer": 1 },
-        { "question": "¿Cuál es el equivalente en inglés de 'comer'?", "options": ["drink", "eat", "buy", "take"], "answer": 1 },
-        { "question": "¿Cuál es el equivalente en inglés de 'beber'?", "options": ["drink", "eat", "see", "love"], "answer": 0 },
-        { "question": "El verbo 'to be' en primera persona plural (we) es:", "options": ["am", "is", "are"], "answer": 2 },
-        { "question": "¿Cuál es el equivalente en inglés de 'caminar'?", "options": ["walk", "run", "jump", "go"], "answer": 0 },
-        { "question": "¿Cuál es el equivalente en inglés de 'correr'?", "options": ["walk", "run", "jump", "play"], "answer": 1 },
-        { "question": "El verbo 'to be' en tercera persona plural (they) es:", "options": ["am", "is", "are"], "answer": 2 },
-        { "question": "Completa: They ___ ready to start.", "options": ["am", "is", "are"], "answer": 2 },
-        { "question": "¿Cuál es el equivalente en inglés de 'escuchar'?", "options": ["listen", "speak", "see", "read"], "answer": 0 },
-        { "question": "¿Cuál es el equivalente en inglés de 'hablar'?", "options": ["listen", "speak", "see", "read"], "answer": 1 },
-        { "question": "Completa: You ___ my friend.", "options": ["am", "is", "are"], "answer": 2 },
-        { "question": "¿Cuál es el equivalente en inglés de 'estudiar'?", "options": ["study", "learn", "work", "paint"], "answer": 0 },
-        { "question": "¿Cuál es el equivalente en inglés de 'aprender'?", "options": ["study", "learn", "work", "paint"], "answer": 1 },
-        { "question": "Completa: He ___ a teacher.", "options": ["am", "is", "are"], "answer": 1 }
+        {
+          "question": "El verbo 'to be' en primera persona singular (I) es:",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El verbo 'to be' en tercera persona singular (he) es:",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "El verbo 'to be' en segunda persona plural (you) es:",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'trabajar'?",
+          "options": [
+            "work",
+            "study",
+            "play",
+            "run"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'leer'?",
+          "options": [
+            "read",
+            "write",
+            "listen",
+            "speak"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Completa: I ___ a student.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Completa: She ___ at home.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'comer'?",
+          "options": [
+            "drink",
+            "eat",
+            "buy",
+            "take"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'beber'?",
+          "options": [
+            "drink",
+            "eat",
+            "see",
+            "love"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "El verbo 'to be' en primera persona plural (we) es:",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'caminar'?",
+          "options": [
+            "walk",
+            "run",
+            "jump",
+            "go"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'correr'?",
+          "options": [
+            "walk",
+            "run",
+            "jump",
+            "play"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "El verbo 'to be' en tercera persona plural (they) es:",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Completa: They ___ ready to start.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'escuchar'?",
+          "options": [
+            "listen",
+            "speak",
+            "see",
+            "read"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'hablar'?",
+          "options": [
+            "listen",
+            "speak",
+            "see",
+            "read"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Completa: You ___ my friend.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'estudiar'?",
+          "options": [
+            "study",
+            "learn",
+            "work",
+            "paint"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el equivalente en inglés de 'aprender'?",
+          "options": [
+            "study",
+            "learn",
+            "work",
+            "paint"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Completa: He ___ a teacher.",
+          "options": [
+            "am",
+            "is",
+            "are"
+          ],
+          "answer": 1
+        }
       ],
       "pass": 65
     },
@@ -179,36 +496,146 @@
       "thumbnail": "https://i.imgur.com/8NnQM4h.png",
       "type": "flashcards",
       "items": [
-        { "icon": "icons/vocabulary/0.gif", "spell": "zero", "pron": "[ˈzɪəroʊ]" },
-        { "icon": "icons/vocabulary/1.gif", "spell": "one", "pron": "[wʌn]" },
-        { "icon": "icons/vocabulary/2.gif", "spell": "two", "pron": "[tuː]" },
-        { "icon": "icons/vocabulary/3.gif", "spell": "three", "pron": "[θriː]" },
-        { "icon": "icons/vocabulary/4.gif", "spell": "four", "pron": "[fɔːr]" },
-        { "icon": "icons/vocabulary/5.gif", "spell": "five", "pron": "[faɪv]" },
-        { "icon": "icons/vocabulary/6.gif", "spell": "six", "pron": "[sɪks]" },
-        { "icon": "icons/vocabulary/7.gif", "spell": "seven", "pron": "[ˈsev.ən]" },
-        { "icon": "icons/vocabulary/8.gif", "spell": "eight", "pron": "[eɪt]" },
-        { "icon": "icons/vocabulary/9.gif", "spell": "nine", "pron": "[naɪn]" },
-        { "icon": "icons/vocabulary/10.gif", "spell": "ten", "pron": "[ten]" },
-
-        { "icon": "icons/vocabulary/11.gif", "spell": "eleven", "pron": "[ɪˈlevən]" },
-        { "icon": "icons/vocabulary/12.gif", "spell": "twelve", "pron": "[twɛlv]" },
-        { "icon": "icons/vocabulary/13.gif", "spell": "thirteen", "pron": "[ˈθɜːrtiːn]" },
-        { "icon": "icons/vocabulary/14.gif", "spell": "fourteen", "pron": "[ˈfɔːrtiːn]" },
-        { "icon": "icons/vocabulary/15.gif", "spell": "fifteen", "pron": "[ˈfɪftiːn]" },
-        { "icon": "icons/vocabulary/16.gif", "spell": "sixteen", "pron": "[ˈsɪkstiːn]" },
-        { "icon": "icons/vocabulary/17.gif", "spell": "seventeen", "pron": "[ˈsɛvntiːn]" },
-        { "icon": "icons/vocabulary/18.gif", "spell": "eighteen", "pron": "[ˈeɪtiːn]" },
-        { "icon": "icons/vocabulary/19.gif", "spell": "nineteen", "pron": "[ˈnaɪntiːn]" },
-
-        { "icon": "icons/vocabulary/20.gif", "spell": "twenty", "pron": "[ˈtwenti]" },
-        { "icon": "icons/vocabulary/30.gif", "spell": "thirty", "pron": "[ˈθɜːrti]" },
-        { "icon": "icons/vocabulary/40.gif", "spell": "forty", "pron": "[ˈfɔːrti]" },
-        { "icon": "icons/vocabulary/50.gif", "spell": "fifty", "pron": "[ˈfɪfti]" },
-        { "icon": "icons/vocabulary/60.gif", "spell": "sixty", "pron": "[ˈsɪksti]" },
-        { "icon": "icons/vocabulary/70.gif", "spell": "seventy", "pron": "[ˈsev.ənti]" },
-        { "icon": "icons/vocabulary/80.gif", "spell": "eighty", "pron": "[ˈeɪti]" },
-        { "icon": "icons/vocabulary/90.gif", "spell": "ninety", "pron": "[ˈnaɪnti]" }
+        {
+          "icon": "icons/vocabulary/0.gif",
+          "spell": "zero",
+          "pron": "[ˈzɪəroʊ]"
+        },
+        {
+          "icon": "icons/vocabulary/1.gif",
+          "spell": "one",
+          "pron": "[wʌn]"
+        },
+        {
+          "icon": "icons/vocabulary/2.gif",
+          "spell": "two",
+          "pron": "[tuː]"
+        },
+        {
+          "icon": "icons/vocabulary/3.gif",
+          "spell": "three",
+          "pron": "[θriː]"
+        },
+        {
+          "icon": "icons/vocabulary/4.gif",
+          "spell": "four",
+          "pron": "[fɔːr]"
+        },
+        {
+          "icon": "icons/vocabulary/5.gif",
+          "spell": "five",
+          "pron": "[faɪv]"
+        },
+        {
+          "icon": "icons/vocabulary/6.gif",
+          "spell": "six",
+          "pron": "[sɪks]"
+        },
+        {
+          "icon": "icons/vocabulary/7.gif",
+          "spell": "seven",
+          "pron": "[ˈsev.ən]"
+        },
+        {
+          "icon": "icons/vocabulary/8.gif",
+          "spell": "eight",
+          "pron": "[eɪt]"
+        },
+        {
+          "icon": "icons/vocabulary/9.gif",
+          "spell": "nine",
+          "pron": "[naɪn]"
+        },
+        {
+          "icon": "icons/vocabulary/10.gif",
+          "spell": "ten",
+          "pron": "[ten]"
+        },
+        {
+          "icon": "icons/vocabulary/11.gif",
+          "spell": "eleven",
+          "pron": "[ɪˈlevən]"
+        },
+        {
+          "icon": "icons/vocabulary/12.gif",
+          "spell": "twelve",
+          "pron": "[twɛlv]"
+        },
+        {
+          "icon": "icons/vocabulary/13.gif",
+          "spell": "thirteen",
+          "pron": "[ˈθɜːrtiːn]"
+        },
+        {
+          "icon": "icons/vocabulary/14.gif",
+          "spell": "fourteen",
+          "pron": "[ˈfɔːrtiːn]"
+        },
+        {
+          "icon": "icons/vocabulary/15.gif",
+          "spell": "fifteen",
+          "pron": "[ˈfɪftiːn]"
+        },
+        {
+          "icon": "icons/vocabulary/16.gif",
+          "spell": "sixteen",
+          "pron": "[ˈsɪkstiːn]"
+        },
+        {
+          "icon": "icons/vocabulary/17.gif",
+          "spell": "seventeen",
+          "pron": "[ˈsɛvntiːn]"
+        },
+        {
+          "icon": "icons/vocabulary/18.gif",
+          "spell": "eighteen",
+          "pron": "[ˈeɪtiːn]"
+        },
+        {
+          "icon": "icons/vocabulary/19.gif",
+          "spell": "nineteen",
+          "pron": "[ˈnaɪntiːn]"
+        },
+        {
+          "icon": "icons/vocabulary/20.gif",
+          "spell": "twenty",
+          "pron": "[ˈtwenti]"
+        },
+        {
+          "icon": "icons/vocabulary/30.gif",
+          "spell": "thirty",
+          "pron": "[ˈθɜːrti]"
+        },
+        {
+          "icon": "icons/vocabulary/40.gif",
+          "spell": "forty",
+          "pron": "[ˈfɔːrti]"
+        },
+        {
+          "icon": "icons/vocabulary/50.gif",
+          "spell": "fifty",
+          "pron": "[ˈfɪfti]"
+        },
+        {
+          "icon": "icons/vocabulary/60.gif",
+          "spell": "sixty",
+          "pron": "[ˈsɪksti]"
+        },
+        {
+          "icon": "icons/vocabulary/70.gif",
+          "spell": "seventy",
+          "pron": "[ˈsev.ənti]"
+        },
+        {
+          "icon": "icons/vocabulary/80.gif",
+          "spell": "eighty",
+          "pron": "[ˈeɪti]"
+        },
+        {
+          "icon": "icons/vocabulary/90.gif",
+          "spell": "ninety",
+          "pron": "[ˈnaɪnti]"
+        }
       ]
     },
     {
@@ -217,32 +644,136 @@
       "thumbnail": "https://i.ytimg.com/vi/um3YrKRfsr0/maxresdefault.jpg",
       "type": "flashcards",
       "items": [
-        { "icon": "icons/vocabulary/a.gif", "spell": "A", "pron": "[eɪ]" },
-        { "icon": "icons/vocabulary/b.gif", "spell": "B", "pron": "[biː]" },
-        { "icon": "icons/vocabulary/c.gif", "spell": "C", "pron": "[siː]" },
-        { "icon": "icons/vocabulary/d.gif", "spell": "D", "pron": "[diː]" },
-        { "icon": "icons/vocabulary/e.gif", "spell": "E", "pron": "[iː]" },
-        { "icon": "icons/vocabulary/f.gif", "spell": "F", "pron": "[ɛf]" },
-        { "icon": "icons/vocabulary/g.gif", "spell": "G", "pron": "[dʒiː]" },
-        { "icon": "icons/vocabulary/h.gif", "spell": "H", "pron": "[eɪtʃ]" },
-        { "icon": "icons/vocabulary/i.gif", "spell": "I", "pron": "[aɪ]" },
-        { "icon": "icons/vocabulary/j.gif", "spell": "J", "pron": "[dʒeɪ]" },
-        { "icon": "icons/vocabulary/k.gif", "spell": "K", "pron": "[keɪ]" },
-        { "icon": "icons/vocabulary/l.gif", "spell": "L", "pron": "[ɛl]" },
-        { "icon": "icons/vocabulary/m.gif", "spell": "M", "pron": "[ɛm]" },
-        { "icon": "icons/vocabulary/n.gif", "spell": "N", "pron": "[ɛn]" },
-        { "icon": "icons/vocabulary/o.gif", "spell": "O", "pron": "[oʊ]" },
-        { "icon": "icons/vocabulary/p.gif", "spell": "P", "pron": "[piː]" },
-        { "icon": "icons/vocabulary/q.gif", "spell": "Q", "pron": "[kjuː]" },
-        { "icon": "icons/vocabulary/r.gif", "spell": "R", "pron": "[ɑːr]" },
-        { "icon": "icons/vocabulary/s.gif", "spell": "S", "pron": "[ɛs]" },
-        { "icon": "icons/vocabulary/t.gif", "spell": "T", "pron": "[tiː]" },
-        { "icon": "icons/vocabulary/u.gif", "spell": "U", "pron": "[juː]" },
-        { "icon": "icons/vocabulary/v.gif", "spell": "V", "pron": "[viː]" },
-        { "icon": "icons/vocabulary/w.gif", "spell": "W", "pron": "[ˈdʌbəl.juː]" },
-        { "icon": "icons/vocabulary/x.gif", "spell": "X", "pron": "[ɛks]" },
-        { "icon": "icons/vocabulary/y.gif", "spell": "Y", "pron": "[waɪ]" },
-        { "icon": "icons/vocabulary/z.gif", "spell": "Z", "pron": "[ziː]" }
+        {
+          "icon": "icons/vocabulary/a.gif",
+          "spell": "A",
+          "pron": "[eɪ]"
+        },
+        {
+          "icon": "icons/vocabulary/b.gif",
+          "spell": "B",
+          "pron": "[biː]"
+        },
+        {
+          "icon": "icons/vocabulary/c.gif",
+          "spell": "C",
+          "pron": "[siː]"
+        },
+        {
+          "icon": "icons/vocabulary/d.gif",
+          "spell": "D",
+          "pron": "[diː]"
+        },
+        {
+          "icon": "icons/vocabulary/e.gif",
+          "spell": "E",
+          "pron": "[iː]"
+        },
+        {
+          "icon": "icons/vocabulary/f.gif",
+          "spell": "F",
+          "pron": "[ɛf]"
+        },
+        {
+          "icon": "icons/vocabulary/g.gif",
+          "spell": "G",
+          "pron": "[dʒiː]"
+        },
+        {
+          "icon": "icons/vocabulary/h.gif",
+          "spell": "H",
+          "pron": "[eɪtʃ]"
+        },
+        {
+          "icon": "icons/vocabulary/i.gif",
+          "spell": "I",
+          "pron": "[aɪ]"
+        },
+        {
+          "icon": "icons/vocabulary/j.gif",
+          "spell": "J",
+          "pron": "[dʒeɪ]"
+        },
+        {
+          "icon": "icons/vocabulary/k.gif",
+          "spell": "K",
+          "pron": "[keɪ]"
+        },
+        {
+          "icon": "icons/vocabulary/l.gif",
+          "spell": "L",
+          "pron": "[ɛl]"
+        },
+        {
+          "icon": "icons/vocabulary/m.gif",
+          "spell": "M",
+          "pron": "[ɛm]"
+        },
+        {
+          "icon": "icons/vocabulary/n.gif",
+          "spell": "N",
+          "pron": "[ɛn]"
+        },
+        {
+          "icon": "icons/vocabulary/o.gif",
+          "spell": "O",
+          "pron": "[oʊ]"
+        },
+        {
+          "icon": "icons/vocabulary/p.gif",
+          "spell": "P",
+          "pron": "[piː]"
+        },
+        {
+          "icon": "icons/vocabulary/q.gif",
+          "spell": "Q",
+          "pron": "[kjuː]"
+        },
+        {
+          "icon": "icons/vocabulary/r.gif",
+          "spell": "R",
+          "pron": "[ɑːr]"
+        },
+        {
+          "icon": "icons/vocabulary/s.gif",
+          "spell": "S",
+          "pron": "[ɛs]"
+        },
+        {
+          "icon": "icons/vocabulary/t.gif",
+          "spell": "T",
+          "pron": "[tiː]"
+        },
+        {
+          "icon": "icons/vocabulary/u.gif",
+          "spell": "U",
+          "pron": "[juː]"
+        },
+        {
+          "icon": "icons/vocabulary/v.gif",
+          "spell": "V",
+          "pron": "[viː]"
+        },
+        {
+          "icon": "icons/vocabulary/w.gif",
+          "spell": "W",
+          "pron": "[ˈdʌbəl.juː]"
+        },
+        {
+          "icon": "icons/vocabulary/x.gif",
+          "spell": "X",
+          "pron": "[ɛks]"
+        },
+        {
+          "icon": "icons/vocabulary/y.gif",
+          "spell": "Y",
+          "pron": "[waɪ]"
+        },
+        {
+          "icon": "icons/vocabulary/z.gif",
+          "spell": "Z",
+          "pron": "[ziː]"
+        }
       ]
     },
     {
@@ -251,27 +782,111 @@
       "thumbnail": "https://static.vecteezy.com/system/resources/thumbnails/012/084/533/small_2x/cartoon-wild-animals-on-white-background-vector.jpg",
       "type": "flashcards",
       "items": [
-        { "icon": "icons/vocabulary/cat.gif", "spell": "cat", "pron": "[kæt]" },
-        { "icon": "icons/vocabulary/dog.gif", "spell": "dog", "pron": "[dɔg]" },
-        { "icon": "icons/vocabulary/bird.gif", "spell": "bird", "pron": "[bɜrd]" },
-        { "icon": "icons/vocabulary/fish.gif", "spell": "fish", "pron": "[fɪʃ]" },
-        { "icon": "icons/vocabulary/horse.gif", "spell": "horse", "pron": "[hɔrs]" },
-        { "icon": "icons/vocabulary/cow.gif", "spell": "cow", "pron": "[kaʊ]" },
-        { "icon": "icons/vocabulary/sheep.gif", "spell": "sheep", "pron": "[ʃiːp]" },
-        { "icon": "icons/vocabulary/pig.gif", "spell": "pig", "pron": "[pɪg]" },
-        { "icon": "icons/vocabulary/rabbit.gif", "spell": "rabbit", "pron": "[ˈræbɪt]" },
-        { "icon": "icons/vocabulary/lion.gif", "spell": "lion", "pron": "[ˈlaɪən]" },
-        { "icon": "icons/vocabulary/tiger.gif", "spell": "tiger", "pron": "[ˈtaɪgɚ]" },
-        { "icon": "icons/vocabulary/elephant.gif", "spell": "elephant", "pron": "[ˈɛlɪfənt]" },
-        { "icon": "icons/vocabulary/snake.gif", "spell": "snake", "pron": "[sneɪk]" },
-        { "icon": "icons/vocabulary/duck.gif", "spell": "duck", "pron": "[dʌk]" },
-        { "icon": "icons/vocabulary/camel.gif", "spell": "camel", "pron": "[ˈkæməl]" },
-        { "icon": "icons/vocabulary/armadillo.gif", "spell": "armadillo", "pron": "[ˌɑrməˈdɪloʊ]" },
-        { "icon": "icons/vocabulary/snail.gif", "spell": "snail", "pron": "[sneɪl]" },
-        { "icon": "icons/vocabulary/chicken.gif", "spell": "chicken", "pron": "[ˈʧɪkən]" },
-        { "icon": "icons/vocabulary/octopus.gif", "spell": "octopus", "pron": "[ˈɑktəpəs]" },
-        { "icon": "icons/vocabulary/gorilla.gif", "spell": "gorilla", "pron": "[gəˈrɪlə]" },
-        { "icon": "icons/vocabulary/monkey.gif", "spell": "monkey", "pron": "[ˈmʌŋki]" }
+        {
+          "icon": "icons/vocabulary/cat.gif",
+          "spell": "cat",
+          "pron": "[kæt]"
+        },
+        {
+          "icon": "icons/vocabulary/dog.gif",
+          "spell": "dog",
+          "pron": "[dɔg]"
+        },
+        {
+          "icon": "icons/vocabulary/bird.gif",
+          "spell": "bird",
+          "pron": "[bɜrd]"
+        },
+        {
+          "icon": "icons/vocabulary/fish.gif",
+          "spell": "fish",
+          "pron": "[fɪʃ]"
+        },
+        {
+          "icon": "icons/vocabulary/horse.gif",
+          "spell": "horse",
+          "pron": "[hɔrs]"
+        },
+        {
+          "icon": "icons/vocabulary/cow.gif",
+          "spell": "cow",
+          "pron": "[kaʊ]"
+        },
+        {
+          "icon": "icons/vocabulary/sheep.gif",
+          "spell": "sheep",
+          "pron": "[ʃiːp]"
+        },
+        {
+          "icon": "icons/vocabulary/pig.gif",
+          "spell": "pig",
+          "pron": "[pɪg]"
+        },
+        {
+          "icon": "icons/vocabulary/rabbit.gif",
+          "spell": "rabbit",
+          "pron": "[ˈræbɪt]"
+        },
+        {
+          "icon": "icons/vocabulary/lion.gif",
+          "spell": "lion",
+          "pron": "[ˈlaɪən]"
+        },
+        {
+          "icon": "icons/vocabulary/tiger.gif",
+          "spell": "tiger",
+          "pron": "[ˈtaɪgɚ]"
+        },
+        {
+          "icon": "icons/vocabulary/elephant.gif",
+          "spell": "elephant",
+          "pron": "[ˈɛlɪfənt]"
+        },
+        {
+          "icon": "icons/vocabulary/snake.gif",
+          "spell": "snake",
+          "pron": "[sneɪk]"
+        },
+        {
+          "icon": "icons/vocabulary/duck.gif",
+          "spell": "duck",
+          "pron": "[dʌk]"
+        },
+        {
+          "icon": "icons/vocabulary/camel.gif",
+          "spell": "camel",
+          "pron": "[ˈkæməl]"
+        },
+        {
+          "icon": "icons/vocabulary/armadillo.gif",
+          "spell": "armadillo",
+          "pron": "[ˌɑrməˈdɪloʊ]"
+        },
+        {
+          "icon": "icons/vocabulary/snail.gif",
+          "spell": "snail",
+          "pron": "[sneɪl]"
+        },
+        {
+          "icon": "icons/vocabulary/chicken.gif",
+          "spell": "chicken",
+          "pron": "[ˈʧɪkən]"
+        },
+        {
+          "icon": "icons/vocabulary/octopus.gif",
+          "spell": "octopus",
+          "pron": "[ˈɑktəpəs]"
+        },
+        {
+          "icon": "icons/vocabulary/gorilla.gif",
+          "spell": "gorilla",
+          "pron": "[gəˈrɪlə]"
+        },
+        {
+          "icon": "icons/vocabulary/monkey.gif",
+          "spell": "monkey",
+          "pron": "[ˈmʌŋki]"
+        }
       ]
     },
     {
@@ -286,7 +901,6 @@
       "name": "Asocia palabras (Números (0-99)",
       "type": "dragdrop",
       "incorrectSound": "Try again.",
-      
       "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
       "from": "vocab_numbers"
     },
@@ -295,7 +909,6 @@
       "name": "Asocia palabras (Abecedario)",
       "type": "dragdrop",
       "incorrectSound": "Try again.",
-      
       "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
       "from": "vocab_alphabet"
     },
@@ -304,7 +917,6 @@
       "name": "Asocia palabras (Animales)",
       "type": "dragdrop",
       "incorrectSound": "Try again.",
-      
       "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
       "from": "vocab_animals"
     },
@@ -314,28 +926,116 @@
       "thumbnail": "https://www.learnenglish.com/wp-content/uploads/foods-1.jpg",
       "type": "flashcards",
       "items": [
-        { "icon": "icons/vocabulary/apple.gif", "spell": "apple", "pron": "[ˈæpəl]" },
-        { "icon": "icons/vocabulary/banana.gif", "spell": "banana", "pron": "[bəˈnænə]" },
-        { "icon": "icons/vocabulary/bread.gif", "spell": "bread", "pron": "[brɛd]" },
-        { "icon": "icons/vocabulary/cheese.gif", "spell": "cheese", "pron": "[ʧiːz]" },
-        { "icon": "icons/vocabulary/egg.gif", "spell": "egg", "pron": "[ɛg]" },
-        { "icon": "icons/vocabulary/milk.gif", "spell": "milk", "pron": "[mɪlk]" },
-        { "icon": "icons/vocabulary/rice.gif", "spell": "rice", "pron": "[raɪs]" },
-        { "icon": "icons/vocabulary/pizza.gif", "spell": "pizza", "pron": "[ˈpiːtsə]" },
-        { "icon": "icons/vocabulary/salad.gif", "spell": "salad", "pron": "[ˈsæləd]" },
-        { "icon": "icons/vocabulary/soup.gif", "spell": "soup", "pron": "[suːp]" },
-        { "icon": "icons/vocabulary/steak.gif", "spell": "steak", "pron": "[steɪk]" },
-        { "icon": "icons/vocabulary/tomato.gif", "spell": "tomato", "pron": "[təˈmeɪtoʊ]" },
-        { "icon": "icons/vocabulary/onion.gif", "spell": "onion", "pron": "[ˈʌnjən]" },
-        { "icon": "icons/vocabulary/potato.gif", "spell": "potato", "pron": "[pəˈteɪtoʊ]" },
-        { "icon": "icons/vocabulary/burger.gif", "spell": "burger", "pron": "[bɜrgər]" },
-        { "icon": "icons/vocabulary/cake.gif", "spell": "cake", "pron": "[keɪk]" },
-        { "icon": "icons/vocabulary/icecream.gif", "spell": "ice cream", "pron": "[aɪs kriːm]" },
-        { "icon": "icons/vocabulary/cookie.gif", "spell": "cookie", "pron": "[ˈkʊki]" },
-        { "icon": "icons/vocabulary/vegetables.gif", "spell": "vegetables", "pron": "[ˈvɛdʒtəblz]" },
-        { "icon": "icons/vocabulary/carrot.gif", "spell": "carrot", "pron": "[ˈkærət]" },
-        { "icon": "icons/vocabulary/water.gif", "spell": "water", "pron": "[ˈwɔtər]" },
-        { "icon": "icons/vocabulary/coffee.gif", "spell": "coffee", "pron": "[ˈkɔfi]" }
+        {
+          "icon": "icons/vocabulary/apple.gif",
+          "spell": "apple",
+          "pron": "[ˈæpəl]"
+        },
+        {
+          "icon": "icons/vocabulary/banana.gif",
+          "spell": "banana",
+          "pron": "[bəˈnænə]"
+        },
+        {
+          "icon": "icons/vocabulary/bread.gif",
+          "spell": "bread",
+          "pron": "[brɛd]"
+        },
+        {
+          "icon": "icons/vocabulary/cheese.gif",
+          "spell": "cheese",
+          "pron": "[ʧiːz]"
+        },
+        {
+          "icon": "icons/vocabulary/egg.gif",
+          "spell": "egg",
+          "pron": "[ɛg]"
+        },
+        {
+          "icon": "icons/vocabulary/milk.gif",
+          "spell": "milk",
+          "pron": "[mɪlk]"
+        },
+        {
+          "icon": "icons/vocabulary/rice.gif",
+          "spell": "rice",
+          "pron": "[raɪs]"
+        },
+        {
+          "icon": "icons/vocabulary/pizza.gif",
+          "spell": "pizza",
+          "pron": "[ˈpiːtsə]"
+        },
+        {
+          "icon": "icons/vocabulary/salad.gif",
+          "spell": "salad",
+          "pron": "[ˈsæləd]"
+        },
+        {
+          "icon": "icons/vocabulary/soup.gif",
+          "spell": "soup",
+          "pron": "[suːp]"
+        },
+        {
+          "icon": "icons/vocabulary/steak.gif",
+          "spell": "steak",
+          "pron": "[steɪk]"
+        },
+        {
+          "icon": "icons/vocabulary/tomato.gif",
+          "spell": "tomato",
+          "pron": "[təˈmeɪtoʊ]"
+        },
+        {
+          "icon": "icons/vocabulary/onion.gif",
+          "spell": "onion",
+          "pron": "[ˈʌnjən]"
+        },
+        {
+          "icon": "icons/vocabulary/potato.gif",
+          "spell": "potato",
+          "pron": "[pəˈteɪtoʊ]"
+        },
+        {
+          "icon": "icons/vocabulary/burger.gif",
+          "spell": "burger",
+          "pron": "[bɜrgər]"
+        },
+        {
+          "icon": "icons/vocabulary/cake.gif",
+          "spell": "cake",
+          "pron": "[keɪk]"
+        },
+        {
+          "icon": "icons/vocabulary/icecream.gif",
+          "spell": "ice cream",
+          "pron": "[aɪs kriːm]"
+        },
+        {
+          "icon": "icons/vocabulary/cookie.gif",
+          "spell": "cookie",
+          "pron": "[ˈkʊki]"
+        },
+        {
+          "icon": "icons/vocabulary/vegetables.gif",
+          "spell": "vegetables",
+          "pron": "[ˈvɛdʒtəblz]"
+        },
+        {
+          "icon": "icons/vocabulary/carrot.gif",
+          "spell": "carrot",
+          "pron": "[ˈkærət]"
+        },
+        {
+          "icon": "icons/vocabulary/water.gif",
+          "spell": "water",
+          "pron": "[ˈwɔtər]"
+        },
+        {
+          "icon": "icons/vocabulary/coffee.gif",
+          "spell": "coffee",
+          "pron": "[ˈkɔfi]"
+        }
       ]
     },
     {
@@ -345,6 +1045,136 @@
       "incorrectSound": "Try again.",
       "thumbnail": "https://blog.tcea.org/wp-content/uploads/2024/06/Drag-Drop-1600-x-900-px-1170x658.png",
       "from": "vocab_food"
+    },
+    {
+      "id": "numbers-ipa",
+      "name": "Numéros (Con IPA)",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/U34b9xtDY7U/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/U34b9xtDY7U"
+    },
+    {
+      "id": "days-of-the-week",
+      "name": "Días de la semana (Explicado con IPA)",
+      "type": "video",
+      "thumbnail": "https://i.ytimg.com/vi/eAwIKowTDEc/maxresdefault.jpg",
+      "url": "https://www.youtube.com/embed/eAwIKowTDEc"
+    },
+    {
+      "id": "quiz-numbers",
+      "name": "Cuestionario de Números en Inglés (1 – 1.000.000)",
+      "type": "quiz",
+      "thumbnail": "https://i.imgur.com/8NnQM4h.png",
+      "questions": [
+        {
+          "question": "¿Cómo se dice el número 12 en inglés?",
+          "options": ["Twelveth", "Twenty", "Twelve"],
+          "answer": 2
+        },
+        {
+          "question": "Expresa en números: Fifty-five.",
+          "options": ["550", "55", "505"],
+          "answer": 1
+        },
+        {
+          "question": "¿Cuál es el número en inglés para 87?",
+          "options": ["Seventy-eight", "Eighty-seven", "Eight-seven"],
+          "answer": 1
+        },
+        {
+          "question": "Expresa en números: Nine ninety-nine thousand nine ninety-nine.",
+          "options": ["99.999", "9.999", "999.999"],
+          "answer": 2
+        },
+        {
+          "question": "Escribe en inglés el número 300.",
+          "options": ["Three thousand", "Three hundred", "Thirty hundred"],
+          "answer": 1
+        },
+        {
+          "question": "¿Cuál es el número en inglés para 2.020?",
+          "options": ["Twenty twenty", "Two hundred twenty", "Two thousand twenty"],
+          "answer": 2
+        },
+        {
+          "question": "Expresa en números: Four thousand three hundred and ten.",
+          "options": ["4.013", "4.310", "4.130"],
+          "answer": 1
+        },
+        {
+          "question": "¿Cómo se dice el número 15.000 en inglés?",
+          "options": ["Fifty thousand", "Fifteen thousand", "One five thousand"],
+          "answer": 1
+        },
+        {
+          "question": "Expresa en inglés el número 75.",
+          "options": ["Seventy-five", "Seventeen-five", "Seven five"],
+          "answer": 0
+        },
+        {
+          "question": "Expresa en números: One hundred and one.",
+          "options": ["101", "110", "1001"],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el número en inglés para 999.999?",
+          "options": [
+            "Nine ninety-nine thousand ninety-nine",
+            "Nine hundred ninety-nine thousand nine hundred ninety-nine",
+            "Nine thousand nine hundred ninety-nine nine hundred"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Expresa en números: One million.",
+          "options": ["10.000", "100.000", "1.000.000"],
+          "answer": 2
+        },
+        {
+          "question": "¿Cómo se dice el número 44 en inglés?",
+          "options": ["Fourteen-four", "Forty-four", "Four four"],
+          "answer": 1
+        },
+        {
+          "question": "Expresa en inglés el número 10.000.",
+          "options": ["Thousand ten", "Ten thousand", "One hundred thousand"],
+          "answer": 1
+        },
+        {
+          "question": "Expresa en números: Two hundred and fifty thousand.",
+          "options": ["250.000", "25.000", "2.500"],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el número en inglés para 0?",
+          "options": ["Null", "Nothing", "Zero"],
+          "answer": 2
+        },
+        {
+          "question": "Expresa en números: Seven hundred seventy-seven.",
+          "options": ["777", "7.707", "707"],
+          "answer": 0
+        },
+        {
+          "question": "¿Cómo se dice el número 1.001 en inglés?",
+          "options": ["One hundred and one", "One thousand and one", "One million one"],
+          "answer": 1
+        },
+        {
+          "question": "Expresa en inglés el número 123.456.",
+          "options": [
+            "One twenty-three thousand four fifty-six",
+            "Twelve three thousand four fifty-six",
+            "One hundred twenty-three thousand four hundred fifty-six"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Expresa en números: Ninety-nine thousand nine hundred ninety-nine.",
+          "options": ["9.999", "999.999", "99.999"],
+          "answer": 2
+        }
+      ]
     },
     {
       "id": "pimsleur1",
