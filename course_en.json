@@ -1068,52 +1068,92 @@
       "questions": [
         {
           "question": "¿Cómo se dice el número 12 en inglés?",
-          "options": ["Twelveth", "Twenty", "Twelve"],
+          "options": [
+            "Twelveth",
+            "Twenty",
+            "Twelve"
+          ],
           "answer": 2
         },
         {
           "question": "Expresa en números: Fifty-five.",
-          "options": ["550", "55", "505"],
+          "options": [
+            "550",
+            "55",
+            "505"
+          ],
           "answer": 1
         },
         {
           "question": "¿Cuál es el número en inglés para 87?",
-          "options": ["Seventy-eight", "Eighty-seven", "Eight-seven"],
+          "options": [
+            "Seventy-eight",
+            "Eighty-seven",
+            "Eight-seven"
+          ],
           "answer": 1
         },
         {
           "question": "Expresa en números: Nine ninety-nine thousand nine ninety-nine.",
-          "options": ["99.999", "9.999", "999.999"],
+          "options": [
+            "99.999",
+            "9.999",
+            "999.999"
+          ],
           "answer": 2
         },
         {
           "question": "Escribe en inglés el número 300.",
-          "options": ["Three thousand", "Three hundred", "Thirty hundred"],
+          "options": [
+            "Three thousand",
+            "Three hundred",
+            "Thirty hundred"
+          ],
           "answer": 1
         },
         {
           "question": "¿Cuál es el número en inglés para 2.020?",
-          "options": ["Twenty twenty", "Two hundred twenty", "Two thousand twenty"],
+          "options": [
+            "Twenty twenty",
+            "Two hundred twenty",
+            "Two thousand twenty"
+          ],
           "answer": 2
         },
         {
           "question": "Expresa en números: Four thousand three hundred and ten.",
-          "options": ["4.013", "4.310", "4.130"],
+          "options": [
+            "4.013",
+            "4.310",
+            "4.130"
+          ],
           "answer": 1
         },
         {
           "question": "¿Cómo se dice el número 15.000 en inglés?",
-          "options": ["Fifty thousand", "Fifteen thousand", "One five thousand"],
+          "options": [
+            "Fifty thousand",
+            "Fifteen thousand",
+            "One five thousand"
+          ],
           "answer": 1
         },
         {
           "question": "Expresa en inglés el número 75.",
-          "options": ["Seventy-five", "Seventeen-five", "Seven five"],
+          "options": [
+            "Seventy-five",
+            "Seventeen-five",
+            "Seven five"
+          ],
           "answer": 0
         },
         {
           "question": "Expresa en números: One hundred and one.",
-          "options": ["101", "110", "1001"],
+          "options": [
+            "101",
+            "110",
+            "1001"
+          ],
           "answer": 0
         },
         {
@@ -1127,37 +1167,65 @@
         },
         {
           "question": "Expresa en números: One million.",
-          "options": ["10.000", "100.000", "1.000.000"],
+          "options": [
+            "10.000",
+            "100.000",
+            "1.000.000"
+          ],
           "answer": 2
         },
         {
           "question": "¿Cómo se dice el número 44 en inglés?",
-          "options": ["Fourteen-four", "Forty-four", "Four four"],
+          "options": [
+            "Fourteen-four",
+            "Forty-four",
+            "Four four"
+          ],
           "answer": 1
         },
         {
           "question": "Expresa en inglés el número 10.000.",
-          "options": ["Thousand ten", "Ten thousand", "One hundred thousand"],
+          "options": [
+            "Thousand ten",
+            "Ten thousand",
+            "One hundred thousand"
+          ],
           "answer": 1
         },
         {
           "question": "Expresa en números: Two hundred and fifty thousand.",
-          "options": ["250.000", "25.000", "2.500"],
+          "options": [
+            "250.000",
+            "25.000",
+            "2.500"
+          ],
           "answer": 0
         },
         {
           "question": "¿Cuál es el número en inglés para 0?",
-          "options": ["Null", "Nothing", "Zero"],
+          "options": [
+            "Null",
+            "Nothing",
+            "Zero"
+          ],
           "answer": 2
         },
         {
           "question": "Expresa en números: Seven hundred seventy-seven.",
-          "options": ["777", "7.707", "707"],
+          "options": [
+            "777",
+            "7.707",
+            "707"
+          ],
           "answer": 0
         },
         {
           "question": "¿Cómo se dice el número 1.001 en inglés?",
-          "options": ["One hundred and one", "One thousand and one", "One million one"],
+          "options": [
+            "One hundred and one",
+            "One thousand and one",
+            "One million one"
+          ],
           "answer": 1
         },
         {
@@ -1171,8 +1239,65 @@
         },
         {
           "question": "Expresa en números: Ninety-nine thousand nine hundred ninety-nine.",
-          "options": ["9.999", "999.999", "99.999"],
+          "options": [
+            "9.999",
+            "999.999",
+            "99.999"
+          ],
           "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "vocab_colors",
+      "name": "Colores",
+      "type": "flashcards",
+      "thumbnail": "https://i.ytimg.com/vi/8VWfK4SleTs/maxresdefault.jpg",
+      "items": [
+        {
+          "icon": "icons/vocabulary/banana.gif",
+          "spell": "Yellow",
+          "pron": "/ˈjɛl.oʊ/"
+        },
+        {
+          "icon": "icons/vocabulary/red-flag.gif",
+          "spell": "Red",
+          "pron": "/rɛd/"
+        },
+        {
+          "icon": "icons/vocabulary/tea-leaves-powder.gif",
+          "spell": "Green",
+          "pron": "/ɡriːn/"
+        },
+        {
+          "icon": "icons/vocabulary/waves.gif",
+          "spell": "Blue",
+          "pron": "/bluː/"
+        },
+        {
+          "icon": "icons/vocabulary/sea-lion.gif",
+          "spell": "Purple",
+          "pron": "/ˈpɜːr.pəl/"
+        },
+        {
+          "icon": "icons/vocabulary/logs.gif",
+          "spell": "Brown",
+          "pron": "/braʊn/"
+        },
+        {
+          "icon": "icons/vocabulary/black-square.gif",
+          "spell": "Black",
+          "pron": "/blæk/"
+        },
+        {
+          "icon": "icons/vocabulary/white-flag.gif",
+          "spell": "White",
+          "pron": "/waɪt/"
+        },
+        {
+          "icon": "icons/vocabulary/pink-ribbon.gif",
+          "spell": "Pink",
+          "pron": "/pɪŋk/"
         }
       ]
     },
