@@ -16,7 +16,7 @@
             <div class="cloze-grid" id="clozeContainer"></div>
             <div class="cloze-actions">
                 <button id="checkAnswersBtn" class="btn-complete">Verificar Respuestas</button>
-                <button id="resetBtn" class="btn-reset">Reiniciar</button>
+                <button id="toggleCompleteBtn" class="btn-complete" style="display:none;">Marcar como no completado</button>
             </div>
             <div id="feedback" class="feedback-message"></div>
         </section>
@@ -29,6 +29,19 @@
     <script src="js/style.js"></script>
     <script>
         let questions = [];
+        let moduleId = '';
+        let speakLang = 'fr-FR';
+
+        function getSpeakLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentLang = urlParams.get('lang') || 'fr';
+            const langMap = {
+                'fr': 'fr-FR',
+                'en': 'en-US',
+                'es': 'es-ES'
+            };
+            return langMap[currentLang] || 'fr-FR';
+        }
 
         async function loadCourse() {
             try {
@@ -46,7 +59,7 @@
             }
         }
 
-        function createClozeSentence(questionText) {
+        function createClozeSentence(questionText, correctAnswer) {
             const sentenceDiv = document.createElement('div');
             sentenceDiv.className = 'cloze-sentence';
             
@@ -62,20 +75,65 @@
                     input.className = 'cloze-input';
                     input.placeholder = '...';
                     sentenceDiv.appendChild(input);
+
+                    const pronunciationBtn = document.createElement('button');
+                    pronunciationBtn.className = 'pronunciation-btn';
+                    pronunciationBtn.innerHTML = '🔊';
+                    pronunciationBtn.style.display = 'none';
+                    pronunciationBtn.addEventListener('click', () => {
+                        const fullSentence = questionText.replace('[...]', correctAnswer);
+                        const utterance = new SpeechSynthesisUtterance(fullSentence);
+                        utterance.lang = speakLang;
+                        speechSynthesis.speak(utterance);
+                    });
+                    sentenceDiv.appendChild(pronunciationBtn);
                 }
             });
             return sentenceDiv;
         }
 
-        function renderQuestions() {
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function renderQuestions(moduleIsCompleted) {
             const container = document.getElementById('clozeContainer');
             container.innerHTML = '';
             questions.forEach(q => {
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'cloze-item';
-                itemDiv.appendChild(createClozeSentence(q.text));
+                const sentenceEl = createClozeSentence(q.text, q.answers[0]);
+                itemDiv.appendChild(sentenceEl);
                 container.appendChild(itemDiv);
+
+                if (moduleIsCompleted) {
+                    const input = sentenceEl.querySelector('.cloze-input');
+                    input.value = q.answers[0];
+                    input.disabled = true;
+                    input.classList.add('correct');
+                    const pronunciationBtn = sentenceEl.querySelector('.pronunciation-btn');
+                    if (pronunciationBtn) {
+                        pronunciationBtn.style.display = 'inline-block';
+                    }
+                }
             });
+        }
+        
+        function updateButtons(moduleIsCompleted) {
+            const checkAnswersBtn = document.getElementById('checkAnswersBtn');
+            const toggleCompleteBtn = document.getElementById('toggleCompleteBtn');
+            
+            if (moduleIsCompleted) {
+                checkAnswersBtn.style.display = 'none';
+                toggleCompleteBtn.style.display = 'inline-block';
+            } else {
+                checkAnswersBtn.style.display = 'inline-block';
+                toggleCompleteBtn.style.display = 'none';
+            }
         }
 
         function checkAnswers() {
@@ -84,74 +142,110 @@
             const inputs = document.querySelectorAll('.cloze-input');
 
             inputs.forEach((input, index) => {
-                const correctAnswer = questions[index].answers[0]; // Asume una sola respuesta correcta por ahora
+                const correctAnswer = questions[index].answers[0];
                 const userAnswer = input.value.trim();
+                const pronunciationBtn = input.nextElementSibling;
+                
                 input.classList.remove('correct', 'incorrect');
                 input.disabled = true;
 
                 if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
                     input.classList.add('correct');
                     correctCount++;
+                    if (pronunciationBtn && pronunciationBtn.classList.contains('pronunciation-btn')) {
+                        pronunciationBtn.style.display = 'inline-block';
+                    }
                 } else {
                     input.classList.add('incorrect');
+                    if (pronunciationBtn && pronunciationBtn.classList.contains('pronunciation-btn')) {
+                        pronunciationBtn.style.display = 'none';
+                    }
                 }
             });
 
             const totalQuestions = questions.length;
             const score = (correctCount / totalQuestions) * 100;
             
-            if (score >= 60) { // Límite de aprobación
-                feedbackDiv.textContent = `¡Felicidades! Has aprobado con un ${score.toFixed(0)}%. ✅`;
+            if (score === 100) {
+                feedbackDiv.textContent = `¡Felicidades! Has aprobado con un 100%. ✅`;
                 feedbackDiv.className = 'feedback-message success';
-                Progress.saveModuleState(moduleId, score.toFixed(0), true);
+                Progress.markCompleted(moduleId); 
+                updateButtons(true);
             } else {
                 feedbackDiv.textContent = `Necesitas completar el 100%. Obtuviste ${score.toFixed(0)}%. ❌`;
                 feedbackDiv.className = 'feedback-message error';
-                Progress.saveModuleState(moduleId, score.toFixed(0), false);
+                Progress.resetModule(moduleId); 
+                updateButtons(false);
             }
         }
 
         function resetModule() {
             const feedbackDiv = document.getElementById('feedback');
             const inputs = document.querySelectorAll('.cloze-input');
+            const pronunciationBtns = document.querySelectorAll('.pronunciation-btn');
+
             inputs.forEach(input => {
                 input.value = '';
                 input.disabled = false;
                 input.classList.remove('correct', 'incorrect');
             });
+            
+            pronunciationBtns.forEach(btn => {
+                btn.style.display = 'none';
+            });
+            
             feedbackDiv.textContent = '';
             feedbackDiv.className = 'feedback-message';
-            Progress.saveModuleState(moduleId, 0, false);
+            
+            Progress.resetModule(moduleId); 
+            updateButtons(false);
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const moduleId = urlParams.get('mod');
+            moduleId = urlParams.get('mod');
             const moduleTitleEl = document.getElementById('moduleTitle');
+            
             const checkAnswersBtn = document.getElementById('checkAnswersBtn');
-            const resetBtn = document.getElementById('resetBtn');
+            const toggleCompleteBtn = document.getElementById('toggleCompleteBtn');
 
             if (!moduleId) {
                 moduleTitleEl.textContent = 'Error: ID de módulo no especificado.';
                 return;
             }
 
+            speakLang = getSpeakLanguage();
+
             const course = await loadCourse();
             if (course) {
                 const module = course.modules.find(m => m.id === moduleId && m.type === 'cloze');
                 if (module) {
-                    // Actualiza el título de la página y el <h2> de la sección
                     document.title = module.name;
                     moduleTitleEl.textContent = module.name;
-                    questions = module.questions;
-                    renderQuestions();
+                    questions = shuffle(module.questions);
+
+                    const state = Progress.getModuleState(moduleId);
+                    const moduleIsCompleted = state?.completed;
+                    
+                    renderQuestions(moduleIsCompleted);
+                    updateButtons(moduleIsCompleted);
                 } else {
                     moduleTitleEl.textContent = 'Error: Módulo no encontrado.';
                 }
             }
 
             checkAnswersBtn.addEventListener('click', checkAnswers);
-            resetBtn.addEventListener('click', resetModule);
+            
+            toggleCompleteBtn.addEventListener('click', () => {
+                Progress.resetModule(moduleId);
+                // Resetear la UI
+                const state = Progress.getModuleState(moduleId);
+                renderQuestions(state?.completed);
+                feedback.textContent = '';
+                feedback.className = 'feedback-message';
+                updateButtons(state?.completed);
+                alert('Módulo desmarcado como completado.');
+            });
         });
     </script>
 </body>
