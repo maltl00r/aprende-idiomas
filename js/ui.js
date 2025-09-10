@@ -19,12 +19,12 @@ const UI = (() => {
     };
     const link = linkMap[type] || '#';
 
-    const displayThumb = thumbnail ? `<img src="${thumbnail}" alt="${name}" class="module-thumb">` : '';
+    const displayThumb = thumbnail ? `<img src=\"${thumbnail}\" alt=\"${name}\" class=\"module-thumb\">` : '';
 
     el.innerHTML = `
       ${displayThumb}
-      <h3 class="module-name">${name}</h3>
-      <div class="module-meta">
+      <h3 class=\"module-name\">${name}</h3>
+      <div class=\"module-meta\">
         <span>${
           type === 'flashcards' ? 'Flashcards' :
           type === 'audio' ? 'Audio' :
@@ -36,8 +36,8 @@ const UI = (() => {
         }</span>
         ${score != null ? `<span> Puntuación: ${score}%</span>` : ''}
       </div>
-      <div class="module-actions">
-        <a class="btn-complete" href="${link}">Abrir</a>
+      <div class=\"module-actions\">
+        <a class=\"btn-complete\" href=\"${link}\">Abrir</a>
       </div>
     `;
     return el;
@@ -63,10 +63,26 @@ const UI = (() => {
     });
   }
 
+  function updateModuleLinks() {
+    const lang = localStorage.getItem('courseLang') || 'fr';
+    const links = document.querySelectorAll('.module-card .btn-complete');
+    links.forEach(link => {
+      const url = new URL(link.href);
+      const params = new URLSearchParams(url.search);
+      const modId = params.get('mod') || params.get('id');
+      if (modId) {
+        // Asumiendo que el tipo está en el className
+        const moduleType = link.closest('.module-card').classList[1];
+        if (moduleType) {
+          link.href = `${moduleType}.html?id=${modId}&lang=${lang}`;
+        }
+      }
+    });
+  }
+
   return {
     moduleCard,
     updateGlobalProgress,
     renderModulesSeparated
   };
-
 })();
