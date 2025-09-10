@@ -3,179 +3,155 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title id="pageTitle">Completar Oración</title>
+    <title>Completar Oración</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="icons/favicon.png" />
 </head>
 <body>
-    <header class="site-header">
-        <h1 id="siteTitle"></h1>
-        <nav class="top-nav">
-            <a href="index.html">Inicio</a>
-            <div class="lang-selector-container">
-                <label for="lang-select">Idioma:</label>
-                <select id="lang-select">
-                    <option value="fr">Francés</option>
-                    <option value="en">Inglés</option>
-                </select>
-            </div>
-        </nav>
-    </header>
+    <div data-include="header"></div>
 
     <main class="wrap">
         <section class="cloze-module">
-            <h2 id="moduleName"></h2>
-            <p id="moduleDescription"></p>
-
+            <h2 id="moduleTitle"></h2>
             <div class="cloze-grid" id="clozeContainer"></div>
-
             <div class="cloze-actions">
                 <button id="checkAnswersBtn" class="btn-complete">Verificar Respuestas</button>
                 <button id="resetBtn" class="btn-reset">Reiniciar</button>
             </div>
-
             <div id="feedback" class="feedback-message"></div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <small>© 2024 Plataforma de Idiomas</small>
-    </footer>
+    <div data-include="footer"></div>
 
     <script src="js/progress.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/style.js"></script>
     <script>
+        let questions = [];
+
+        async function loadCourse() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const lang = urlParams.get('lang') || 'fr';
+                const response = await fetch(`course_${lang}.json`);
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar el archivo course_${lang}.json`);
+                }
+                const course = await response.json();
+                return course;
+            } catch (e) {
+                console.error('Error al cargar el curso:', e);
+                return null;
+            }
+        }
+
+        function createClozeSentence(questionText) {
+            const sentenceDiv = document.createElement('div');
+            sentenceDiv.className = 'cloze-sentence';
+            
+            const parts = questionText.split('[...]');
+            parts.forEach((part, index) => {
+                const span = document.createElement('span');
+                span.textContent = part;
+                sentenceDiv.appendChild(span);
+
+                if (index < parts.length - 1) {
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'cloze-input';
+                    input.placeholder = '...';
+                    sentenceDiv.appendChild(input);
+                }
+            });
+            return sentenceDiv;
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('clozeContainer');
+            container.innerHTML = '';
+            questions.forEach(q => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cloze-item';
+                itemDiv.appendChild(createClozeSentence(q.text));
+                container.appendChild(itemDiv);
+            });
+        }
+
+        function checkAnswers() {
+            const feedbackDiv = document.getElementById('feedback');
+            let correctCount = 0;
+            const inputs = document.querySelectorAll('.cloze-input');
+
+            inputs.forEach((input, index) => {
+                const correctAnswer = questions[index].answers[0]; // Asume una sola respuesta correcta por ahora
+                const userAnswer = input.value.trim();
+                input.classList.remove('correct', 'incorrect');
+                input.disabled = true;
+
+                if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                    input.classList.add('correct');
+                    correctCount++;
+                } else {
+                    input.classList.add('incorrect');
+                }
+            });
+
+            const totalQuestions = questions.length;
+            const score = (correctCount / totalQuestions) * 100;
+            
+            if (score >= 60) { // Límite de aprobación
+                feedbackDiv.textContent = `¡Felicidades! Has aprobado con un ${score.toFixed(0)}%. ✅`;
+                feedbackDiv.className = 'feedback-message success';
+                Progress.saveModuleState(moduleId, score.toFixed(0), true);
+            } else {
+                feedbackDiv.textContent = `Necesitas completar el 100%. Obtuviste ${score.toFixed(0)}%. ❌`;
+                feedbackDiv.className = 'feedback-message error';
+                Progress.saveModuleState(moduleId, score.toFixed(0), false);
+            }
+        }
+
+        function resetModule() {
+            const feedbackDiv = document.getElementById('feedback');
+            const inputs = document.querySelectorAll('.cloze-input');
+            inputs.forEach(input => {
+                input.value = '';
+                input.disabled = false;
+                input.classList.remove('correct', 'incorrect');
+            });
+            feedbackDiv.textContent = '';
+            feedbackDiv.className = 'feedback-message';
+            Progress.saveModuleState(moduleId, 0, false);
+        }
+
         document.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const moduleId = urlParams.get('id');
-            const lang = urlParams.get('lang') || localStorage.getItem('courseLang') || 'fr';
-
-            if (!moduleId) {
-                document.getElementById('moduleName').textContent = 'Módulo no encontrado.';
-                return;
-            }
-
-            // Cargar datos del curso
-            const courseResponse = await fetch(`course_${lang}.json`);
-            const courseData = await courseResponse.json();
-            const module = courseData.modules.find(m => m.id === moduleId);
-
-            if (!module || module.type !== 'cloze') {
-                document.getElementById('moduleName').textContent = 'Módulo de completar oración no encontrado o tipo incorrecto.';
-                return;
-            }
-
-            document.getElementById('pageTitle').textContent = module.name;
-            document.getElementById('siteTitle').textContent = courseData.title;
-            document.getElementById('moduleName').textContent = module.name;
-            document.getElementById('moduleDescription').textContent = module.description || 'Completa las oraciones con las palabras correctas.';
-
-            const clozeContainer = document.getElementById('clozeContainer');
+            const moduleId = urlParams.get('mod');
+            const moduleTitleEl = document.getElementById('moduleTitle');
             const checkAnswersBtn = document.getElementById('checkAnswersBtn');
             const resetBtn = document.getElementById('resetBtn');
-            const feedbackDiv = document.getElementById('feedback');
-            
-            // Usar 'questions' en lugar de 'content.sentences'
-            let questions = module.questions;
 
-            function renderQuestions() {
-                clozeContainer.innerHTML = '';
-                questions.forEach((question, qIndex) => {
-                    const sentenceDiv = document.createElement('div');
-                    sentenceDiv.className = 'cloze-sentence';
-                    let sentenceHtml = '';
-                    let inputIndex = 0;
-
-                    // El separador es `[...]` en el JSON
-                    const parts = question.text.split('[...]');
-                    parts.forEach((part, pIndex) => {
-                        sentenceHtml += `<span>${part.trim()}</span>`;
-                        if (pIndex < parts.length - 1) {
-                            const currentAnswer = question.answers[inputIndex];
-                            const isCorrect = question.userAnswer && question.userAnswer.toLowerCase().trim() === currentAnswer.toLowerCase().trim();
-                            const isIncorrect = question.userAnswer && question.userAnswer.toLowerCase().trim() !== currentAnswer.toLowerCase().trim() && question.userAnswer.toLowerCase().trim() !== '';
-                            
-                            sentenceHtml += `
-                                <input type="text" 
-                                       data-question-index="${qIndex}" 
-                                       value="${question.userAnswer || ''}"
-                                       class="cloze-input ${isCorrect ? 'correct' : ''} ${isIncorrect ? 'incorrect' : ''}"
-                                       ${question.locked ? 'disabled' : ''} />
-                            `;
-                            inputIndex++;
-                        }
-                    });
-                    sentenceDiv.innerHTML = sentenceHtml;
-                    clozeContainer.appendChild(sentenceDiv);
-                });
-
-                // Añadir event listeners para guardar las respuestas del usuario
-                document.querySelectorAll('.cloze-input').forEach(input => {
-                    input.addEventListener('input', (event) => {
-                        const qIndex = event.target.dataset.questionIndex;
-                        questions[qIndex].userAnswer = event.target.value;
-                    });
-                });
+            if (!moduleId) {
+                moduleTitleEl.textContent = 'Error: ID de módulo no especificado.';
+                return;
             }
 
-            function checkAnswers() {
-                let allCorrect = true;
-                let correctCount = 0;
-                let totalQuestions = questions.length;
-
-                questions.forEach(question => {
-                    question.locked = true; // Bloquear inputs después de verificar
-                    if (!question.userAnswer) {
-                        question.userAnswer = '';
-                    }
-                    const userAnswer = question.userAnswer.toLowerCase().trim();
-                    const correctAnswer = question.answers[0].toLowerCase().trim();
-                    
-                    if (userAnswer === correctAnswer) {
-                        correctCount++;
-                    } else {
-                        allCorrect = false;
-                    }
-                });
-
-                renderQuestions(); // Volver a renderizar para aplicar estilos de correcto/incorrecto
-
-                if (allCorrect) {
-                    feedbackDiv.textContent = '¡Felicidades! Todas las respuestas son correctas.';
-                    feedbackDiv.className = 'feedback-message success';
-                    Progress.markModuleComplete(moduleId, 100);
+            const course = await loadCourse();
+            if (course) {
+                const module = course.modules.find(m => m.id === moduleId && m.type === 'cloze');
+                if (module) {
+                    // Actualiza el título de la página y el <h2> de la sección
+                    document.title = module.name;
+                    moduleTitleEl.textContent = module.name;
+                    questions = module.questions;
+                    renderQuestions();
                 } else {
-                    const score = (correctCount / totalQuestions) * 100;
-                    feedbackDiv.textContent = `Tienes ${correctCount} de ${totalQuestions} respuestas correctas. Tu puntuación es: ${score.toFixed(0)}%.`;
-                    feedbackDiv.className = 'feedback-message error';
-                    Progress.saveModuleState(moduleId, score.toFixed(0), false);
+                    moduleTitleEl.textContent = 'Error: Módulo no encontrado.';
                 }
-            }
-
-            function resetModule() {
-                questions.forEach(question => {
-                    question.userAnswer = '';
-                    question.locked = false; // Desbloquear inputs al reiniciar
-                });
-                renderQuestions();
-                feedbackDiv.textContent = '';
-                feedbackDiv.className = 'feedback-message';
-                Progress.saveModuleState(moduleId, 0, false); // Reiniciar progreso
             }
 
             checkAnswersBtn.addEventListener('click', checkAnswers);
             resetBtn.addEventListener('click', resetModule);
-
-            renderQuestions(); // Renderizar al cargar
-
-            // Manejar selector de idioma
-            const langSelect = document.getElementById('lang-select');
-            langSelect.value = lang;
-            langSelect.addEventListener('change', (event) => {
-                localStorage.setItem('courseLang', event.target.value);
-                // Recargar la página con el nuevo idioma para este módulo
-                window.location.href = `cloze.html?id=${moduleId}&lang=${event.target.value}`;
-            });
         });
     </script>
 </body>

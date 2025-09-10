@@ -15,7 +15,7 @@ const UI = (() => {
       reading:     `reading.html?id=${id}&lang=${currentLang}`,
       video:       `video.html?id=${id}&lang=${currentLang}`,
       dragdrop:    `dragdrop.html?id=${id}&lang=${currentLang}`,
-      cloze:       `cloze.html?id=${id}&lang=${currentLang}`
+      cloze:       `cloze.html?mod=${id}&lang=${currentLang}`
     };
     const link = linkMap[type] || '#';
 
