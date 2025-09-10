@@ -2,6 +2,27 @@
   "title": "Francés A1 - A2",
   "modules": [
     {
+  "id": "cloze-demo-1",
+  "name": "Completar la oración (Números)",
+  "type": "cloze",
+  "thumbnail": "https://i.imgur.com/8NnQM4h.png",
+  "questions": [
+    {
+      "text": "J'ai [...] chaises.",
+      "answers": ["deux"]
+    },
+    {
+      "text": "Le chat a [...] vies.",
+      "answers": ["neuf"]
+    },
+    {
+      "text": "Il y a [...] mois dans l'année.",
+      "answers": ["douze"]
+    }
+  ],
+  "pass": 60
+},
+    {
       "id": "vocab_verbs",
       "name": "Verbos más comunes",
       "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",

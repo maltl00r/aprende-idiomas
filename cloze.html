@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Completar Oración - Idiomas A1-A2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Completar Oración</h1>
+    <nav class="top-nav">
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2 id="clozeTitle">Completar la oración</h2>
+      <div id="clozeContainer" class="quiz-container"></div>
+      <div class="actions">
+        <button id="submitBtn" class="btn-complete">Verificar respuestas</button>
+        <button id="resetBtn" class="btn-reset">Reiniciar</button>
+      </div>
+      <p id="clozeResult" class="quiz-result"></p>
+      <div id="feedbackContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Escribe la palabra correcta en el espacio en blanco.</small>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script>
+    async function loadCourse() {
+      try {
+        const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+        const response = await fetch(`course_${currentLang}.json`);
+        if (!response.ok) {
+            throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
+        }
+        const course = await response.json();
+        return course;
+      } catch (error) {
+        console.error("Error al cargar el curso:", error);
+        return null;
+      }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('id');
+    const title = document.getElementById('clozeTitle');
+    const container = document.getElementById('clozeContainer');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const result = document.getElementById('clozeResult');
+    let module, questions;
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      if (!questions || questions.length === 0) {
+        container.innerHTML = '<p>No hay oraciones para este módulo.</p>';
+        submitBtn.style.display = 'none';
+        resetBtn.style.display = 'none';
+        return;
+      }
+
+      questions.forEach((q, index) => {
+        const questionBlock = document.createElement('div');
+        questionBlock.className = 'question-block';
+        questionBlock.dataset.id = index;
+
+        const parts = q.text.split('[...]');
+        const sentenceHTML = document.createElement('p');
+        sentenceHTML.className = 'cloze-sentence';
+        
+        sentenceHTML.append(parts[0].trim(), ' ');
+        
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'quiz-input';
+        input.placeholder = '...';
+        input.dataset.correctAnswer = q.answers[0];
+
+        sentenceHTML.appendChild(input);
+        
+        if (parts[1]) {
+          sentenceHTML.append(' ', parts[1].trim());
+        }
+
+        questionBlock.appendChild(sentenceHTML);
+        container.appendChild(questionBlock);
+      });
+    }
+
+    function checkAnswers() {
+      let correctCount = 0;
+      const inputs = container.querySelectorAll('.quiz-input');
+      inputs.forEach(input => {
+        const parentBlock = input.closest('.question-block');
+        parentBlock.classList.remove('correct', 'incorrect');
+        
+        const userAnswer = input.value.trim().toLowerCase();
+        const questionIndex = parentBlock.dataset.id;
+        const correctAnswers = questions[questionIndex].answers.map(ans => ans.toLowerCase());
+
+        if (correctAnswers.includes(userAnswer)) {
+          parentBlock.classList.add('correct');
+          correctCount++;
+        } else {
+          parentBlock.classList.add('incorrect');
+        }
+        input.disabled = true;
+      });
+
+      const score = Math.round((correctCount / (questions.length || 1)) * 100);
+      const passed = score >= (module.pass ?? 60);
+
+      result.textContent = `Puntuación: ${score}% (${correctCount}/${questions.length})`;
+
+      Progress.setScore(module.id, score);
+      if (passed) {
+          Progress.markCompleted(module.id);
+          result.textContent += ' — ¡Aprobado! ✅';
+      } else {
+          result.textContent += ' — No aprobado. Inténtalo de nuevo.';
+      }
+      submitBtn.style.display = 'none';
+      resetBtn.style.display = 'inline-block';
+    }
+
+    submitBtn.addEventListener('click', checkAnswers);
+
+    resetBtn.addEventListener('click', () => {
+      if(!module) return;
+      Progress.resetModule(module.id);
+      location.reload();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!modId) {
+        title.textContent = 'Error: ID de módulo no especificado.';
+        submitBtn.style.display = 'none';
+        resetBtn.style.display = 'none';
+        return;
+      }
+      loadCourse().then(course => {
+        if (course) {
+          module = course.modules.find(m => m.id === modId && m.type === 'cloze');
+          if (module) {
+            title.textContent = module.name;
+            questions = module.questions;
+            renderQuestions();
+          } else {
+            title.textContent = 'Error: Módulo no encontrado o tipo incorrecto.';
+            submitBtn.style.display = 'none';
+            resetBtn.style.display = 'none';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

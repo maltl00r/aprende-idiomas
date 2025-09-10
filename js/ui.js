@@ -14,28 +14,30 @@ const UI = (() => {
       quiz:        `quiz.html?id=${id}&lang=${currentLang}`,
       reading:     `reading.html?id=${id}&lang=${currentLang}`,
       video:       `video.html?id=${id}&lang=${currentLang}`,
-      dragdrop:    `dragdrop.html?id=${id}&lang=${currentLang}`
+      dragdrop:    `dragdrop.html?id=${id}&lang=${currentLang}`,
+      cloze:       `cloze.html?id=${id}&lang=${currentLang}`
     };
     const link = linkMap[type] || '#';
 
-    const displayThumb = thumbnail ? `<img src=\"${thumbnail}\" alt=\"${name}\" class=\"module-thumb\">` : '';
+    const displayThumb = thumbnail ? `<img src="${thumbnail}" alt="${name}" class="module-thumb">` : '';
 
     el.innerHTML = `
       ${displayThumb}
-      <h3 class=\"module-name\">${name}</h3>
-      <div class=\"module-meta\">
+      <h3 class="module-name">${name}</h3>
+      <div class="module-meta">
         <span>${
           type === 'flashcards' ? 'Flashcards' :
           type === 'audio' ? 'Audio' :
           type === 'quiz' ? 'Examen' :
           type === 'reading' ? 'Lectura' :
           type === 'video' ? 'Video' :
-          type === 'dragdrop' ? 'Drag & Drop' : ''
+          type === 'dragdrop' ? 'Arrastrar y soltar' : 
+          type === 'cloze' ? 'Completar oración' : ''
         }</span>
         ${score != null ? `<span> Puntuación: ${score}%</span>` : ''}
       </div>
-      <div class=\"module-actions\">
-        <a class=\"btn-complete\" href=\"${link}\">Abrir</a>
+      <div class="module-actions">
+        <a class="btn-complete" href="${link}">Abrir</a>
       </div>
     `;
     return el;
@@ -53,7 +55,7 @@ const UI = (() => {
     completedGrid.innerHTML = '';
     modules.forEach(mod => {
       const card = moduleCard(mod);
-      if(mod.completed){
+      if (mod.completed) {
         completedGrid.appendChild(card);
       } else {
         modulesGrid.appendChild(card);
