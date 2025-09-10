@@ -1119,3 +1119,56 @@ body {
     margin: 0;
     transition: opacity 0.3s ease-in-out;
 }
+/* Estilos para tablas en módulos Markdown */
+.wrap table {
+  width: 100%;
+  margin: 1.5em 0;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  border-radius: 10px; /* Bordes más redondeados */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen al contenido */
+  background-color: #ffffff; /* Fondo blanco para toda la tabla */
+}
+
+.wrap th, 
+.wrap td {
+  padding: 14px 18px; /* Más padding para mejor espaciado */
+  text-align: left;
+  border: 1px solid #e0e0e0; /* Bordes claros para celdas */
+  color: #333333; /* Color de texto oscuro para legibilidad */
+}
+
+.wrap th {
+  background-color: #007bff; /* Azul vibrante para el encabezado */
+  color: #ffffff; /* Texto blanco en el encabezado para contraste */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.07em; /* Espaciado de letras para encabezados */
+  border-color: #0060cc; /* Borde más oscuro para el encabezado */
+}
+
+.wrap tr:nth-child(even) {
+  background-color: #f2f7fc; /* Fondo ligeramente azulado para filas pares */
+}
+
+.wrap tr:hover {
+  background-color: #e6f0fa; /* Fondo azul más intenso al pasar el ratón */
+  transition: background-color 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Eliminar bordes externos duplicados si los contenedores ya los tienen */
+.wrap table th:first-child {
+    border-top-left-radius: 9px; /* Redondear esquina superior izquierda del encabezado */
+}
+
+.wrap table th:last-child {
+    border-top-right-radius: 9px; /* Redondear esquina superior derecha del encabezado */
+}
+
+.wrap table tr:last-child td:first-child {
+    border-bottom-left-radius: 9px; /* Redondear esquina inferior izquierda de la última fila */
+}
+
+.wrap table tr:last-child td:last-child {
+    border-bottom-right-radius: 9px; /* Redondear esquina inferior derecha de la última fila */
+}

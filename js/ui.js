@@ -15,7 +15,8 @@ const UI = (() => {
       reading:     `reading.html?id=${id}&lang=${currentLang}`,
       video:       `video.html?id=${id}&lang=${currentLang}`,
       dragdrop:    `dragdrop.html?id=${id}&lang=${currentLang}`,
-      cloze:       `cloze.html?mod=${id}&lang=${currentLang}`
+      cloze:       `cloze.html?mod=${id}&lang=${currentLang}`,
+      markdown:    `markdown.html?id=${id}&lang=${currentLang}`
     };
     const link = linkMap[type] || '#';
 
@@ -32,7 +33,8 @@ const UI = (() => {
           type === 'reading' ? 'Lectura' :
           type === 'video' ? 'Video' :
           type === 'dragdrop' ? 'Arrastrar y soltar' : 
-          type === 'cloze' ? 'Completar oración' : ''
+          type === 'cloze' ? 'Completar oración' :
+          type === 'markdown' ? 'Texto' : ''
         }</span>
         ${score != null ? `<span> Puntuación: ${score}%</span>` : ''}
       </div>

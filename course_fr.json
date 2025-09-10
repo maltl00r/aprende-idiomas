@@ -2,27 +2,6 @@
   "title": "Francés A1 - A2",
   "modules": [
     {
-  "id": "cloze-demo-1",
-  "name": "Completar la oración (Números)",
-  "type": "cloze",
-  "thumbnail": "https://i.imgur.com/8NnQM4h.png",
-  "questions": [
-    {
-      "text": "J'ai [...] chaises.",
-      "answers": ["deux"]
-    },
-    {
-      "text": "Le chat a [...] vies.",
-      "answers": ["neuf"]
-    },
-    {
-      "text": "Il y a [...] mois dans l'année.",
-      "answers": ["douze"]
-    }
-  ],
-  "pass": 100
-},
-    {
       "id": "vocab_verbs",
       "name": "Verbos más comunes",
       "thumbnail": "https://contenthub-static.grammarly.com/blog/wp-content/uploads/2021/05/verbs-guide.png",
@@ -311,7 +290,7 @@
       "id": "pronunciar4",
       "name": "Liaison",
       "type": "video",
-      "thumbnail": "https://i.ytimg.com/vi/_woUXr4_ivU/maxresdefault.jpg",
+      "thumbnail": "https://i.imgur.com/FAObK3U.png",
       "url": "https://www.youtube.com/embed/_woUXr4_ivU"
     },
     {
@@ -335,6 +314,14 @@
       "thumbnail": "https://i.ytimg.com/vi/q50bjGGEtQM/maxresdefault.jpg",
       "url": "https://www.youtube.com/embed/q50bjGGEtQM"
     },
+    {
+  "id": "french_pronunciation",
+  "name": "Pronunciación del Francés",
+  "type": "markdown",
+  "thumbnail": "https://i.imgur.com/49zzdTa.png",
+  "text": "# Lección: Vocales y Combinaciones en Francés\n\nBienvenido a esta guía completa de pronunciación del francés. Aquí aprenderás las vocales simples, vocales nasales y combinaciones típicas con su transcripción en **IPA** y ejemplos prácticos.\n\n## 1. Vocales Simples\n\n| Letra | IPA | Ejemplo | Pronunciación práctica |\n|---|---|---|---|\n| a | /a/ | chat | similar a la 'a' en español 'casa' |\n| e | /ə/, /e/, /ɛ/ | le /lə/, été /ete/, mère /mɛʁ/ | /ə/ es neutra, /e/ cerrada, /ɛ/ abierta |\n| i | /i/ | si | como la 'i' en español 'sí' |\n| o | /o/, /ɔ/ | eau /o/, port /pɔʁ/ | /o/ cerrada, /ɔ/ abierta |\n| u | /y/ | lune | labializada, redondea los labios mientras dices 'i' |\n| ou | /u/ | fou | como 'u' español pero más redondeada |\n| œ | /œ/ | cœur | mezcla de 'e' y 'o', labios redondeados |\n| ø | /ø/ | peur | similar a 'eu' en francés, más redondeado |\n\n## 2. Vocales Nasales\n\n| Combinación | IPA | Ejemplo | Nota de pronunciación |\n|---|---|---|---|\n| an / am / en / em | /ɑ̃/ | sans, temps | pronunciación abierta y nasal, no usar la 'n' final |\n| in / im / ain / aim / yn / ym | /ɛ̃/ | vin, faim | nasal cerrada, lengua alta y al frente |\n| on / om | /ɔ̃/ | nom, bon | como 'o' nasal, boca ligeramente abierta |\n| un / um | /œ̃/ | un, parfum | vocal central y nasal, redondea los labios |\n\n## 3. Combinaciones con Semivocales\n\n| Combinación | IPA | Ejemplo | Pronunciación práctica |\n|---|---|---|---|\n| oi | /wa/ | moi | 'mua', desliza la 'o' hacia 'i' |\n| oua | /wa/ o /wɛ/ | ouais | combina 'u' y 'a' como en 'woa' |\n| ui | /ɥi/ | nuit | similar a 'i' con labios redondeados |\n| ai / ei | /ɛ/ o /e/ | mais, neige | ai abierta /ɛ/, ei cerrada /e/ |\n| eu + i/u | /øj/ o /œj/ | feuille, œil | desliza desde /ø/ a /j/ |\n\n## 4. Consejos de práctica\n\n* Lee en voz alta cada ejemplo fijándote en el símbolo IPA.\n* Practica distinguir las **vocales nasales**: /ɑ̃/, /ɛ̃/, /ɔ̃/, /œ̃/.\n* Graba tu pronunciación de palabras como *moi, vin, bon, un* y compárala con audios de nativos.\n* Para las combinaciones, intenta exagerar la transición de sonidos hasta que suene natural.\n\n## 5. Ejercicios sugeridos\n\n1. Escribe 5 palabras para cada vocal nasal y léelas en voz alta.\n2. Identifica las letras mudas en tus ejemplos de lectura.\n3. Intenta formar pequeñas frases usando las combinaciones 'oi', 'ui', 'ai'.\n4. Escucha un audio de francés y subraya todas las vocales nasales que reconozcas.\n"
+}
+,
     {
       "id": "vocab_alphabet",
       "name": "Abecedario",
@@ -912,6 +899,124 @@
       "thumbnail": "https://i.ytimg.com/vi/AMKO-2fCn2E/maxresdefault.jpg",
       "url": "https://www.youtube.com/embed/AMKO-2fCn2E"
     },
+    {
+  "id": "etre-1",
+  "name": "Completar la oración con Le Verbe Être",
+  "type": "cloze",
+  "thumbnail": "https://i.imgur.com/SDaYlJn.png",
+  "questions": [
+    {
+      "text": "[...] suis étudiant.",
+      "answers": ["Je"]
+    },
+    {
+      "text": "Tu [...] mon ami.",
+      "answers": ["es"]
+    },
+    {
+      "text": "[...] est professeur.",
+      "answers": ["Il"]
+    },
+    {
+      "text": "Nous [...] en vacances.",
+      "answers": ["sommes"]
+    },
+    {
+      "text": "[...] sont très contents.",
+      "answers": ["Ils"]
+    }
+  ],
+  "pass": 100
+},
+{
+  "id": "cloze-etre-2",
+  "name": "Completar la oración con le verbe être (nivel básico)",
+  "type": "cloze",
+  "thumbnail": "https://i.imgur.com/SDaYlJn.png",
+  "questions": [
+    {
+      "text": "[...] êtes en retard.",
+      "answers": ["Vous"]
+    },
+    {
+      "text": "Elle [...] très gentille.",
+      "answers": ["est"]
+    },
+    {
+      "text": "[...] suis fatigué aujourd'hui.",
+      "answers": ["Je"]
+    },
+    {
+      "text": "Nous [...] prêts pour le voyage.",
+      "answers": ["sommes"]
+    },
+    {
+      "text": "Ils [...] à la maison.",
+      "answers": ["sont"]
+    }
+  ],
+  "pass": 100
+},
+{
+  "id": "cloze-etre-3",
+  "name": "Completar la oración con le verbe être (nivel intermedio)",
+  "type": "cloze",
+  "thumbnail": "https://i.imgur.com/SDaYlJn.png",
+  "questions": [
+    {
+      "text": "Tu [...] en retard ce matin ?",
+      "answers": ["es"]
+    },
+    {
+      "text": "[...] ne suis pas sûr de la réponse.",
+      "answers": ["Je"]
+    },
+    {
+      "text": "Elle [...] très occupée aujourd'hui.",
+      "answers": ["est"]
+    },
+    {
+      "text": "[...] sommes prêts à commencer le projet.",
+      "answers": ["Nous"]
+    },
+    {
+      "text": "Ils ne [...] pas là ce soir.",
+      "answers": ["sont"]
+    }
+  ],
+  "pass": 100
+},
+{
+  "id": "cloze-etre-4",
+  "name": "Completar la oración con le verbe être (contexto cotidiano, afirmativo)",
+  "type": "cloze",
+  "thumbnail": "https://i.imgur.com/SDaYlJn.png",
+  "questions": [
+    {
+      "text": "[...]très content parce que j'ai réussi mon examen.",
+      "answers": ["je suis"]
+    },
+    {
+      "text": "[...]en train de préparer une surprise pour Marie.",
+      "answers": ["nous sommes"]
+    },
+    {
+      "text": "[...]prêt pour la réunion de demain.",
+      "answers": ["tu es"]
+    },
+    {
+      "text": "[...]toujours sur le canapé le matin.",
+      "answers": ["il est"]
+    },
+    {
+      "text": "[...]très contents de te voir aujourd'hui.",
+      "answers": ["ils sont"]
+    }
+  ],
+  "pass": 100
+}
+,
+
     {
       "id": "avoir",
       "name": "Le verbe avoir",

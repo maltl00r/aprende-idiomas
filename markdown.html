@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lecciones de Texto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="icons/favicon.png" />
+    <script src="js/style.js"></script>
+    <style>
+        /* Estilos para que las tablas se vean bien */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #f9f9f9;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e9e9e9;
+        }
+    </style>
+</head>
+<body>
+    <div data-include="header"></div>
+
+    <main class="wrap">
+        <section>
+            <h2 id="moduleTitle"></h2>
+            <div id="markdownContent"></div>
+            <div class="actions" style="margin-top:16px;">
+                <button id="toggleModuleBtn" class="btn-complete">Marcar módulo como completado</button>
+            </div>
+        </section>
+    </main>
+
+    <div data-include="footer"></div>
+
+    <script src="js/progress.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function loadCourse() {
+            try {
+                const currentLang = new URLSearchParams(window.location.search).get('lang') || 'fr';
+                const response = await fetch(`course_${currentLang}.json`);
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar el archivo course_${currentLang}.json`);
+                }
+                const course = await response.json();
+                return course;
+            } catch (error) {
+                console.error("Error al cargar el curso:", error);
+                return null;
+            }
+        }
+
+        function renderButton(module) {
+            const toggleBtn = document.getElementById('toggleModuleBtn');
+            const state = Progress.getModuleState(module.id);
+            if (state?.completed) {
+                toggleBtn.textContent = 'Módulo completado ✔️';
+            } else {
+                toggleBtn.textContent = 'Marcar módulo como completado';
+            }
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const modId = params.get('id');
+        const title = document.getElementById('moduleTitle');
+        const contentDiv = document.getElementById('markdownContent');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!modId) {
+                title.textContent = 'Error: ID de módulo no especificado.';
+                return;
+            }
+
+            loadCourse().then(course => {
+                if (course) {
+                    const module = course.modules.find(m => m.id === modId && m.type === 'markdown');
+                    if (module) {
+                        document.title = `${module.name} - ${course.title}`;
+                        title.textContent = module.name;
+                        contentDiv.innerHTML = marked.parse(module.text);
+                        renderButton(module);
+
+                        const toggleBtn = document.getElementById('toggleModuleBtn');
+                        if (toggleBtn) {
+                            toggleBtn.addEventListener('click', () => {
+                                const state = Progress.getModuleState(module.id);
+                                if (state?.completed) {
+                                    Progress.resetModule(module.id);
+                                    alert('¡Módulo desmarcado!');
+                                } else {
+                                    Progress.markCompleted(module.id);
+                                    alert('¡Módulo completado!');
+                                }
+                                renderButton(module);
+                            });
+                        }
+                    } else {
+                        title.textContent = 'Módulo no encontrado';
+                        document.getElementById('toggleModuleBtn').style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
