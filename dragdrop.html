@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Drag & Drop</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/ui.js"></script>
   <script src="js/style.js"></script> 
   <link rel="icon" href=" icons/favicon.png" />
 </head>
@@ -20,6 +21,7 @@
       <div class="actions">
         <button id="resetBtn" class="btn-complete" style="display:none;">Marcar como no completado</button>
       </div>
+      <div id="module-navigation" class="module-navigation"></div>
     </section>
   </main>
 
@@ -192,6 +194,7 @@
       } else {
         resetBtn.style.display = 'none';
       }
+      UI.renderNavigationButtons('module-navigation', course, module);
     }
 
     function checkModuleCompletion() {

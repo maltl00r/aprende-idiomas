@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title id="pageTitle">Flashcards</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/ui.js"></script>
   <script src="js/style.js"></script> 
+  
   <link rel="icon" href=" icons/favicon.png" />
 </head>
 <body>
@@ -18,6 +20,7 @@
       <div class="actions">
         <button id="toggleModuleBtn" class="btn-complete">Marcar módulo como completado</button>
       </div>
+      <div id="module-navigation" class="module-navigation"></div>
     </section>
   </main>
 
@@ -124,6 +127,7 @@
         }
         renderModule(module, course);
       });
+      UI.renderNavigationButtons('module-navigation', course, module);
     }
 
     document.addEventListener('DOMContentLoaded', () => {

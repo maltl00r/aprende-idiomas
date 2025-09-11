@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Lecciones de Texto</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/ui.js"></script>
     <link rel="icon" href="icons/favicon.png" />
     <script src="js/style.js"></script>
     <style>
@@ -47,6 +48,7 @@
             <div class="actions" style="margin-top:16px;">
                 <button id="toggleModuleBtn" class="btn-complete">Marcar módulo como completado</button>
             </div>
+            <div id="module-navigation" class="module-navigation"></div>
         </section>
     </main>
 
@@ -78,6 +80,7 @@
             } else {
                 toggleBtn.textContent = 'Marcar módulo como completado';
             }
+            UI.renderNavigationButtons('module-navigation', course, module);
         }
 
         const params = new URLSearchParams(window.location.search);

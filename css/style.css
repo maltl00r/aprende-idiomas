@@ -1172,3 +1172,123 @@ body {
 .wrap table tr:last-child td:last-child {
     border-bottom-right-radius: 9px; /* Redondear esquina inferior derecha de la última fila */
 }
+/* ==================================== */
+/* Navegación de Módulos - Estilo Moderno */
+/* ==================================== */
+
+.module-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    flex: 0 0 calc(50% - 12px); /* ✅ siempre mitad del ancho */
+    min-width: 260px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--card), var(--background));
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease;
+}
+
+.nav-link.previous {
+    margin-right: auto; /* queda pegado a la izquierda */
+}
+
+.nav-link.next {
+    margin-left: auto;  /* queda pegado a la derecha */
+}
+
+@media (max-width: 767px) {
+    .nav-link {
+        flex: 0 0 calc(50% - 12px); /* mitad del ancho como en desktop */
+        max-width: 50%;
+        margin: 0; /* sin centrado, para que queden lado a lado */
+    }
+    .module-navigation {
+        flex-wrap: nowrap; /* evita que se apilen */
+    }
+}
+
+
+.nav-link:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+.nav-link-icon {
+    font-size: 26px;
+    color: var(--primary);
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover .nav-link-icon {
+    color: #fff;
+}
+
+.nav-link-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.nav-meta h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+.nav-meta span {
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover h4,
+.nav-link:hover span {
+    color: #fff;
+}
+
+/* --- Adaptación en pantallas grandes --- */
+@media (min-width: 768px) {
+    .nav-link {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        padding: 24px;
+    }
+
+    .nav-link-image {
+        width: 220px;
+        height: 127px;
+        margin: 0;
+    }
+
+    .nav-meta {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .nav-link.next {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+}
