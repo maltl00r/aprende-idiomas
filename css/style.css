@@ -1233,13 +1233,14 @@ body {
 }
 
 @media (max-width: 767px) {
-    .nav-link {
-        flex: 0 0 calc(50% - 12px); /* mitad del ancho como en desktop */
-        max-width: 50%;
-        margin: 0; /* sin centrado, para que queden lado a lado */
-    }
     .module-navigation {
-        flex-wrap: nowrap; /* evita que se apilen */
+        flex-wrap: wrap; /* permite que se apilen */
+        gap: 12px; /* opcional, menor separación */
+    }
+    .nav-link {
+        flex: 0 0 100%; /* ocupa todo el ancho */
+        max-width: 100%;
+        margin: 0;
     }
 }
 
