@@ -23,10 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         function toggleSidebar(isVisible) {
                             if (isVisible) {
                                 sidebar.classList.add('active');
-                                sidebarOverlay.classList.add('active');
                             } else {
                                 sidebar.classList.remove('active');
-                                sidebarOverlay.classList.remove('active');
                             }
                         }
 
