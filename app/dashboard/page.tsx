@@ -5,13 +5,41 @@ import Link from 'next/link';
 export default async function Dashboard() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const { data: todos } = await supabase.from('todos').select();
 
-  const skills = [
-    { name: 'Escucha', progress: 65, icon: '🎧' },
-    { name: 'Habla', progress: 45, icon: '🗣️' },
-    { name: 'Lectura', progress: 80, icon: '📖' },
-    { name: 'Escritura', progress: 55, icon: '✍️' },
+  if (!user) {
+    return <div>No user</div>; // Or redirect
+  }
+
+  // Get user passions
+  const { data: passions } = await supabase
+    .from('user_passions')
+    .select('passion')
+    .eq('user_id', user.id);
+
+  const userPassions = passions?.map(p => p.passion) || [];
+
+  // Get recommended modules based on passions
+  const { data: recommendedModules } = await supabase
+    .from('modules')
+    .select('*')
+    .in('passion', userPassions)
+    .limit(5);
+
+  // Get skills mastery
+  const { data: skillsData } = await supabase
+    .from('skills_mastery')
+    .select('skill_name, mastery_percentage')
+    .eq('user_id', user.id);
+
+  const skills = skillsData?.map(s => ({
+    name: s.skill_name,
+    progress: s.mastery_percentage,
+    icon: s.skill_name === 'Escucha' ? '🎧' : s.skill_name === 'Habla' ? '🗣️' : s.skill_name === 'Lectura' ? '📖' : '✍️'
+  })) || [
+    { name: 'Escucha', progress: 0, icon: '🎧' },
+    { name: 'Habla', progress: 0, icon: '🗣️' },
+    { name: 'Lectura', progress: 0, icon: '📖' },
+    { name: 'Escritura', progress: 0, icon: '✍️' },
   ];
 
   const quickActions = [
