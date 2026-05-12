@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { createClient } from '@/utils/supabase/client';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -19,10 +20,7 @@ function UserMenu({ user, onSignOut }: { user: any; onSignOut: () => void }) {
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
-  const initials = user?.email
-    ? user.email.slice(0, 2).toUpperCase()
-    : 'U';
-
+  const initials = user?.email ? user.email.slice(0, 2).toUpperCase() : 'U';
   const avatarUrl = user?.user_metadata?.avatar_url ?? null;
 
   return (
@@ -33,7 +31,7 @@ function UserMenu({ user, onSignOut }: { user: any; onSignOut: () => void }) {
         aria-label="Menú de usuario"
         aria-expanded={open}
       >
-        <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white text-sm font-bold ring-2 ring-white ring-offset-1 ring-offset-primary/10 overflow-hidden group-hover:ring-primary/40 transition-all">
+        <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white text-sm font-bold ring-2 ring-white/10 ring-offset-1 ring-offset-background overflow-hidden group-hover:ring-primary/40 transition-all">
           {avatarUrl ? (
             <img src={avatarUrl} alt="Avatar" className="w-full h-full object-cover" />
           ) : (
@@ -51,8 +49,7 @@ function UserMenu({ user, onSignOut }: { user: any; onSignOut: () => void }) {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-3 w-60 bg-card border border-border rounded-2xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-          {/* User info */}
+        <div className="absolute right-0 mt-3 w-60 bg-card border border-border rounded-2xl shadow-2xl py-2 z-50 animate-fade-in">
           <div className="px-4 py-3 border-b border-border">
             <p className="text-xs text-muted-foreground">Conectado como</p>
             <p className="text-sm font-semibold text-foreground truncate">{user?.email}</p>
@@ -96,12 +93,48 @@ function UserMenu({ user, onSignOut }: { user: any; onSignOut: () => void }) {
           <div className="border-t border-border pt-1">
             <button
               onClick={() => { setOpen(false); onSignOut(); }}
-              className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 transition-colors"
+              className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-400 hover:bg-red-500/10 transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
               Cerrar sesión
             </button>
           </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Mobile menu ─── */
+function MobileMenu({ user, onSignOut }: { user: any; onSignOut: () => void }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="md:hidden">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+        aria-label="Abrir menú"
+        aria-expanded={open}
+      >
+        {open ? (
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        )}
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-0 right-0 bg-card/95 backdrop-blur-md border-b border-border px-6 py-4 flex flex-col gap-4 animate-fade-in">
+          <Link href="#features" onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-1">Funciones</Link>
+          <Link href="#how" onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-1">¿Cómo funciona?</Link>
+          <Link href="#community" onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-1">Comunidad</Link>
+          {!user && (
+            <div className="flex flex-col gap-2 pt-2 border-t border-border">
+              <Link href="/login" onClick={() => setOpen(false)} className="text-sm font-semibold text-foreground hover:text-primary transition-colors py-1">Iniciar sesión</Link>
+              <Link href="/register" onClick={() => setOpen(false)} className="text-sm bg-primary text-primary-foreground px-5 py-2.5 rounded-xl font-semibold text-center">Registrarse gratis</Link>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -128,25 +161,33 @@ export default function Header() {
   };
 
   return (
-    <nav className="sticky top-0 z-40 bg-card/80 backdrop-blur-md border-b border-border px-6 py-3.5 flex justify-between items-center">
+    <nav className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border px-6 py-3.5 flex justify-between items-center relative">
+      {/* Logo */}
       <Link href="/" className="flex items-center gap-2.5">
-        <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>
-          </svg>
+        <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0">
+          <Image
+            src="/favicon.ico"
+            alt="ApréndeIdiomas logo"
+            width={32}
+            height={32}
+            className="w-full h-full object-contain"
+            unoptimized
+          />
         </div>
-        <span className="text-lg font-bold text-foreground tracking-tight">
+        <span className="text-base font-bold text-foreground tracking-tight">
           Aprende<span className="text-primary">Idiomas</span>
         </span>
       </Link>
 
+      {/* Desktop nav */}
       <div className="hidden md:flex items-center gap-7">
         <Link href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Funciones</Link>
         <Link href="#how" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">¿Cómo funciona?</Link>
-        <Link href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Precios</Link>
+        <Link href="#community" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Comunidad</Link>
       </div>
 
-      <div className="flex items-center gap-3">
+      {/* Auth actions */}
+      <div className="hidden md:flex items-center gap-3">
         {user ? (
           <UserMenu user={user} onSignOut={handleSignOut} />
         ) : (
@@ -163,6 +204,9 @@ export default function Header() {
           </>
         )}
       </div>
+
+      {/* Mobile */}
+      <MobileMenu user={user} onSignOut={handleSignOut} />
     </nav>
   );
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,9 +13,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aprende Idiomas — Domina el inglés a tu manera",
+  title: "ApréndeIdiomas — Aprende idiomas gratis a tu manera",
   description:
-    "Plataforma de aprendizaje de inglés adaptada a tus gustos, tu ritmo y tus capacidades. Listening, writing, speaking y reading en un solo lugar.",
+    "Plataforma 100% gratuita para aprender idiomas adaptada a tus gustos, ritmo y capacidades. Sin anuncios, sin pagos ocultos. Escucha, habla, lectura y escritura en un solo lugar.",
+  keywords: [
+    "aprender idiomas gratis",
+    "aprender inglés gratis",
+    "plataforma de idiomas",
+    "aprendizaje adaptativo",
+    "inglés sin pagar",
+    "aprende idiomas",
+  ],
+  openGraph: {
+    title: "ApréndeIdiomas — Aprende idiomas gratis a tu manera",
+    description:
+      "100% gratuito. Sin anuncios. Sin pagos ocultos. Aprende idiomas adaptados a tus intereses y ritmo.",
+    type: "website",
+    locale: "es_ES",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0f",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
