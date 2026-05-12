@@ -142,23 +142,23 @@ export default async function Dashboard() {
               </div>
             </section>
 
-            {/* Tasks / Todos */}
+            {/* Recommended Modules */}
             <section className="bg-card/50 border border-border rounded-2xl p-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-bold">Tus Tareas</h2>
-                <button className="text-sm text-primary hover:text-primary/80 transition-colors">
+                <h2 className="text-lg font-bold">Módulos Recomendados</h2>
+                <Link href="/lessons" className="text-sm text-primary hover:text-primary/80 transition-colors">
                   Ver todas
-                </button>
+                </Link>
               </div>
               <div className="space-y-3">
-                {todos && todos.length > 0 ? (
-                  todos.map((todo) => (
+                {recommendedModules && recommendedModules.length > 0 ? (
+                  recommendedModules.map((module) => (
                     <div 
-                      key={todo.id} 
+                      key={module.id} 
                       className="group flex items-center p-4 bg-background/50 rounded-xl border border-border hover:border-primary/30 transition-all duration-300"
                     >
                       <div className="w-4 h-4 rounded-full bg-primary/20 border-2 border-primary mr-4 group-hover:bg-primary transition-colors duration-300" />
-                      <span className="font-medium flex-1">{todo.name}</span>
+                      <span className="font-medium flex-1">{module.title || 'Módulo sin título'}</span>
                       <svg className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -171,8 +171,8 @@ export default async function Dashboard() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <p className="text-muted-foreground">No tienes tareas pendientes</p>
-                    <p className="text-sm text-muted-foreground/70 mt-1">Comienza una nueva lección para generar tareas</p>
+                    <p className="text-muted-foreground">No hay módulos recomendados</p>
+                    <p className="text-sm text-muted-foreground/70 mt-1">Actualiza tus pasiones para obtener recomendaciones</p>
                   </div>
                 )}
               </div>
