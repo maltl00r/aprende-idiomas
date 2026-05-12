@@ -6,12 +6,28 @@ const PUBLIC_ROUTES = ['/', '/login', '/register'];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const isPublicRoute = PUBLIC_ROUTES.includes(pathname);
+
+  // Check if Supabase credentials are configured
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+  // If Supabase is not configured, allow public routes and block protected routes
+  if (!supabaseUrl || !supabaseKey) {
+    if (isPublicRoute) {
+      return NextResponse.next();
+    }
+    // Redirect to login for protected routes when Supabase is not configured
+    const loginUrl = new URL('/login', request.url);
+    loginUrl.searchParams.set('next', pathname);
+    return NextResponse.redirect(loginUrl);
+  }
 
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    supabaseUrl,
+    supabaseKey,
     {
       cookies: {
         getAll: () => request.cookies.getAll(),
@@ -29,8 +45,6 @@ export async function middleware(request: NextRequest) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
-  const isPublicRoute = PUBLIC_ROUTES.includes(pathname);
 
   // 1. Authenticated user trying to visit login/register → redirect to dashboard
   if (user && (pathname === '/login' || pathname === '/register')) {
