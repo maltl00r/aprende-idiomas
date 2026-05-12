@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aprende Idiomas",
-  description: "Una aplicación para aprender idiomas",
+  title: "Aprende Idiomas — Domina el inglés a tu manera",
+  description:
+    "Plataforma de aprendizaje de inglés adaptada a tus gustos, tu ritmo y tus capacidades. Listening, writing, speaking y reading en un solo lugar.",
 };
 
 export default function RootLayout({
@@ -25,9 +26,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-background`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }
