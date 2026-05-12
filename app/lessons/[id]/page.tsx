@@ -20,7 +20,7 @@ async function completeModule(moduleId: string, userId: string, moduleType: stri
       completed: true,
       score: 100, // Assume full score for now
       time_spent: 10, // minutes
-      completed_at: new Date().toISOString(),
+      created_at: new Date().toISOString(),
     });
 
   if (progressError) {
@@ -41,19 +41,19 @@ async function completeModule(moduleId: string, userId: string, moduleType: stri
   // Get current mastery
   const { data: currentMastery } = await supabase
     .from('skills_mastery')
-    .select('mastery_percentage')
+    .select('level_progress')
     .eq('user_id', userId)
-    .eq('skill_name', skill)
+    .eq('skill', skill)
     .single();
 
-  const newMastery = Math.min(100, (currentMastery?.mastery_percentage || 0) + 5); // Increase by 5%
+  const newMastery = Math.min(100, (currentMastery?.level_progress || 0) + 5); // Increase by 5%
 
   const { error: skillError } = await supabase
     .from('skills_mastery')
     .upsert({
       user_id: userId,
-      skill_name: skill,
-      mastery_percentage: newMastery,
+      skill: skill,
+      level_progress: newMastery,
     });
 
   if (skillError) {
@@ -66,12 +66,30 @@ async function completeModule(moduleId: string, userId: string, moduleType: stri
 async function recordInteraction(moduleId: string, userId: string, interactionType: 'view' | 'like' | 'save') {
   const supabase = await createClient();
 
+  // Get or create interaction record
+  const { data: existingInteraction } = await supabase
+    .from('user_interactions')
+    .select('*')
+    .eq('user_id', userId)
+    .eq('module_id', moduleId)
+    .single();
+
+  const updateData = existingInteraction || {};
+  
+  if (interactionType === 'like') {
+    updateData.liked = !updateData.liked;
+  } else if (interactionType === 'save') {
+    updateData.saved = !updateData.saved;
+  } else if (interactionType === 'view') {
+    updateData.viewed = true;
+  }
+
   const { error } = await supabase
     .from('user_interactions')
-    .insert({
+    .upsert({
       user_id: userId,
       module_id: moduleId,
-      interaction_type: interactionType,
+      ...updateData,
       created_at: new Date().toISOString(),
     });
 
@@ -115,18 +133,23 @@ export default async function LessonPage({ params }: PageProps) {
   const isCompleted = progress?.completed || false;
 
   // Get interactions
-  const { data: interactions } = await supabase
+  const { data: interaction } = await supabase
     .from('user_interactions')
-    .select('interaction_type')
+    .select('liked, saved')
     .eq('user_id', user.id)
-    .eq('module_id', moduleId);
+    .eq('module_id', moduleId)
+    .single();
 
-  const userInteractions = interactions?.map(i => i.interaction_type) || [];
-  const isLiked = userInteractions.includes('like');
-  const isSaved = userInteractions.includes('save');
+  const isLiked = interaction?.liked || false;
+  const isSaved = interaction?.saved || false;
 
   // Parse content (assuming it's JSON with text, questions, etc.)
-  const content = typeof module.content === 'string' ? JSON.parse(module.content) : module.content;
+  let content;
+  try {
+    content = JSON.parse(module.content);
+  } catch {
+    content = { text: module.content };
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground">

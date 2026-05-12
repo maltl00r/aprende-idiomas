@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { createClient } from '@/utils/supabase/server';
 import Header from '@/components/Header';
 import Link from 'next/link';
@@ -16,8 +18,12 @@ export default async function PreferencesPage() {
   const { data: userProfile } = await supabase
     .from('user_profiles')
     .select('proficiency_level')
-    .eq('user_id', user.id)
+    .eq('id', user.id)
     .single();
+
+  const initialLevel = userProfile?.proficiency_level || 'B1';
+
+  console.log('user.id:', user.id, 'initialLevel:', initialLevel);
 
   // Get user passions
   const { data: passions } = await supabase
@@ -30,7 +36,7 @@ export default async function PreferencesPage() {
   // Get skills mastery
   const { data: skillsData } = await supabase
     .from('skills_mastery')
-    .select('skill_name, mastery_percentage')
+    .select('skill, level_progress')
     .eq('user_id', user.id);
 
   const skills = skillsData || [];
@@ -56,7 +62,7 @@ export default async function PreferencesPage() {
           userId={user.id}
           initialPassions={userPassions}
           initialSkills={skills}
-          initialLevel={userProfile?.proficiency_level || 'B1'}
+          initialLevel={'B1'}
         />
       </main>
     </div>

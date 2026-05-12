@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { updateUserPassions, updateSkillsMastery, updateUserLevel } from './actions';
 
 const AVAILABLE_PASSIONS = [
@@ -26,12 +27,13 @@ const AVAILABLE_PASSIONS = [
 ];
 
 const SKILL_NAMES = ['Escucha', 'Habla', 'Lectura', 'Escritura'];
+const SKILL_DB_NAMES = ['escucha', 'habla', 'lectura', 'escritura'];
 const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'];
 
 interface ClientProps {
   userId: string;
   initialPassions: string[];
-  initialSkills: { skill_name: string; mastery_percentage: number }[];
+  initialSkills: { skill: string; level_progress: number }[];
   initialLevel: string;
 }
 
@@ -41,15 +43,17 @@ export default function PreferencesClient({
   initialSkills,
   initialLevel,
 }: ClientProps) {
+  const router = useRouter();
   const [passions, setPassions] = useState<string[]>(
     initialPassions.map(p => p.charAt(0).toUpperCase() + p.slice(1))
   );
   const [skills, setSkills] = useState<{ [key: string]: number }>(
     SKILL_NAMES.reduce((acc, skill) => {
-      const skillData = initialSkills.find(s => s.skill_name === skill);
+      const dbSkill = SKILL_DB_NAMES[SKILL_NAMES.indexOf(skill)];
+      const skillData = initialSkills.find(s => s.skill === dbSkill || s.skill === skill || s.skill === skill.toLowerCase() || s.skill === skill.charAt(0).toUpperCase() + skill.slice(1).toLowerCase() || s.skill === dbSkill.toLowerCase());
       return {
         ...acc,
-        [skill]: skillData?.mastery_percentage || 0,
+        [skill]: skillData?.level_progress || 0,
       };
     }, {})
   );
@@ -86,13 +90,15 @@ export default function PreferencesClient({
     setMessage(null);
 
     try {
+      console.log('Starting save...');
+      
       const results = await Promise.all([
         updateUserPassions(userId, passions.map(p => p.toLowerCase())),
         updateSkillsMastery(
           userId,
           SKILL_NAMES.map(skill => ({
-            skill_name: skill,
-            mastery_percentage: skills[skill],
+            skill: SKILL_DB_NAMES[SKILL_NAMES.indexOf(skill)],
+            level_progress: skills[skill],
           }))
         ),
         updateUserLevel(userId, level),
@@ -101,9 +107,10 @@ export default function PreferencesClient({
       const hasError = results.some(r => !r.success);
 
       if (hasError) {
+        const errorMessages = results.filter(r => !r.success).map(r => r.message).join('; ');
         setMessage({
           type: 'error',
-          text: 'Hubo un error al guardar algunos cambios. Por favor, intenta de nuevo.',
+          text: 'Hubo un error al guardar algunos cambios: ' + errorMessages,
         });
       } else {
         setMessage({
@@ -111,11 +118,13 @@ export default function PreferencesClient({
           text: '¡Preferencias actualizadas correctamente!',
         });
         setHasChanges(false);
+        router.refresh();
       }
     } catch (error) {
+      console.error('Overall save error:', error);
       setMessage({
         type: 'error',
-        text: 'Error inesperado. Por favor, intenta de nuevo.',
+        text: 'Hubo un error al guardar algunos cambios. Por favor, intenta de nuevo.',
       });
     } finally {
       setSaving(false);

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { createClient } from '@/utils/supabase/server';
 import Header from '@/components/Header';
 import Link from 'next/link';
@@ -25,16 +27,45 @@ export default async function Dashboard() {
     .in('passion', userPassions)
     .limit(5);
 
+  // Get user profile for level
+  const { data: userProfile } = await supabase
+    .from('user_profiles')
+    .select('proficiency_level')
+    .eq('id', user.id)
+    .single();
+
+  const currentLevel = (userProfile?.proficiency_level || 'B1') as keyof typeof levelProgress;
+
+  console.log('dashboard user.id:', user.id, 'currentLevel:', currentLevel, 'userProfile:', userProfile);
+  const levels = ['A1', 'A2', 'B1', 'B2', 'C1'];
+  const levelDescriptions: Record<keyof typeof levelProgress, string> = {
+    A1: 'Principiante',
+    A2: 'Principiante avanzado',
+    B1: 'Intermedio',
+    B2: 'Intermedio avanzado',
+    C1: 'Avanzado',
+  };
+  const levelProgress = {
+    A1: 20,
+    A2: 40,
+    B1: 60,
+    B2: 80,
+    C1: 100,
+  };
+  const currentIndex = levels.indexOf(currentLevel);
+  const nextLevel = levels[currentIndex + 1] || currentLevel;
+  const progressToNext = levelProgress[currentLevel];
+
   // Get skills mastery
   const { data: skillsData } = await supabase
     .from('skills_mastery')
-    .select('skill_name, mastery_percentage')
+    .select('skill, level_progress')
     .eq('user_id', user.id);
 
   const skills = skillsData?.map(s => ({
-    name: s.skill_name,
-    progress: s.mastery_percentage,
-    icon: s.skill_name === 'Escucha' ? '🎧' : s.skill_name === 'Habla' ? '🗣️' : s.skill_name === 'Lectura' ? '📖' : '✍️'
+    name: s.skill === 'escucha' ? 'Escucha' : s.skill === 'habla' ? 'Habla' : s.skill === 'lectura' ? 'Lectura' : s.skill === 'escritura' ? 'Escritura' : s.skill,
+    progress: s.level_progress,
+    icon: s.skill === 'escucha' ? '🎧' : s.skill === 'habla' ? '🗣️' : s.skill === 'lectura' ? '📖' : '✍️'
   })) || [
     { name: 'Escucha', progress: 0, icon: '🎧' },
     { name: 'Habla', progress: 0, icon: '🗣️' },
@@ -191,12 +222,12 @@ export default async function Dashboard() {
                   </svg>
                   <h3 className="text-sm font-medium opacity-90">Nivel Actual</h3>
                 </div>
-                <p className="text-3xl font-bold">B1</p>
-                <p className="text-white/80 text-sm mt-1">Intermedio</p>
+                <p className="text-3xl font-bold">{currentLevel}</p>
+                <p className="text-white/80 text-sm mt-1">{levelDescriptions[currentLevel] || 'Principiante'}</p>
                 <div className="mt-4 pt-4 border-t border-white/20">
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="opacity-80">Progreso al B2</span>
-                    <span className="font-bold">68%</span>
+                    <span className="opacity-80">Progreso al {nextLevel}</span>
+                    <span className="font-bold">{progressToNext}%</span>
                   </div>
                   <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                     <div className="h-full bg-white rounded-full" style={{ width: '68%' }} />
